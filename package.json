@@ -9,12 +9,15 @@
     "start": "node server/index.js"
   },
   "dependencies": {
+    "@testing-library/react": "^14.0.0",
     "axios": "^0.21.1",
+    "babel-jest": "^29.5.0",
     "date-fns": "^2.22.1",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "jest-environment-jsdom": "^29.5.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.14.6",
