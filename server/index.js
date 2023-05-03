@@ -4,5 +4,6 @@ const express = require('express')
 const App = express()
 const routesNaru = require('./routes/routesnaru.js')
 const routesMatthew = require('./routes/routesmatthew.js')
+const routesSean = require('./routes/routessean.js')
 
 app.listen(process.env.PORT) || 3000
