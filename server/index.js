@@ -1,9 +1,12 @@
 require("dotenv").config();
 
 const express = require('express')
-const App = express()
-const routesNaru = require('./routes/routesnaru.js')
-const routesMatthew = require('./routes/routesmatthew.js')
-const routesSean = require('./routes/routessean.js')
+const path = require('path')
+const app = express()
+//import your routes
+
+app.use(express.json())
+app.use(express.static('client/dist'))
 
 app.listen(process.env.PORT) || 3000
+console.log('Listening on port '+process.env.PORT)
