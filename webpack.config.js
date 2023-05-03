@@ -38,20 +38,20 @@ module.exports = {
   //     target: "http://localhost:3000",
   //   },
   // },
-  plugins: [
-    // new ReactRefreshPlugin(), // See note below...
-    new HtmlWebpackPlugin({
-      title: "ThisChord",
-      favicon: "./client/src/assets/favicon.png",
-    }),
-    // This will allow you to refer to process.env variables
-    // within client-side files at build-time:
-    new webpack.DefinePlugin({
-      "process.env": {
-        AUTH_SECRET: JSON.stringify(process.env.AUTH_SECRET),
-      },
-    }),
-  ],
+  // plugins: [
+  //   // new ReactRefreshPlugin(), // See note below...
+  //   new HtmlWebpackPlugin({
+  //     title: "ThisChord",
+  //     favicon: "./client/src/assets/favicon.png",
+  //   }),
+  //   // This will allow you to refer to process.env variables
+  //   // within client-side files at build-time:
+  //   new webpack.DefinePlugin({
+  //     "process.env": {
+  //       AUTH_SECRET: JSON.stringify(process.env.AUTH_SECRET),
+  //     },
+  //   }),
+  // ],
 };
 
 /**
