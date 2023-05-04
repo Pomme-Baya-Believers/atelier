@@ -1,13 +1,18 @@
 import React from 'react'
 import { createRoot } from 'react-dom/client'
-import RelatedProductsCard from './components/Related/RelatedProductCard.jsx'
+import RelatedProductCard from './components/Related/RelatedProductCard.jsx';
+import RelatedCarousel from './components/Related/Carousel.jsx'
 
+import "./assets/styles.css";
+const {useState} = React;
 
 const App = () => {
 
+  const [productID, setProductID] =  useState('40344')
+
   return (
     <div>
-      RelatedProductCard
+      <RelatedCarousel  productID={productID} setProductID={setProductID}/>
     </div>
   )
 }
