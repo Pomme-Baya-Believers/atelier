@@ -1,13 +1,16 @@
 import React from 'react'
 import { createRoot } from 'react-dom/client'
 import Overview from './components/overview/overview.jsx'
+import ReviewList from './components/reviews/reviewlist.jsx'
+
 
 const App = () => {
 
   return (
     <div>
       test
-      <Overview />
+      {/* <Overview /> */}
+      {/* <ReviewList /> */}
     </div>
   )
 }
