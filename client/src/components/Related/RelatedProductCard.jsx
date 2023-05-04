@@ -1,22 +1,30 @@
 import React from 'react';
 import axios from 'axios';
 
+const {useState} = React;
 const RelatedProductsCard = ({productID}) => {
 
 const related = true ;
 
+
+const [name, setName] = useState('PRODUCT NAME')
+const [price, setPrice] = useState('$3.50')
+const [category, setCategory] = useState('Category')
+
 const cardClick = (e) => {
   console.log('CARD CLICKED')
   axios.get('/sean/products')
-  .then((data) => console.log(data))
+  .then((res) => {
+    setName(res.data.name)
+    setPrice(res.data.default_price )
+    setCategory(res.data.category)
+  })
 }
 
 const actionClick = (e) =>{
   console.log("ACTION CLICKED")
 }
 
-const expandedText = "Expanded Product Name "
-const price = "$DDD.cc"
 const actionText = related ? '★' : 'X'
 
 
@@ -28,8 +36,8 @@ const actionText = related ? '★' : 'X'
         </img>
       </div>
       <div className="relatedBottomTile">
-        <div className="relatedCategory">product category</div>
-        <strong className="relatedProductName" onClick={cardClick}>{expandedText}</strong>
+        <div className="relatedCategory">{category}</div>
+        <strong className="relatedProductName" onClick={cardClick}>{name}</strong>
         <div className="relatedPrice"> {price} </div>
         <div className="relatedStars"> ★★★★★  </div>
       </div>
