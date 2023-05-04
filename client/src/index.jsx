@@ -1,5 +1,6 @@
 import React from 'react'
 import { createRoot } from 'react-dom/client'
+import ReviewList from './components/reviews/reviewlist.jsx'
 
 
 const App = () => {
@@ -7,6 +8,7 @@ const App = () => {
   return (
     <div>
       test
+      <ReviewList />
     </div>
   )
 }
