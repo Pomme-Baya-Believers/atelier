@@ -1,12 +1,13 @@
 import React from 'react'
 import { createRoot } from 'react-dom/client'
+import RelatedProductsCard from './components/Related/RelatedProductCard.jsx'
 
 
 const App = () => {
 
   return (
     <div>
-      test
+      RelatedProductCard
     </div>
   )
 }
