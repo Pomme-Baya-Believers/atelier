@@ -1,3 +1,5 @@
 node_modules/
-client/dist/
+client/dist/bundle.js
+client/dist/bundle.js.map
 .env
+package-lock.json
