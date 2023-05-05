@@ -6,31 +6,26 @@ import axios from 'axios';
 const {useEffect, useState} = React;
 
 const RelatedCarousel = ({ productID, setProductID }) => {
-  const [related, setRelated] = useState([]);
+  const [related, setRelated] = useState([Number(productID)]);
 
   useEffect(() => {
     apiHelper.getRelated(productID)
       .then((res) => {
         console.log(res.data);
-        setRelated(res.data.related);
+        setRelated(res.data);
       })
       .catch((err) => console.error(err));
-    }, []);
+  }, []);
 
-    console.log(related)
+  const uniqueRelated = [...new Set(related)];
+  const relatedComponents = uniqueRelated.map((id) => {
+    return <RelatedProductCard key={id} productID={id} setProductID={setProductID} />
+  })
+
 
   return (
     <div className="carousel">
-    <RelatedProductCard productID={productID} setProductID={setProductID} />
-    <RelatedProductCard productID={productID} setProductID={setProductID} />
-    <RelatedProductCard productID={productID} setProductID={setProductID} />
-    <RelatedProductCard productID={productID} setProductID={setProductID} />
-    <RelatedProductCard productID={productID} setProductID={setProductID} />
-    <RelatedProductCard productID={productID} setProductID={setProductID} />
-    <RelatedProductCard productID={productID} setProductID={setProductID} />
-    <RelatedProductCard productID={productID} setProductID={setProductID} />
-    <RelatedProductCard productID={productID} setProductID={setProductID} />
-
+      {relatedComponents}
     </div>
     )
 };
