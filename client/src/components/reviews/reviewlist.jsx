@@ -15,9 +15,11 @@ const ReviewList = ({ productID }) => {
   return (
     <div>
       <Sort setSort={setSort}/>
+      <div id='reviewAllTiles'>
       {reviews.results
       && reviews.results.map((review) => <ReviewTile key={review.review_id} review={review} />)}
-      <button type="button" onClick={() => { setCount(count + 2); }}>More reviews</button>
+      <button className='reviewButton' type="button" onClick={() => { setCount(count + 2); }}>More reviews</button>
+      </div>
     </div>
   );
 };
