@@ -9,6 +9,7 @@ function BasicProductInfo({ style, product }) {
       <div>Star Rating</div>
       <div>Category: {product.category}</div>
       <div>Product Title: {product.name}</div>
+      <div>Price info</div>
     </div>
   );
 }

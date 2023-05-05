@@ -15,7 +15,7 @@ function Overview({ productID }) {
 
   const getStyles = (id) => {
     axios.get('/matthew/styles', { params: { endpoint: `${id}` } })
-      .then(({ data }) => setStyles(data))
+      .then(({ data }) => setStyles(data.results))
       .catch((err) => console.error(err));
   };
 
