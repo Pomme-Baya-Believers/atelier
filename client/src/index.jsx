@@ -13,11 +13,10 @@ const App = () => {
 
   return (
     <div>
-      <RelatedCarousel  productID={productID} setProductID={setProductID}/>
-      test
-      <ReviewList />
+      {/* <RelatedCarousel  productID={productID} setProductID={setProductID}/>
+      test */}
+      <ReviewList productID={productID}/>
       {/* <Overview /> */}
-      {/* <ReviewList /> */}
     </div>
   )
 }
@@ -25,5 +24,3 @@ const App = () => {
 const container = document.getElementById('root')
 const root = createRoot(container);
 root.render(<App />);
-
-

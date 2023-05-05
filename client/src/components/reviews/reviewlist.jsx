@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react';
 import ReviewTile from './reviewtile.jsx';
 import apiHelper from './apihelpers.jsx';
 
-function ReviewList() {
+const ReviewList = ({ productID }) => {
   const [reviews, setReviews] = useState({});
   const [count, setCount] = useState(2);
 
-  useEffect(() => apiHelper.getReviews(count, 'relevant', 40344, setReviews), []);
-  useEffect(() => apiHelper.getReviews(count, 'relevant', 40344, setReviews), [count]);
+  useEffect(() => apiHelper.getReviews(count, 'newest', productID, setReviews), []);
+  useEffect(() => apiHelper.getReviews(count, 'newest', productID, setReviews), [count]);
 
   return (
     <div>
@@ -16,6 +16,6 @@ function ReviewList() {
       <button type="button" onClick={() => { setCount(count + 2); }}>More reviews</button>
     </div>
   );
-}
+};
 
 export default ReviewList;
