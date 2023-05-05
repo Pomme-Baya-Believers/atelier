@@ -9,14 +9,13 @@ import './assets/styles.css';
 const { useState } = React;
 
 const App = () => {
-  const [productID, setProductID] = useState('40344');
+  const [productID, setProductID] = useState('40349');
 
   return (
     <div>
+      <Overview />
       <ReviewList />
       <RelatedCarousel productID={productID} setProductID={setProductID}/>
-      {/* test */}
-      <Overview />
     </div>
   );
 };

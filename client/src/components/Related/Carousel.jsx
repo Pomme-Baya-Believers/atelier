@@ -1,13 +1,23 @@
 import React from 'react';
 import RelatedProductCard from './RelatedProductCard.jsx';
+import apiHelper from './apihelpers.jsx';
 import axios from 'axios';
 
-const {useEffect} = React;
+const {useEffect, useState} = React;
 
-const RelatedCarousel = ({productID, setProductID}) => {
+const RelatedCarousel = ({ productID, setProductID }) => {
+  const [related, setRelated] = useState([]);
 
-  console.log(productID)
+  useEffect(() => {
+    apiHelper.getRelated(productID)
+      .then((res) => {
+        console.log(res.data);
+        setRelated(res.data.related);
+      })
+      .catch((err) => console.error(err));
+    }, []);
 
+    console.log(related)
 
   return (
     <div className="carousel">
@@ -23,6 +33,6 @@ const RelatedCarousel = ({productID, setProductID}) => {
 
     </div>
     )
-}
+};
 
 export default RelatedCarousel;

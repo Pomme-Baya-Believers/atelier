@@ -1,5 +1,7 @@
 import React from 'react';
 import axios from 'axios';
+import apiHelper from './apihelpers.jsx';
+
 
 const { useState, useEffect } = React;
 
@@ -10,21 +12,26 @@ const RelatedProductsCard = ({ productID, setProductID }) => {
   const [category, setCategory] = useState('');
   const [id, setID] = useState('');
 
-  useEffect(()=> {
-    axios.get('/sean/products')
-      .then((res) => {
-        setName(res.data.name)
-        setPrice(res.data.default_price )
-        // setCategory(res.data.category)
-      });
-  });
 
-  const cardClick = (e) => {
-    console.log(productID);
+  useEffect(() => {
+    apiHelper.getProduct(productID)
+      .then((res) => {
+        setName(res.data.name);
+        setPrice(res.data.default_price);
+        setCategory(res.data.category);
+      })
+      .catch((err) => console.error(err));
+  }, []);
+
+
+
+
+  const cardClick = () => {
     setProductID(productID);
+    console.log("NEW ID:", productID)
   };
 
-  const actionClick = (e) =>{
+  const actionClick = (e) => {
     console.log("ACTION CLICKED")
   };
 
