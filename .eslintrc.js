@@ -16,7 +16,7 @@ module.exports = {
   },
   plugins: ['react'],
   rules: {
-    'no-console': 'warn',
+    'no-console': 'off',
     'no-unused-vars': 'error',
     'react/prop-types': 'off',
     'import/extensions': [
