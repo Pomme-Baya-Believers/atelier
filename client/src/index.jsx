@@ -7,7 +7,7 @@ const {useState} = React;
 
 const App = () => {
 
-  const [productID, setProductID] =  useState('40344')
+  const [productID, setProductID] =  useState('40344');
 
   return (
     <div>
