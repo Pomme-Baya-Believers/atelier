@@ -1,13 +1,16 @@
 
+/* RELATED CAROUSEL RELATED CAROUSEL*/
 .carousel  {
   display: flex;
   flex-direction: row;
   align-content: space-between;
 }
 
+/* RELATED CARD INDIVIDUAL CARD */
+
 .relatedCard  {
   /* border: 3px solid darkgrey; */
-  /* border-radius: 6px; */
+  border-radius: 6px;
   width: 175px;
   height: auto;
   box-shadow: 0px 0px 7px black;
@@ -23,7 +26,9 @@
 .relatedProductImage img {
   height: 100%;
   width: 100%;
-  position: relative;
+  border-top-right-radius: 6px 6px;
+  border-top-left-radius: 6px 6px;
+  position: relative
 }
 
 .relatedActionButton {
