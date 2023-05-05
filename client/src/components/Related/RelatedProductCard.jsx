@@ -1,31 +1,38 @@
 import React from 'react';
 import axios from 'axios';
 
-const {useState} = React;
-const RelatedProductsCard = ({productID}) => {
+const {useState, useEffect} = React;
+const RelatedProductsCard = ({productID, setProductID}) => {
 
 const related = true ;
 
 
-const [name, setName] = useState('PRODUCT NAME')
-const [price, setPrice] = useState('$3.50')
-const [category, setCategory] = useState('Category')
+const [name, setName] = useState('')
+const [price, setPrice] = useState('')
+const [category, setCategory] = useState('')
+const [id, setID] = useState('')
 
-const cardClick = (e) => {
-  console.log('CARD CLICKED')
+
+useEffect(()=> {
   axios.get('/sean/products')
   .then((res) => {
     setName(res.data.name)
     setPrice(res.data.default_price )
-    setCategory(res.data.category)
   })
+})
+
+
+const cardClick = (e) => {
+  console.log(productID)
+  setProductID(productID)
 }
+
 
 const actionClick = (e) =>{
   console.log("ACTION CLICKED")
 }
 
-const actionText = related ? '★' : 'X'
+const actionText = related ? '★' : 'X';
 
 
   return (

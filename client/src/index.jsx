@@ -1,6 +1,5 @@
 import React from 'react'
 import { createRoot } from 'react-dom/client'
-import RelatedProductCard from './components/Related/RelatedProductCard.jsx';
 import RelatedCarousel from './components/Related/Carousel.jsx'
 
 import "./assets/styles.css";
