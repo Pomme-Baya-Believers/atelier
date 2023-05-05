@@ -1,6 +1,6 @@
-const Router = require('express').Router()
-const controllers = require('../controllers/controllersnaru.js')
+const Router = require('express').Router();
+const controllers = require('../controllers/controllersnaru');
 
-Router.get('/', controllers.get)
+Router.get('/', controllers.get);
 
-module.exports = Router
+module.exports = Router;
