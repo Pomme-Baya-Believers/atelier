@@ -15,6 +15,7 @@ const App = () => {
     <div>
       <RelatedCarousel  productID={productID} setProductID={setProductID}/>
       test
+      <ReviewList />
       {/* <Overview /> */}
       {/* <ReviewList /> */}
     </div>
