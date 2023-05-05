@@ -18,6 +18,7 @@ useEffect(()=> {
   .then((res) => {
     setName(res.data.name)
     setPrice(res.data.default_price )
+    // setCategory(res.data.category)
   })
 })
 

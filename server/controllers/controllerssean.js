@@ -2,9 +2,9 @@ const axios = require('axios');
 
 
 exports.get = (req, res) => {
-  console.log( "CONNECTED"  )
+  // console.log( "CONNECTED"  ,req)
   let options = {
-    url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/40452`, //${req.query.endpoint}
+    url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/40453`, //${req.query.endpoint}
     headers: {
       'Authorization': `${process.env.API_TOKEN}`
     }
