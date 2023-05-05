@@ -1,14 +1,12 @@
-import React, {useState, useEffect, useContext} from 'react'
-import axios from 'axios'
+import React from 'react';
 
-const ReviewTile = ({review}) => {
-
+function ReviewTile({ review }) {
   return (
     <div>
       <h5>
-      {review.rating}
-      {review.reviewer_name}
-      {review.date}
+        {review.rating}
+        {review.reviewer_name}
+        {review.date}
       </h5>
       <section>
         <p>{review.summary}</p>
@@ -16,10 +14,11 @@ const ReviewTile = ({review}) => {
         <p>{review.recommend ? 'I recommend this product' : null}</p>
       </section>
       <footer>
-      Helpful? Yes {review.helpfulness}
+        Helpful? Yes
+        {review.helpfulness}
       </footer>
     </div>
-  )
+  );
 }
 
-export default ReviewTile
+export default ReviewTile;

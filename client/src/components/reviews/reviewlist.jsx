@@ -1,20 +1,19 @@
-import React, {useState, useEffect, useContext} from 'react'
-import ReviewTile from './reviewtile.jsx'
-import axios from 'axios'
-import apiHelper from './apihelpers.jsx'
+import React, { useState, useEffect } from 'react';
+import ReviewTile from './reviewtile.jsx';
+import apiHelper from './apihelpers.jsx';
 
-const ReviewList = () => {
+function ReviewList() {
+  const [reviews, setReviews] = useState({});
+  const [count, setCount] = useState(2);
 
-  const [reviews, setReviews] = useState({})
-  const [count, setCount] = useState(2)
-
-  useEffect(() => apiHelper.getReviews(count, 'relevant', 40344, setReviews), [])
+  useEffect(() => apiHelper.getReviews(count, 'relevant', 40344, setReviews), []);
 
   return (
     <div>
-      {reviews.results && reviews.results.map(review => <ReviewTile key={review.review_id} review={review}/>)}
+      {reviews.results
+      && reviews.results.map((review) => <ReviewTile key={review.review_id} review={review} />)}
     </div>
-  )
+  );
 }
 
-export default ReviewList
+export default ReviewList;
