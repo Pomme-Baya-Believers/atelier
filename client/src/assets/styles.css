@@ -5,7 +5,7 @@
 }
 
 /* RELATED CAROUSEL RELATED CAROUSEL*/
-.carousel  {
+.relatedCarousel    {
   display: flex;
   /* flex-flow: wrap; */
   background-color: grey;
@@ -93,10 +93,19 @@
   color: darkorange
 }
 
-.fogOfWar {
+.relatedFogOfWar {
   background-color: grey;
-  width: 400px;
+  width: 200px;
   border: 50px solid grey;
-  box-shadow: -70px 0px 20px grey;
+  box-shadow: -50px 0px 20px grey;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  font-size: 300%;
   z-index: 2
+}
+
+.relatedArrow {
+  border-radius: 50%;
+  color: rgba(0, 0, 0, 0.598)
 }

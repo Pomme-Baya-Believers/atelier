@@ -28,10 +28,12 @@ const RelatedCarousel = ({ productID, setProductID }) => {
 
   return (
       <div className="relatedPanel">
-        <div className="carousel">
+        <div className="relatedCarousel">
           {relatedComponents}
         </div>
-          <div className="fogOfWar"></div>
+          <div className="relatedFogOfWar">
+            <div className ="relatedArrow"> {'>'} </div>
+          </div>
       </div>
     )
 };
