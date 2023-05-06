@@ -11,12 +11,11 @@ const ReviewList = ({ productID }) => {
   const [meta, setMeta] = useState([]);
 
   useEffect(() => apiHelper.getReviews(count, sort, productID, setReviews), []);
-  useEffect(() => apiHelper.getReviews(count, sort, productID, setReviews), [count]);
-  useEffect(() => apiHelper.getReviews(count, sort, productID, setReviews), [sort]);
+  useEffect(() => apiHelper.getReviews(count, sort, productID, setReviews), [count, sort]);
   useEffect(() => apiHelper.getMeta(productID, setMeta), [reviews]);
 
   return (
-    <div>
+    <div id='reviewComponent'>
       <RatingBreakdown meta={meta}/>
       <Sort setSort={setSort}/>
       <div id='reviewAllTiles'>
