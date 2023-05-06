@@ -7,6 +7,12 @@ const apiHelper = {
       .then(({ data }) => setReviews(data))
       .catch((err) => console.error(err));
   },
+
+  getMeta: (id, setMeta) => {
+    axios.get('/naru', { params: { endpoint: `meta?product_id=${id}` } })
+      .then(({ data }) => setMeta(data))
+      .catch((err) => console.error(err));
+  },
 };
 
 export default apiHelper;
