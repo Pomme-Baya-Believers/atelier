@@ -109,3 +109,28 @@
   border-radius: 50%;
   color: rgba(0, 0, 0, 0.598)
 }
+#reviewAllTiles {
+  display: flex;
+  flex-direction: column;
+  border-style: solid;
+}
+
+.reviewTile {
+  border-style: solid;
+  margin: 2%;
+}
+
+.reviewButton {
+  margin: 2%;
+  width: 10%;
+}
+
+.reviewHeader {
+  display: flex;
+  justify-content: space-between;
+}
+
+.reviewContent {
+  display: flex;
+  flex-direction: column;
+}
