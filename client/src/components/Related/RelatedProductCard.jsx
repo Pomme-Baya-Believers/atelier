@@ -10,8 +10,6 @@ const RelatedProductsCard = ({ productID, setProductID }) => {
   const [name, setName] = useState('');
   const [price, setPrice] = useState('');
   const [category, setCategory] = useState('');
-  const [id, setID] = useState('');
-
 
   useEffect(() => {
     apiHelper.getProduct(productID)
@@ -23,15 +21,11 @@ const RelatedProductsCard = ({ productID, setProductID }) => {
       .catch((err) => console.error(err));
   }, []);
 
-
-
-
   const cardClick = () => {
     setProductID(productID);
-    console.log("NEW ID:", productID)
   };
 
-  const actionClick = (e) => {
+  const actionClick = () => {
     console.log("ACTION CLICKED")
   };
 
@@ -47,7 +41,7 @@ const RelatedProductsCard = ({ productID, setProductID }) => {
       <div className="relatedBottomTile">
         <div className="relatedCategory">{category}</div>
         <strong className="relatedProductName" onClick={cardClick}>{name}</strong>
-        <div className="relatedPrice"> {price} </div>
+        <div className="relatedPrice"> ${price} </div>
         <div className="relatedStars"> ★★★★★  </div>
       </div>
     </div>

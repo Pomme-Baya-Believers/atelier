@@ -9,7 +9,7 @@ import './assets/styles.css';
 const { useState } = React;
 
 const App = () => {
-  const [productID, setProductID] = useState('40349');
+  const [productID, setProductID] = useState('40348');
 
   return (
     <div>
