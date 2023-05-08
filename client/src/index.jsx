@@ -12,10 +12,10 @@ const App = () => {
 
   return (
     <div>
-      {/* <Overview productID={productID} /> */}
+      <Overview productID={productID} />
       {/* <RelatedCarousel  productID={productID} setProductID={setProductID}/>
       test */}
-      <ReviewList productID={productID}/>
+      {/* <ReviewList productID={productID}/> */}
     </div>
   );
 };
