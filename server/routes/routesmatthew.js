@@ -1,6 +1,7 @@
-const Router = require('express').Router()
+const Router = require('express').Router();
+const controllers = require('../controllers/controllersmatthew');
 
-Router.get('/matthew/details', controllersmatthew.get)
-Router
+Router.get('/details', controllers.getDetails);
+Router.get('/meta', controllers.getMeta);
 
-//tttttest
+module.exports = Router;
