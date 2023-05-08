@@ -95,6 +95,11 @@
   width: 10%;
 }
 
+.newReviewButton {
+  margin: 2%;
+  width: 10%;
+}
+
 .reviewHeader {
   display: flex;
   justify-content: space-between;

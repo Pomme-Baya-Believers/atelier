@@ -14,7 +14,7 @@ app.use(express.json());
 app.use(express.static('client/dist'));
 
 // app.get('/sean/products',  controllersSean.get);
-// app.use('/naru', routerNaru)
+app.use('/naru', routerNaru)
 app.use('/matthew', routerMatthew);
 
 app.listen(process.env.PORT) || 3000
