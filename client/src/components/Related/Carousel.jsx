@@ -2,7 +2,7 @@ import React from 'react';
 import RelatedProductCard from './RelatedProductCard.jsx';
 import apiHelper from './apihelpers.jsx';
 
-const { useEffect, useState } = React;
+const { useEffect, useState, useRef } = React;
 
 const RelatedCarousel = ({ productID, setProductID }) => {
   const [related, setRelated] = useState([Number(productID)]);
@@ -18,13 +18,11 @@ const RelatedCarousel = ({ productID, setProductID }) => {
 
   const uniqueRelated = [...new Set(related)];
   const relatedComponents = uniqueRelated.map((id) => {
-    return(
-    <>
+    console.log(id);
+    return (
     <RelatedProductCard key={id} productID={id} setProductID={setProductID} />
-    </>
-    )
-  } )
-
+    );
+  });
 
   return (
       <div className="relatedPanel">
@@ -35,7 +33,7 @@ const RelatedCarousel = ({ productID, setProductID }) => {
             <div className ="relatedArrow"> {'>'} </div>
           </div>
       </div>
-    )
+  );
 };
 
 export default RelatedCarousel;

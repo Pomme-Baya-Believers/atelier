@@ -1,5 +1,6 @@
 const axios = require('axios');
 
+//Product INFO
 const get = (req, res) => {
   let options = {
     url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${req.query.endpoint}`, //${req.query.endpoint}
@@ -13,9 +14,8 @@ const get = (req, res) => {
     .catch((err) => res.status(500).send(err));
 };
 
-
+//Related Product Array
 const getRelated = (req, res) => {
-  console.log('HELLOOOOOOO', req.query.endpoint)
   let options = {
     url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${req.query.endpoint}/related`, //${req.query.endpoint}
     headers: {

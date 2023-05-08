@@ -1,7 +1,5 @@
 import React from 'react';
-import axios from 'axios';
 import apiHelper from './apihelpers.jsx';
-
 
 const { useState, useEffect } = React;
 
@@ -27,6 +25,7 @@ const RelatedProductsCard = ({ productID, setProductID }) => {
 
   const actionClick = () => {
     console.log("ACTION CLICKED")
+    console.log(window.innerWidth, window.innerHeight);
   };
 
   const actionText = related ? '★' : 'X';
@@ -38,11 +37,11 @@ const RelatedProductsCard = ({ productID, setProductID }) => {
         <img onClick={cardClick} src="https://cdn.shopify.com/s/files/1/0419/1525/products/1024x1024-Men-Captain-Tobacco-043021-2.jpg?v=1620400973">
         </img>
       </div>
-      <div className="relatedBottomTile">
+      <div className="relatedBottomTile" onClick={cardClick}>
         <div className="relatedCategory">{category}</div>
-        <strong className="relatedProductName" onClick={cardClick}>{name}</strong>
+        <strong className="relatedProductName">{name}</strong>
         <div className="relatedPrice"> ${price} </div>
-        <div className="relatedStars"> ★★★★★  </div>
+        <div className="relatedStars"> ★★★★★ </div>
       </div>
     </div>
   );

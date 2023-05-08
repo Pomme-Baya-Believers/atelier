@@ -11,6 +11,6 @@ const get = (req,res) => {
   axios.get(options.url, { headers: options.headers })
     .then(({ data }) => res.status(200).send(data))
     .catch(err => res.status(500).send(err));
-};
+}
 
 exports = { get };
