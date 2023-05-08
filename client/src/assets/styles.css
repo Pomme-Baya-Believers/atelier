@@ -95,6 +95,11 @@
   width: 10%;
 }
 
+.newReviewButton {
+  margin: 2%;
+  width: 10%;
+}
+
 .reviewHeader {
   display: flex;
   justify-content: space-between;
@@ -125,4 +130,15 @@
 .ratingBarGreen {
   height: 100%;
   background-color: green;
+}
+
+.newCharacteristic {
+  display: flex;
+  align-items: center;
+}
+
+.newDescription {
+  display:flex;
+  flex-direction:column;
+  justify-content: space-evenly;
 }
