@@ -1,3 +1,4 @@
+
 import React from 'react'
 import { createRoot } from 'react-dom/client'
 import RelatedCarousel from './components/Related/Carousel.jsx'
@@ -8,15 +9,17 @@ import "./assets/styles.css";
 
 const {useState} = React;
 
+
 const App = () => {
   const [productID, setProductID] = useState('40344');
 
   return (
     <div>
+      {/* <Overview productID={productID} /> */}
       {/* <RelatedCarousel  productID={productID} setProductID={setProductID}/>
       test */}
       {/* <ReviewList productID={productID}/> */}
-      <Star productID={productID}/>
+      {/* <Star productID={productID}/> */}
       {/* <Overview /> */}
     </div>
   );
