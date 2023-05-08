@@ -125,6 +125,11 @@
   color: rgba(0, 0, 0, 0.598);
   cursor: pointer;
 }
+.relatedArrowOFF {
+  border-radius: 50%;
+  color: grey;
+  cursor: pointer;
+}
 #reviewAllTiles {
   display: flex;
   flex-direction: column;

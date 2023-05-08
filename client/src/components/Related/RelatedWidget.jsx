@@ -8,7 +8,7 @@ const {useState, useEffect} = React;
 const RelatedWidget = ({productID, setProductID}) => {
   const [position, setPosition] = useState(0);
   const [related, setRelated] = useState([Number(productID)]);
-  const [numberOfTiles, setNumberOfTiles] = useState(4);
+  const [numberOfTiles, setNumberOfTiles] = useState(Math.floor(window.innerWidth / 217));
 
 
   useEffect(() => {
@@ -23,6 +23,8 @@ const RelatedWidget = ({productID, setProductID}) => {
     };
     window.addEventListener('resize', handleResize);
   }, [productID, window.innerWidth]);
+
+  console.log(numberOfTiles)
 
   return (
     <Carousel related={related} numberOfTiles={numberOfTiles}  setRelated={setRelated} productID={productID} setProductID={setProductID} position={position} setPosition={setPosition}/>

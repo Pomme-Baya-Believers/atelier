@@ -15,11 +15,11 @@ const RelatedCarousel = ({numberOfTiles, productID, setProductID, position, setP
 
   const clickRightArrow = () => {
     console.log('ARROW CLICKED');
-    setPosition(position + 1);
+    if (position + 2 < related.length) {setPosition(position + 1)};
   };
   const clickLeftArrow = () => {
     console.log('ARROW CLICKED');
-    setPosition(position - 1);
+    if (position > 0) { setPosition(position - 1)}
   };
 
   uniqueRelated = [...new Set(related)];
@@ -33,11 +33,13 @@ const RelatedCarousel = ({numberOfTiles, productID, setProductID, position, setP
 
 
 
-  const rightArrow = uniqueRelated.length > relatedComponents.length ?
-    <div className ="relatedArrow" onClick={clickRightArrow}> {'>'} </div> :
-    <div className ="relatedArrow" onClick={clickRightArrow}> {''} </div>;
- const leftArrow = position >= 1 ? <div className ="relatedArrow" onClick={clickLeftArrow}> {'<'} </div> :
- <div className ="relatedArrow" onClick={clickLeftArrow}> {''} </div>;
+  const rightArrow = uniqueRelated.length > relatedComponents.length
+   && position + 1 < uniqueRelated.length
+    ? <div className ="relatedArrow" onClick={clickRightArrow}> {'>'} </div>
+    : <div className ="relatedArrowOFF" onClick={clickRightArrow}> {'>'} </div>;
+  const leftArrow = position > 0
+    ? <div className ="relatedArrow" onClick={clickLeftArrow}> {'<'} </div>
+    : <div className ="relatedArrowOFF" onClick={clickLeftArrow}> {'<'} </div>;
 
 
   return (
