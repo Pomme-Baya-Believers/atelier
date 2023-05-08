@@ -3,7 +3,7 @@ import apiHelper from './apihelpers.jsx';
 
 const { useState, useEffect } = React;
 
-const RelatedProductsCard = ({ productID, setProductID }) => {
+const RelatedProductsCard = ({ productID, setProductID, setPosition }) => {
   const related = true;
   const [name, setName] = useState('');
   const [price, setPrice] = useState('');
@@ -21,6 +21,8 @@ const RelatedProductsCard = ({ productID, setProductID }) => {
 
   const cardClick = () => {
     setProductID(productID);
+    setPosition(0);
+    console.log(productID)
   };
 
   const actionClick = () => {
