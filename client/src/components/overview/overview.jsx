@@ -30,6 +30,8 @@ function Overview({ productID }) {
       <BasicProductInfo style={styles[style]} product={product}/>
     </div>
   );
-}
+
+};
+
 
 export default Overview;
