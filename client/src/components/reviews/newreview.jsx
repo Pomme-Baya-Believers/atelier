@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 const NewReview = ({ productID, meta }) => {
   const [form, setForm] = useState({ product_id: productID });
   const [bodyChars, setBodyChars] = useState(50);
+  const [photos, setPhotos] = useState([]);
 
   // figure out photos section.
 
@@ -24,11 +25,13 @@ const NewReview = ({ productID, meta }) => {
     Fit: ['Runs tight', 'Runs slightly right', 'Perfect', 'Runs slightly long', 'Runs long'],
   };
 
+  const reader = new FileReader();
+
   return (
     <dialog id='newReview'>
       <h2>Write Your Review</h2>
       <h5>About the productnamehere</h5>
-      <form onSubmit={() => {}} onChange={(e) => changeHandler(e)}>
+      <form onSubmit={() => { console.log('submitted'); }} onChange={(e) => changeHandler(e)}>
         {/* make post request on submit */}
         <div id='rating'>
           Overall rating
@@ -65,8 +68,9 @@ const NewReview = ({ productID, meta }) => {
             <h6>{bodyChars > 0 ? `Minimum required characters left: ${bodyChars}` : 'Minimum reached'}</h6>
         </div>
         <div id='photos'>
-          Add photos <input type="file" accept=".png, .jpg, .jpeg"/>
-          {/* show photo thumbnails. Max 5 photos */}
+          Add photos <input type="file" name='photos' multiple accept=".png, .jpg, .jpeg" onChange={(e) => setPhotos([...photos, ...e.target.files])}/>
+          {photos && photos.map((photo, idx) => (
+            <img key={`photo${idx}`} src={URL.createObjectURL(photo)}/>))}
         </div>
         <div id='name'>
           Nickname <input type='text' name='name' maxLength='60' />
