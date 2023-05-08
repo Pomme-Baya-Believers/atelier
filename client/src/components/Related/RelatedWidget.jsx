@@ -5,10 +5,10 @@ import Carousel from './Carousel.jsx';
 
 const {useState, useEffect} = React;
 
-const RelatedWidget = ({productID, setProductID}) => {
+const RelatedWidget = ({ productID, setProductID }) => {
   const [position, setPosition] = useState(0);
   const [related, setRelated] = useState([Number(productID)]);
-  const [numberOfTiles, setNumberOfTiles] = useState(Math.floor(window.innerWidth / 217));
+  const [numberOfTiles, setNumberOfTiles] = useState(Math.floor(window.innerWidth / 217) - 1);
 
 
   useEffect(() => {
@@ -19,7 +19,7 @@ const RelatedWidget = ({productID, setProductID}) => {
       .catch((err) => console.error(err));
     const handleResize = (numberOfTiles) => {
       console.log('RESIZE', window.innerWidth, window.innerHeight);
-      setNumberOfTiles(Math.floor(window.innerWidth / 217));
+      setNumberOfTiles(Math.floor(window.innerWidth / 217) - 1);
     };
     window.addEventListener('resize', handleResize);
   }, [productID, window.innerWidth]);

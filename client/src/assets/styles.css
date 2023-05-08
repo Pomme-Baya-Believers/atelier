@@ -2,16 +2,22 @@
 .relatedPanel {
   display: flex;
   border: 10px solid grey;
+  background-color: grey;
+  width: auto;
+  justify-content: space-between;
 }
+
 
 /* RELATED CAROUSEL RELATED CAROUSEL*/
 .relatedCarousel    {
   display: flex;
-  padding:50px;
+  /* width: 80%; */
+  /* padding:50px; */
   /* flex-flow: wrap; */
+  /* margin: auto; */
   background-color: grey;
-  padding: 1%
-  /* justify-content: flex-start; */
+  /* padding: 1%; */
+  justify-content: flex-start;
 }
 
 
@@ -19,7 +25,7 @@
 
 .relatedCard  {
   /* border: 3px solid darkgrey; */
-  border-radius: 6px;
+  height: 300px;
   width: 10%;
   min-width: 150px;
   margin: 10px;
@@ -29,17 +35,14 @@
 
 .relatedProductImage {
   position: relative;
-  cursor: pointer
+  cursor: pointer;
+  overflow: hidden;
+  height: 175px;
+  display: flex;
+  justify-content: center;
+  /* height: 75%; */
 }
 
-.relatedProductImage img {
-  height: 100%;
-  width: 100%;
-  border-top-right-radius: 6px 6px;
-  border-top-left-radius: 6px 6px;
-  /* border-radius: 6px; */
-  position: relative
-}
 
 .relatedActionButton {
   position: absolute;
@@ -59,6 +62,7 @@
 }
 
 .relatedBottomTile {
+  height: 25%;
   display: flex;
   flex-flow: column;
   justify-content: space-between;
@@ -98,8 +102,8 @@
 
 .relatedFogOfWarR {
   background-color: grey;
-  width: 200px;
-  box-shadow: -35px 0px 25px grey;
+  width: 10%;
+  box-shadow:0px 0px 25px grey;
   display: flex;
   align-items: center;
   padding-right: 40px;
@@ -110,8 +114,8 @@
 
 .relatedFogOfWarL {
   background-color: grey;
-  width: 50px;
-  box-shadow: 25px 0px 25px grey;
+  width: 10%;
+  /* box-shadow: 25px 0px 25px grey; */
   display: flex;
   align-items: center;
   padding-right: 40px;

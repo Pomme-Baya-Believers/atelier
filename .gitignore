@@ -6,3 +6,4 @@ package-lock.json
 .eslintrc.js
 .gitignore
 bundle.js
+coverage

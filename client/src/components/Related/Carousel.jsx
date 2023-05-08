@@ -15,41 +15,42 @@ const RelatedCarousel = ({numberOfTiles, productID, setProductID, position, setP
 
   const clickRightArrow = () => {
     console.log('ARROW CLICKED');
-    if (position + 2 < related.length) {setPosition(position + 1)};
+    if (position + 2 < related.length) {setPosition(position + 1); }
   };
   const clickLeftArrow = () => {
     console.log('ARROW CLICKED');
-    if (position > 0) { setPosition(position - 1)}
+    if (position > 0) { setPosition(position - 1); }
   };
 
   uniqueRelated = [...new Set(related)];
   slicedRelated = uniqueRelated
-  slicedRelated = slicedRelated.slice(position, numberOfTiles+position);
-  relatedComponents = slicedRelated.map( id => {
+  slicedRelated = slicedRelated.slice(position, numberOfTiles + position);
+  relatedComponents = slicedRelated.map(id => {
     return (
     <RelatedProductCard key={id} productID={id} setProductID={setProductID} setPosition={setPosition} />
     )});
 
 
 
+    const leftArrow = position > 0
+      ? <div className ="relatedArrow" onClick={clickLeftArrow}> {'<'} </div>
+      : <div className ="relatedArrowOFF" > {'<'} </div>;
 
-  const rightArrow = uniqueRelated.length > relatedComponents.length
-   && position + 1 < uniqueRelated.length
+  const rightArrow = position + numberOfTiles < uniqueRelated.length
     ? <div className ="relatedArrow" onClick={clickRightArrow}> {'>'} </div>
-    : <div className ="relatedArrowOFF" onClick={clickRightArrow}> {'>'} </div>;
-  const leftArrow = position > 0
-    ? <div className ="relatedArrow" onClick={clickLeftArrow}> {'<'} </div>
-    : <div className ="relatedArrowOFF" onClick={clickLeftArrow}> {'<'} </div>;
+    : <div className ="relatedArrowOFF"> {'>'} </div>;
 
 
   return (
-      <div className="relatedPanel" position={position}>
+      <div className="relatedPanel">
           <div className="relatedFogOfWarL">
-        {leftArrow}
+             {leftArrow}
           </div>
-        <div className="relatedCarousel">
-          {relatedComponents}
-        </div>
+          {/* <div> */}
+            <div className="relatedCarousel">
+              {relatedComponents}
+            {/* </div> */}
+          </div>
           <div className="relatedFogOfWarR">
             {rightArrow}
           </div>
