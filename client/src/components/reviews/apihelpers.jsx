@@ -9,8 +9,13 @@ const apiHelper = {
   },
 
   getMeta: (id, setMeta) => {
-    axios.get('/naru', { params: { endpoint: `meta?product_id=${id}` } })
+    axios.get('/naru', { params: { endpoint: `/meta?product_id=${id}` } })
       .then(({ data }) => setMeta(data))
+      .catch((err) => console.error(err));
+  },
+
+  postReview: (newReview) => {
+    axios.post('/naru', newReview)
       .catch((err) => console.error(err));
   },
 };

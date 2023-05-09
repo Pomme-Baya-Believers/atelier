@@ -1,16 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import apiHelper from './apihelpers.jsx';
+import apiHelperSean from '../Related/apihelpers.jsx';
 
 const NewReview = ({ productID, meta }) => {
-  const [form, setForm] = useState({ product_id: productID });
+  const [form, setForm] = useState({ product_id: Number(productID) });
   const [bodyChars, setBodyChars] = useState(50);
   const [photos, setPhotos] = useState([]);
+  const [product, setProduct] = useState([]);
 
-  // figure out photos section.
+  useEffect(() => {
+    apiHelperSean.getProduct(productID)
+      .then(({ data }) => { setProduct(data); })
+      .catch((err) => console.error(err));
+  }, []);
 
   const changeHandler = (e) => {
     const { name, value } = e.target;
     if (e.target.parentNode.className === 'newDescription') {
-      setForm({ ...form, characteristics: { ...form.characteristics, [name]: value } });
+      setForm({ ...form, characteristics: { ...form.characteristics, [name]: Number(value) } });
+    } else if (name === 'rating') {
+      setForm({ ...form, [name]: Number(value) });
+    } else if (name === 'recommend') {
+      setForm({ ...form, [name]: Boolean(value) });
     } else {
       setForm({ ...form, [name]: value });
     }
@@ -28,21 +39,22 @@ const NewReview = ({ productID, meta }) => {
   return (
     <dialog id='newReview'>
       <h2>Write Your Review</h2>
-      <h5>About the productnamehere</h5>
-      <form onSubmit={() => { console.log('submitted'); }} onChange={(e) => changeHandler(e)}>
+      <h5>About the {product.name}</h5>
+      <form encType="multipart/form-data" onSubmit={(e) => { e.preventDefault(); apiHelper.postReview(form); }}
+       onChange={(e) => changeHandler(e)}>
         {/* make post request on submit */}
         <div id='rating'>
           Overall rating
           {/* make the label for each radio button a star */}
-          <input type='radio' name='rating' value='1'/>
-          <input type='radio' name='rating' value='2'/>
-          <input type='radio' name='rating' value='3'/>
-          <input type='radio' name='rating' value='4'/>
-          <input type='radio' name='rating' value='5'/>
+          <input type='radio' name='rating' value={1} required/>
+          <input type='radio' name='rating' value={2}/>
+          <input type='radio' name='rating' value={3}/>
+          <input type='radio' name='rating' value={4}/>
+          <input type='radio' name='rating' value={5}/>
         </div>
         <div id='recommend'>
-          Do you recommend this product? Yes <input type='radio' name='recommend' value='true'/>
-          No <input type='radio' name='recommend' value='false'/>
+          Do you recommend this product? Yes <input type='radio' name='recommend' value={true} required/>
+          No <input type='radio' name='recommend' value={false}/>
         </div>
         <div id='characteristics'>
           Characteristics
@@ -52,7 +64,7 @@ const NewReview = ({ productID, meta }) => {
               {descriptions[characteristic].map((description, idx) => (
                 <div className='newDescription' key={`${characteristic}${idx}`}>
                   <label htmlFor={`${characteristic}${idx}`}>{description}</label>
-                  <input type='radio' name={meta.characteristics[characteristic].id} id={`${characteristic}${idx}`} value={idx + 1}/>
+                  <input type='radio' name={meta.characteristics[characteristic].id} id={`${characteristic}${idx}`} value={idx + 1} required/>
                 </div>
               ))}
             </div>
@@ -62,7 +74,7 @@ const NewReview = ({ productID, meta }) => {
           Summary <input type='text' name='summary' maxLength='60' placeholder='Example: Best purchase ever!' />
         </div>
         <div id='body'>
-          Body <input type='text' name='body' minLength='50' maxLength='1000' placeholder='Why did you like the product or not?' onChange={(e) => { setBodyChars(50 - e.target.value.length); }}/>
+          Body <input type='text' name='body' minLength='50' maxLength='1000' placeholder='Why did you like the product or not?' required onChange={(e) => { setBodyChars(50 - e.target.value.length); }}/>
             <h6>{bodyChars > 0 ? `Minimum required characters left: ${bodyChars}` : 'Minimum reached'}</h6>
         </div>
         <div id='photos'>
@@ -73,11 +85,11 @@ const NewReview = ({ productID, meta }) => {
           </div>
         </div>
         <div id='name'>
-          Nickname <input type='text' name='name' maxLength='60' />
+          Nickname <input type='text' name='name' maxLength='60' required/>
         </div>
         <div id='email'>
           Email
-          <input type='email' name='email' maxLength='60' />
+          <input type='email' name='email' maxLength='60' required/>
         </div>
         <input value='Cancel' type='button' onClick={() => document.getElementById('newReview').close()}/>
         <input type='submit'/>
