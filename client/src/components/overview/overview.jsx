@@ -28,7 +28,7 @@ function Overview({ productID }) {
 
   return (
     <div>
-      This is the Overview
+      This is the Overview and some other stuff
       <BasicProductInfo style={styles[style]} product={product}/>
       <ProductDescription product={product}/>
     </div>
