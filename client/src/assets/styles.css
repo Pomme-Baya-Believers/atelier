@@ -1,25 +1,25 @@
+/* RELATED CAROUSEL RELATED CAROUSEL*/
 
 .relatedPanel {
   display: flex;
   border: 10px solid grey;
+  background-color: grey;
+  width: auto;
+  justify-content: space-between;
 }
 
-/* RELATED CAROUSEL RELATED CAROUSEL*/
+
 .relatedCarousel    {
   display: flex;
-  padding:50px;
-  /* flex-flow: wrap; */
   background-color: grey;
-  padding: 1%
-  /* justify-content: flex-start; */
+  justify-content: flex-start;
 }
 
 
 /* RELATED CARD INDIVIDUAL CARD */
 
 .relatedCard  {
-  /* border: 3px solid darkgrey; */
-  border-radius: 6px;
+  height: 300px;
   width: 10%;
   min-width: 150px;
   margin: 10px;
@@ -29,17 +29,14 @@
 
 .relatedProductImage {
   position: relative;
-  cursor: pointer
+  cursor: pointer;
+  overflow: hidden;
+  height: 175px;
+  display: flex;
+  justify-content: center;
+  /* height: 75%; */
 }
 
-.relatedProductImage img {
-  height: 100%;
-  width: 100%;
-  border-top-right-radius: 6px 6px;
-  border-top-left-radius: 6px 6px;
-  /* border-radius: 6px; */
-  position: relative
-}
 
 .relatedActionButton {
   position: absolute;
@@ -48,7 +45,6 @@
   z-index: 1;
   font-size: 100%;
   color: yellow;
-  /* height: 1.5em; */
   width: 1.5em;
   background-color: rgb(255, 208, 0);
   border: 1% solid rgb(255, 208, 0);
@@ -59,6 +55,7 @@
 }
 
 .relatedBottomTile {
+  height: 25%;
   display: flex;
   flex-flow: column;
   justify-content: space-between;
@@ -98,8 +95,8 @@
 
 .relatedFogOfWarR {
   background-color: grey;
-  width: 200px;
-  box-shadow: -35px 0px 25px grey;
+  width: 10%;
+  box-shadow:0px 0px 25px grey;
   display: flex;
   align-items: center;
   padding-right: 40px;
@@ -110,8 +107,8 @@
 
 .relatedFogOfWarL {
   background-color: grey;
-  width: 50px;
-  box-shadow: 25px 0px 25px grey;
+  width: 10%;
+  /* box-shadow: 25px 0px 25px grey; */
   display: flex;
   align-items: center;
   padding-right: 40px;
@@ -124,6 +121,10 @@
   border-radius: 50%;
   color: rgba(0, 0, 0, 0.598);
   cursor: pointer;
+}
+.relatedArrowOFF {
+  border-radius: 50%;
+  color: grey;
 }
 #reviewAllTiles {
   display: flex;
