@@ -203,3 +203,15 @@
   background-color: green;
 }
 
+
+.newCharacteristic {
+  display: flex;
+  align-items: center;
+}
+
+.newDescription {
+  display:flex;
+  flex-direction:column;
+  justify-content: space-evenly;
+}
+
