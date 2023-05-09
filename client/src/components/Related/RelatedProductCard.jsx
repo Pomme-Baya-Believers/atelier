@@ -22,23 +22,20 @@ const RelatedProductsCard = ({ productID, setProductID, position, setPosition })
       .catch((err) => console.error(err));
     apiHelper.getStyles(productID)
       .then((res) => {
-        setProductImage(res.data.results[0].photos[0].thumbnail_url)
-      })
+        setProductImage(res.data.results[0].photos[0].thumbnail_url);
+      });
   }, []);
 
   const cardClick = () => {
     setProductID(productID);
     setPosition(0);
-    console.log(productID)
   };
 
   const actionClick = () => {
     console.log("ACTION CLICKED")
-    console.log(window.innerWidth, window.innerHeight);
   };
 
   const actionText = related ? '★' : 'X';
-  console.log(productImage)
 
   return (
     <div className="relatedCard" >

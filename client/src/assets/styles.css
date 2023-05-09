@@ -1,3 +1,4 @@
+/* RELATED CAROUSEL RELATED CAROUSEL*/
 
 .relatedPanel {
   display: flex;
@@ -8,15 +9,9 @@
 }
 
 
-/* RELATED CAROUSEL RELATED CAROUSEL*/
 .relatedCarousel    {
   display: flex;
-  /* width: 80%; */
-  /* padding:50px; */
-  /* flex-flow: wrap; */
-  /* margin: auto; */
   background-color: grey;
-  /* padding: 1%; */
   justify-content: flex-start;
 }
 
@@ -24,7 +19,6 @@
 /* RELATED CARD INDIVIDUAL CARD */
 
 .relatedCard  {
-  /* border: 3px solid darkgrey; */
   height: 300px;
   width: 10%;
   min-width: 150px;
@@ -51,7 +45,6 @@
   z-index: 1;
   font-size: 100%;
   color: yellow;
-  /* height: 1.5em; */
   width: 1.5em;
   background-color: rgb(255, 208, 0);
   border: 1% solid rgb(255, 208, 0);
@@ -132,7 +125,6 @@
 .relatedArrowOFF {
   border-radius: 50%;
   color: grey;
-  cursor: pointer;
 }
 #reviewAllTiles {
   display: flex;
