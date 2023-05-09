@@ -25,8 +25,6 @@ const NewReview = ({ productID, meta }) => {
     Fit: ['Runs tight', 'Runs slightly right', 'Perfect', 'Runs slightly long', 'Runs long'],
   };
 
-  const reader = new FileReader();
-
   return (
     <dialog id='newReview'>
       <h2>Write Your Review</h2>
@@ -69,8 +67,10 @@ const NewReview = ({ productID, meta }) => {
         </div>
         <div id='photos'>
           Add photos <input type="file" name='photos' multiple accept=".png, .jpg, .jpeg" onChange={(e) => setPhotos([...photos, ...e.target.files])}/>
+          <div className='newPhotos'>
           {photos && photos.map((photo, idx) => (
-            <img key={`photo${idx}`} src={URL.createObjectURL(photo)}/>))}
+            <img key={`photo${idx}`} className='newPhoto' src={URL.createObjectURL(photo)}/>))}
+          </div>
         </div>
         <div id='name'>
           Nickname <input type='text' name='name' maxLength='60' />

@@ -142,3 +142,12 @@
   flex-direction:column;
   justify-content: space-evenly;
 }
+
+.newPhotos {
+  display: flex;
+}
+
+.newPhoto {
+  height: 50px;
+  width: 50px;
+}
