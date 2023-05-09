@@ -1,28 +1,52 @@
 import React from 'react';
 import RelatedProductCard from './RelatedProductCard.jsx';
-import axios from 'axios';
 
-const {useEffect} = React;
+let uniqueRelated = [];
+let slicedRelated = [];
+let relatedComponents = [];
 
-const RelatedCarousel = ({productID, setProductID}) => {
+const RelatedCarousel = ({numberOfTiles, productID, setProductID, position, setPosition, related, setRelated }) => {
+  const clickRightArrow = () => {
+    console.log('Right ARROW CLICKED');
+    if (position + 2 < related.length) {setPosition(position + 1); }
+  };
+  const clickLeftArrow = () => {
+    console.log('Left ARROW CLICKED');
+    if (position > 0) { setPosition(position - 1); }
+  };
 
-  console.log(productID)
+  uniqueRelated = [...new Set(related)];
+  slicedRelated = uniqueRelated;
+  slicedRelated = slicedRelated.slice(position, numberOfTiles + position);
+  relatedComponents = slicedRelated.map(id => {
+    return (
+    <RelatedProductCard key={id} productID={id} setProductID={setProductID} setPosition={setPosition} />
+    )});
+
+    const leftArrow = position > 0
+      ? <div className ="relatedArrow" onClick={clickLeftArrow}> {'<'} </div>
+      : <div className ="relatedArrowOFF" > {'<'} </div>;
+
+  const rightArrow = position + numberOfTiles < uniqueRelated.length
+    ? <div className ="relatedArrow" onClick={clickRightArrow}> {'>'} </div>
+    : <div className ="relatedArrowOFF"> {'>'} </div>;
 
 
   return (
-    <div className="carousel">
-    <RelatedProductCard productID={productID} setProductID={setProductID} />
-    <RelatedProductCard productID={productID} setProductID={setProductID} />
-    <RelatedProductCard productID={productID} setProductID={setProductID} />
-    <RelatedProductCard productID={productID} setProductID={setProductID} />
-    <RelatedProductCard productID={productID} setProductID={setProductID} />
-    <RelatedProductCard productID={productID} setProductID={setProductID} />
-    <RelatedProductCard productID={productID} setProductID={setProductID} />
-    <RelatedProductCard productID={productID} setProductID={setProductID} />
-    <RelatedProductCard productID={productID} setProductID={setProductID} />
-
-    </div>
-    )
-}
+      <div className="relatedPanel">
+          <div className="relatedFogOfWarL">
+             {leftArrow}
+          </div>
+          {/* <div> */}
+            <div className="relatedCarousel">
+              {relatedComponents}
+            {/* </div> */}
+          </div>
+          <div className="relatedFogOfWarR">
+            {rightArrow}
+          </div>
+      </div>
+  );
+};
 
 export default RelatedCarousel;

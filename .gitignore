@@ -4,4 +4,10 @@ client/dist/bundle.js.map
 .env
 package-lock.json
 .eslintrc.js
+<<<<<<< HEAD
 coverage/
+=======
+.gitignore
+bundle.js
+coverage
+>>>>>>> 590719707131f4bfdffa955ab8274ec3ac7496a3
