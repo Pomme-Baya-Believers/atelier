@@ -6,7 +6,8 @@
     "sd": "npx nodemon --watch server server/index.js",
     "cd": "npx webpack --watch",
     "build": "npx webpack",
-    "start": "node server/index.js"
+    "start": "node server/index.js",
+    "test": "jest --coverage"
   },
   "dependencies": {
     "@testing-library/react": "^14.0.0",
