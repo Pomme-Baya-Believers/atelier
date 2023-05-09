@@ -33,6 +33,8 @@ function Overview({ productID }) {
       <ProductDescription product={product}/>
     </div>
   );
-}
+
+};
+
 
 export default Overview;

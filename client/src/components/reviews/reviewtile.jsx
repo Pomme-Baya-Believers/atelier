@@ -12,8 +12,7 @@ const ReviewTile = ({ review }) => (
       {review.recommend ? <p>{'I recommend this product'}</p> : null}
     </section>
     <footer className='reviewFooter'>
-      Helpful? Yes
-      {review.helpfulness}
+      Helpful? Yes {review.helpfulness}
     </footer>
   </div>
 );

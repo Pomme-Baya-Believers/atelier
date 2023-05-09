@@ -2,11 +2,8 @@ import React, { useState, useEffect } from 'react';
 import ReviewTile from './reviewtile.jsx';
 import apiHelper from './apihelpers.jsx';
 import Sort from './sort.jsx';
-
 import NewReview from './newreview.jsx';
-
 import RatingBreakdown from './ratingbreakdown.jsx';
-
 
 const ReviewList = ({ productID }) => {
   const [reviews, setReviews] = useState({});
@@ -22,7 +19,7 @@ const ReviewList = ({ productID }) => {
     <div id='reviewComponent'>
       <RatingBreakdown meta={meta}/>
       <Sort setSort={setSort}/>
-      <NewReview productID={productID}/>
+      <NewReview productID={productID} meta={meta}/>
       <div id='reviewAllTiles'>
       {reviews.results
       && reviews.results.map((review) => <ReviewTile key={review.review_id} review={review} />)}
