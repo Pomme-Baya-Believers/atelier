@@ -9,13 +9,12 @@ import "./assets/styles.css";
 
 const {useState} = React;
 
-
 const App = () => {
   const [productID, setProductID] = useState('40349');
   return (
     <div>
 
-      <RelatedWidget productID={productID} setProductID={setProductID}/>
+      {/* <RelatedWidget productID={productID} setProductID={setProductID}/> */}
       {/* <Overview productID={productID} /> */}
       {/* <RelatedCarousel  productID={productID} setProductID={setProductID}/>
       test */}
