@@ -1,23 +1,24 @@
 import React from 'react';
 import apiHelper from './apihelpers.jsx';
 
-const {useState, useEffect} = React;
+// const {useState, useEffect} = React;
 
 const DetailsModal = ({
-  productID, thisID, showModal, closeModal, data,
+  productID, thisID, showModal, closeModal, data, mainData,
 }) => {
-  const [mainProductData, setMainProductData] = useState([]);
-  useEffect(() => {
-    apiHelper.getProduct(productID)
-      .then((res) => {
-        setMainProductData(res.data);
-      })
-      .catch((err) => console.error(err));
-  }, []);
+  // console.log(mainData)
+  // const [mainProductData, setMainProductData] = useState([]);
+  // useEffect(() => {
+  //   apiHelper.getProduct(productID)
+  //     .then((res) => {
+  //       setMainProductData(res.data);
+  //     })
+  //     .catch((err) => console.error(err));
+  // }, []);
 
   let hash = {};
-  if (data && mainProductData.features) {
-    const mainFeatures = mainProductData.features;
+  if (data && mainData && mainData.features) {
+    const mainFeatures = mainData.features;
     const { features } = data;
     features.forEach((e) => {
       if (!hash[e.feature]) {
@@ -53,7 +54,7 @@ const DetailsModal = ({
         <tr>
           <th>{data.name}</th>
           <th>Characteristic</th>
-          <th>{mainProductData.name}</th>
+          <th>{mainData.name}</th>
         </tr>
       </thead>
       <tbody>

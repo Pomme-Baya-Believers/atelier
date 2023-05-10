@@ -1,5 +1,6 @@
 import React from 'react';
 import RelatedProductCard from './RelatedProductCard.jsx';
+import EmptyProductCard from './EmptyProductCard.jsx';
 
 const {useState} = React;
 
@@ -7,7 +8,7 @@ let uniqueRelated = [];
 let slicedRelated = [];
 let relatedComponents = [];
 
-const RelatedCarousel = ({
+const CarouselYourOutfit = ({
   numberOfTiles, productID, setProductID, related, relatedBool, mainData,
 }) => {
   // console.log(mainData);
@@ -25,7 +26,6 @@ const RelatedCarousel = ({
     uniqueRelated = [...new Set(related)];
     console.log(relatedBool)
   }
-
   console.log(relatedBool, uniqueRelated)
   slicedRelated = uniqueRelated;
   slicedRelated = slicedRelated.slice(position, numberOfTiles + position);
@@ -44,9 +44,14 @@ const RelatedCarousel = ({
     ? <div className ="relatedArrow" onClick={clickRightArrow}> {'>'} </div>
     : <div className ="relatedArrowOFF"> {'>'} </div>;
 
+console.log(relatedComponents.length)
+if (relatedComponents.length < 1) {
+  relatedComponents[0] = <EmptyProductCard key={['empty']} mainData={mainData}/>
+}
+
   return (
       <div className="relatedPanel">
-        Related
+          YOUR CarouselYourOutfit
           <div className="relatedFogOfWarL">
              {leftArrow}
           </div>
@@ -62,4 +67,4 @@ const RelatedCarousel = ({
   );
 };
 
-export default RelatedCarousel;
+export default CarouselYourOutfit;

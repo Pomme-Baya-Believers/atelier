@@ -30,7 +30,7 @@ function Overview({ productID }) {
     <div>
       This is the Overview and some other stuff
       <BasicProductInfo style={styles[style]} product={product}/>
-      <ProductDescription product={product}/>
+      {/* <ProductDescription product={product}/> */}
     </div>
   );
 
