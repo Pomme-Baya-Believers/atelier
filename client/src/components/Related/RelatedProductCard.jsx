@@ -1,7 +1,6 @@
 import React from 'react';
 import apiHelper from './apihelpers.jsx';
 import DetailsModal from './DetailsModal.jsx'
-import axios from 'axios';
 
 const { useState, useEffect } = React;
 
@@ -11,7 +10,7 @@ const RelatedProductsCard = ({
   const [name, setName] = useState('');
   const [price, setPrice] = useState('');
   const [category, setCategory] = useState('');
-  const [data, setData] = useState('')
+  const [data, setData] = useState('');
   const [productImage, setProductImage] = useState('https://cdn.shopify.com/s/files/1/0419/1525/products/1024x1024-Men-Captain-Tobacco-043021-2.jpg?v=1620400973')
   const [showModal, setShowModal] = useState(false);
 
@@ -37,18 +36,12 @@ const RelatedProductsCard = ({
   };
 
   const actionClick = () => {
-    setShowModal(true)
+    setShowModal(true);
   };
 
   const closeModal = () => {
-    setShowModal(false)
+    setShowModal(false);
   };
-
-  //set ShowModal(false), onClick aciton button showModal(true)
-  //pass showModal === true / false into detailsModal
-  // inside detailsModal component,
-
-  // console.log("AT CARD", thisID, productID)
 
   const actionText = related ? '★' : 'X';
 
@@ -57,7 +50,7 @@ const RelatedProductsCard = ({
          {/* div wrapping DetailsModal, which recieves props
             outerDiv conditional */}
         <DetailsModal productID={productID}
-  thisID={thisID} showModal={showModal} closeModal={closeModal}/>
+  thisID={thisID} showModal={showModal} closeModal={closeModal} data={data}/>
             <div className="relatedProductImage">
         <div className="relatedActionButton" onClick={actionClick}>
         {actionText} </div>

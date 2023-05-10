@@ -9,7 +9,6 @@ import "./assets/styles.css";
 
 const {useState} = React;
 
-
 const App = () => {
   const [productID, setProductID] = useState(40348);
   return (
@@ -17,7 +16,7 @@ const App = () => {
 
       <RelatedWidget productID={productID} setProductID={setProductID}/>
       {/* <Overview productID={productID} /> */}
-      {/* <ReviewList productID={productID}/> */}
+      <ReviewList productID={productID}/>
       {/* <Star productID={productID}/> */}
       {/* <Overview /> */}
     </div>
