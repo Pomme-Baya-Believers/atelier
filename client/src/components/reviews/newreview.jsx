@@ -27,6 +27,13 @@ const NewReview = ({ productID, meta }) => {
     }
   };
 
+  const submitHandler = (e) => {
+    e.preventDefault();
+    document.getElementById('newReview').close();
+    apiHelper.postReview(form);
+    setForm({ product_id: Number(productID) });
+  };
+
   const descriptions = {
     Size: ['A size too small', '1/2 a size too small', 'Perfect', '1/2 a size too big', 'A size too wide'],
     Width: ['Too narrow', 'Slightly narrow', 'Perfect', 'Slightly wide', 'Too wide'],
@@ -40,7 +47,7 @@ const NewReview = ({ productID, meta }) => {
     <dialog id='newReview'>
       <h2>Write Your Review</h2>
       <h5>About the {product.name}</h5>
-      <form encType="multipart/form-data" onSubmit={(e) => { e.preventDefault(); apiHelper.postReview(form); }}
+      <form encType="multipart/form-data" onSubmit={(e) => { submitHandler(e); }}
        onChange={(e) => changeHandler(e)}>
         {/* make post request on submit */}
         <div id='rating'>

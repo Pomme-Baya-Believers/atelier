@@ -11,8 +11,8 @@ const ReviewList = ({ productID }) => {
   const [sort, setSort] = useState('relevant');
   const [meta, setMeta] = useState([]);
 
-  useEffect(() => apiHelper.getReviews(count, sort, productID, setReviews), []);
-  useEffect(() => apiHelper.getReviews(count, sort, productID, setReviews), [count, sort]);
+  useEffect(() => apiHelper.getReviews(10000, sort, productID, setReviews), []);
+  useEffect(() => apiHelper.getReviews(10000, sort, productID, setReviews), [sort]);
   useEffect(() => apiHelper.getMeta(productID, setMeta), [reviews]);
 
   return (
@@ -21,8 +21,8 @@ const ReviewList = ({ productID }) => {
       <Sort setSort={setSort}/>
       <NewReview productID={productID} meta={meta}/>
       <div id='reviewAllTiles'>
-      {reviews.results
-      && reviews.results.map((review) => <ReviewTile key={review.review_id} review={review} />)}
+      {reviews.results && reviews.results.slice(0, count).map((review) => <ReviewTile
+      key={review.review_id} review={review} />)}
         <div className='buttons'>
           <button className='reviewButton' type="button" onClick={() => { setCount(count + 2); }}>More reviews</button>
           <button className='newReviewButton' type="button" onClick={() => { document.getElementById('newReview').showModal(); }} >Write a review</button>
