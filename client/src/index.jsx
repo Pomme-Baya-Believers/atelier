@@ -11,8 +11,7 @@ const App = () => {
   const [productID, setProductID] = useState('40355');
   return (
     <div>
-
-      {/* <RelatedWidget productID={productID} setProductID={setProductID}/> */}
+      <RelatedWidget productID={productID} setProductID={setProductID}/>
       {/* <Overview productID={productID} /> */}
       {/* <RelatedCarousel  productID={productID} setProductID={setProductID}/>
       test */}
