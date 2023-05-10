@@ -28,17 +28,17 @@
 }
 
 #RelatedModalBox {
-  background-color: white;
+  background-color: rgb(213, 210, 210);
   border: 3px solid rgb(75, 75, 75);
   box-shadow: 0 0 10px rgb(255, 255, 255);
   border-radius: 5px;
   width: 60%;
   height: fit-content;
-  min-height: 25%;
   z-index: 4;
   display: flex;
+  padding:  8px;
   flex-direction: column;
-  font-family: ;
+  font-family: sans-serif;
 
 }
 

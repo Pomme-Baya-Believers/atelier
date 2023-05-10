@@ -20,9 +20,7 @@ const RelatedCarousel = ({
   uniqueRelated = [...new Set(related)];
   slicedRelated = uniqueRelated;
   slicedRelated = slicedRelated.slice(position, numberOfTiles + position);
-  console.log({ slicedRelated });
   relatedComponents = slicedRelated.map(id => {
-    // console.log("AT MAP", productID, id)
     return (
     <RelatedProductCard key={id} thisID={id} productID={productID} setProductID={setProductID} setPosition={setPosition} />
     )});
