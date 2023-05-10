@@ -3,7 +3,7 @@ import apiHelper from './apihelpers.jsx';
 import apiHelperSean from '../Related/apihelpers.jsx';
 
 const NewReview = ({ productID, meta }) => {
-  const [form, setForm] = useState({ product_id: Number(productID) });
+  const [form, setForm] = useState({ product_id: (productID) });
   const [bodyChars, setBodyChars] = useState(50);
   const [photos, setPhotos] = useState([]);
   const [product, setProduct] = useState([]);
@@ -13,6 +13,24 @@ const NewReview = ({ productID, meta }) => {
       .then(({ data }) => { setProduct(data); })
       .catch((err) => console.error(err));
   }, []);
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+    const formData = new FormData();
+    Object.keys(form).forEach((key) => {
+      if (key !== 'photos' && key !== 'characteristics') {
+        formData.append(key, form[key]);
+      } else if (key === 'characteristics') {
+        formData.append(key, JSON.stringify(form[key]));
+      } else if (key === 'photos') {
+        photos.forEach((photo) => {
+          formData.append('photos', photo);
+        });
+      }
+    });
+
+    apiHelper.postReview(formData);
+  };
 
   const changeHandler = (e) => {
     const { name, value } = e.target;
@@ -40,7 +58,7 @@ const NewReview = ({ productID, meta }) => {
     <dialog id='newReview'>
       <h2>Write Your Review</h2>
       <h5>About the {product.name}</h5>
-      <form encType="multipart/form-data" onSubmit={(e) => { e.preventDefault(); apiHelper.postReview(form); }}
+      <form encType="multipart/form-data" onSubmit={(e) => { submitHandler(e); }}
        onChange={(e) => changeHandler(e)}>
         {/* make post request on submit */}
         <div id='rating'>

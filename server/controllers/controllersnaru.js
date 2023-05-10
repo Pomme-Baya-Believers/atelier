@@ -14,7 +14,14 @@ const get = (req, res) => {
 };
 
 const post = (req, res) => {
-  console.log(req.body);
+  const newReview = JSON.parse(JSON.stringify(req.body));
+  newReview.characteristics = JSON.parse(newReview.characteristics);
+  newReview.product_id = Number(newReview.product_id);
+  newReview.rating = Number(newReview.rating);
+  newReview.recommend = Boolean(newReview.recommend);
+  req.files.forEach((photo) => {
+    newReview.photos = [photo.path];
+  });
   const options = {
     url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews',
     headers: {
@@ -22,7 +29,7 @@ const post = (req, res) => {
     },
   };
 
-  axios.post(options.url, req.body, { headers: options.headers })
+  axios.post(options.url, newReview, { headers: options.headers })
     .then(() => res.status(204).send())
     .catch((err) => res.status(500).send(err));
 };
