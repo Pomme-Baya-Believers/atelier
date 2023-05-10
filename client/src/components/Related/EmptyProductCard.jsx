@@ -15,6 +15,9 @@ const EmptyProductCard = ({ mainData }) => {
   }
   const displayItems = () => {
     console.log(Storage)
+    for ( let i in Storage) {
+      console.log(JSON.parse(Storage[i]).default_price)
+    }
   }
 
   return (
