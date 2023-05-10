@@ -1,6 +1,7 @@
 import React from 'react';
+import Star from '../starRating.jsx';
 
-const RatingBreakdown = ({ meta }) => {
+const RatingBreakdown = ({ meta, productID }) => {
   console.log(meta);
   let avgRating;
   let recommended;

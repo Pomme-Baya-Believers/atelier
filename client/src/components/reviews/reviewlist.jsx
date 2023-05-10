@@ -4,6 +4,7 @@ import apiHelper from './apihelpers.jsx';
 import Sort from './sort.jsx';
 import NewReview from './newreview.jsx';
 import RatingBreakdown from './ratingbreakdown.jsx';
+import ProductBreakdown from './productBreakdown.jsx';
 
 const ReviewList = ({ productID }) => {
   const [reviews, setReviews] = useState({});
@@ -17,7 +18,8 @@ const ReviewList = ({ productID }) => {
 
   return (
     <div id='reviewComponent'>
-      <RatingBreakdown meta={meta}/>
+      <ProductBreakdown meta={meta}/>
+      <RatingBreakdown meta={meta} productID={productID}/>
       <Sort setSort={setSort}/>
       <NewReview productID={productID} meta={meta}/>
       <div id='reviewAllTiles'>
