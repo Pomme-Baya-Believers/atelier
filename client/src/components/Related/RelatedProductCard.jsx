@@ -1,46 +1,59 @@
 import React from 'react';
 import apiHelper from './apihelpers.jsx';
+import DetailsModal from './DetailsModal.jsx'
 
 const { useState, useEffect } = React;
 
-const RelatedProductsCard = ({ productID, setProductID, position, setPosition }) => {
+const RelatedProductsCard = ({
+  thisID, productID, setProductID, setPosition }) => {
   const related = true;
   const [name, setName] = useState('');
   const [price, setPrice] = useState('');
   const [category, setCategory] = useState('');
-
+  const [data, setData] = useState('');
   const [productImage, setProductImage] = useState('https://cdn.shopify.com/s/files/1/0419/1525/products/1024x1024-Men-Captain-Tobacco-043021-2.jpg?v=1620400973')
+  const [showModal, setShowModal] = useState(false);
 
 
   useEffect(() => {
-    apiHelper.getProduct(productID)
+    apiHelper.getProduct(thisID)
       .then((res) => {
         setName(res.data.name);
         setPrice(res.data.default_price);
         setCategory(res.data.category);
+        setData(res.data);
       })
       .catch((err) => console.error(err));
-    apiHelper.getStyles(productID)
+    apiHelper.getStyles(thisID)
       .then((res) => {
         setProductImage(res.data.results[0].photos[0].thumbnail_url);
       });
   }, []);
 
   const cardClick = () => {
-    setProductID(productID);
+    setProductID(thisID);
     setPosition(0);
   };
 
   const actionClick = () => {
-    console.log("ACTION CLICKED")
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
   };
 
   const actionText = related ? '★' : 'X';
 
   return (
     <div className="relatedCard" >
-      <div className="relatedProductImage">
-        <div className="relatedActionButton" onClick={actionClick}> {actionText} </div>
+         {/* div wrapping DetailsModal, which recieves props
+            outerDiv conditional */}
+        <DetailsModal productID={productID}
+  thisID={thisID} showModal={showModal} closeModal={closeModal} data={data}/>
+            <div className="relatedProductImage">
+        <div className="relatedActionButton" onClick={actionClick}>
+        {actionText} </div>
         <img onClick={cardClick} src={productImage}>
         </img>
       </div>
@@ -53,6 +66,7 @@ const RelatedProductsCard = ({ productID, setProductID, position, setPosition })
     </div>
   );
 };
+{/* <button className='newReviewButton' type="button" onClick={() => { document.getElementById('newReview').showModal(); }} >Write a review</button> */}
 
 export default RelatedProductsCard;
 

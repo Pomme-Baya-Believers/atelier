@@ -2,7 +2,7 @@ const axios = require('axios');
 
 const get = (req, res) => {
   const options = {
-    url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/${req.query.endpoint}`,
+    url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews${req.query.endpoint}`,
     headers: {
       Authorization: `${process.env.API_TOKEN}`,
     },
@@ -13,4 +13,18 @@ const get = (req, res) => {
     .catch((err) => res.status(500).send(err));
 };
 
-module.exports = { get };
+const post = (req, res) => {
+  console.log(req.body);
+  const options = {
+    url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews',
+    headers: {
+      Authorization: `${process.env.API_TOKEN}`,
+    },
+  };
+
+  axios.post(options.url, req.body, { headers: options.headers })
+    .then(() => res.status(204).send())
+    .catch((err) => res.status(500).send(err));
+};
+
+module.exports = { get, post };

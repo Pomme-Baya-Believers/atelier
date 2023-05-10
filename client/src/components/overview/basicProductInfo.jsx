@@ -3,8 +3,8 @@ import Star from '../starRating.jsx';
 import "../../assets/styles.css";
 
 function BasicProductInfo({ style, product, productID }) {
-  console.log('This is the style prop ', style);
-  console.log('This is the product prop ', product);
+//   console.log('This is the style prop ', style);
+//   console.log('This is the product prop ', product);
   return (
     <div>
       Basic Product Info

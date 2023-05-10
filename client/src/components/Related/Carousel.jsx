@@ -5,7 +5,9 @@ let uniqueRelated = [];
 let slicedRelated = [];
 let relatedComponents = [];
 
-const RelatedCarousel = ({numberOfTiles, productID, setProductID, position, setPosition, related, setRelated }) => {
+const RelatedCarousel = ({
+  numberOfTiles, productID, setProductID, position,
+  setPosition, related}) => {
   const clickRightArrow = () => {
     console.log('Right ARROW CLICKED');
     if (position + 2 < related.length) {setPosition(position + 1); }
@@ -20,12 +22,12 @@ const RelatedCarousel = ({numberOfTiles, productID, setProductID, position, setP
   slicedRelated = slicedRelated.slice(position, numberOfTiles + position);
   relatedComponents = slicedRelated.map(id => {
     return (
-    <RelatedProductCard key={id} productID={id} setProductID={setProductID} setPosition={setPosition} />
+    <RelatedProductCard key={id} thisID={id} productID={productID} setProductID={setProductID} setPosition={setPosition} />
     )});
 
-    const leftArrow = position > 0
-      ? <div className ="relatedArrow" onClick={clickLeftArrow}> {'<'} </div>
-      : <div className ="relatedArrowOFF" > {'<'} </div>;
+  const leftArrow = position > 0
+    ? <div className ="relatedArrow" onClick={clickLeftArrow}> {'<'} </div>
+    : <div className ="relatedArrowOFF" > {'<'} </div>;
 
   const rightArrow = position + numberOfTiles < uniqueRelated.length
     ? <div className ="relatedArrow" onClick={clickRightArrow}> {'>'} </div>
