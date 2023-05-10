@@ -7,15 +7,18 @@ import Star from './components/starRating.jsx';
 import RelatedWidget from './components/Related/RelatedWidget.jsx';
 import "./assets/styles.css";
 
+
+const {useState} = React;
+
 const App = () => {
-  const [productID, setProductID] = useState('40355');
+  const [productID, setProductID] = useState(40348);
+
   return (
     <div>
-      <RelatedWidget productID={productID} setProductID={setProductID}/>
+
+      {/* <RelatedWidget productID={productID} setProductID={setProductID}/> */}
       {/* <Overview productID={productID} /> */}
-      {/* <RelatedCarousel  productID={productID} setProductID={setProductID}/>
-      test */}
-      <ReviewList productID={productID}/>
+      {/* <ReviewList productID={productID}/> */}
       {/* <Star productID={productID}/> */}
       {/* <Overview /> */}
     </div>

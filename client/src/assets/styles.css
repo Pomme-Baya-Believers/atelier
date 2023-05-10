@@ -1,3 +1,55 @@
+/* RELATED MODAL  */
+
+
+#RelatedModalBackdrop {
+  position:absolute;
+  top:0;
+  left: 0;
+  right:0;
+  bottom: 0;
+  background-color: rgba(100, 100, 100, 0.349);
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#RelatedClearBackrop {
+  position:absolute;
+  top:0;
+  left: 0;
+  right:0;
+  bottom: 0;
+  background-color: rgba(100, 100, 100, 0.349);
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#RelatedModalBox {
+  background-color: rgb(213, 210, 210);
+  border: 3px solid rgb(75, 75, 75);
+  box-shadow: 0 0 10px rgb(255, 255, 255);
+  border-radius: 5px;
+  width: 60%;
+  height: fit-content;
+  z-index: 4;
+  display: flex;
+  padding:  8px;
+  flex-direction: column;
+  font-family: sans-serif;
+
+}
+
+#closeModal {
+  border:  1px solid black;
+  align-self: center;
+  padding: 5px;
+  cursor:pointer;
+}
+
+
 /* RELATED CAROUSEL RELATED CAROUSEL*/
 
 .relatedPanel {
