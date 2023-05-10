@@ -10,7 +10,7 @@ const ProductBreakdown = ({ meta }) => {
     });
   }
   const descriptions = {
-    Size: ['A size too small', 'A size too wide'],
+    Size: ['A size too small', 'A size too big'],
     Width: ['Too narrow', 'Too wide'],
     Comfort: ['Uncomfortable', 'Perfect'],
     Quality: ['Poor', 'Perfect'],

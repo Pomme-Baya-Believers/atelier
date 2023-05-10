@@ -3,8 +3,8 @@ import React from 'react';
 const ReviewTile = ({ review }) => (
   <div className='reviewTile'>
     <header className='reviewHeader'>
-      <h5>{review.rating}</h5>
-      <h5>{review.reviewer_name} {review.date}</h5>
+      <div>{review.rating}</div>
+      <div>{review.reviewer_name} {review.date}</div>
     </header>
     <section className='reviewContent'>
       <h3 id='reviewSummary'>{review.summary}</h3>
