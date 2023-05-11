@@ -12,7 +12,7 @@ const App = () => {
 
   return (
     <div>
-      <Overview productID={productID} />
+      {/* <Overview productID={productID} /> */}
       {/* <RelatedWidget productID={productID} setProductID={setProductID}/> */}
       {/* <Overview productID={productID} /> */}
       {/* <ReviewList productID={productID}/> */}
