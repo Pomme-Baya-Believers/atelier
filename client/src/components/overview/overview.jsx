@@ -3,6 +3,7 @@ import axios from 'axios';
 import BasicProductInfo from './basicProductInfo.jsx';
 import StyleSelector from './styleSelector.jsx';
 import ProductDescription from './ProductDescription.jsx';
+import AddToCart from './addToCart.jsx';
 import '../../assets/styles.css';
 
 function Overview({ productID }) {
@@ -34,8 +35,9 @@ function Overview({ productID }) {
 
   return (
     <div>
-      This is the Overview
-      <BasicProductInfo style={styles[style]} product={product} productID={productID}/>
+      <BasicProductInfo style={styles[style]} product={product}/>
+      <ProductDescription product={product}/>
+      {product && styles && <AddToCart product={product} options={styles[style]}/>}
       <StyleSelector product={product} styles={styles}
       style={style} handleStyleClick={handleStyleClick}/>
     </div>
