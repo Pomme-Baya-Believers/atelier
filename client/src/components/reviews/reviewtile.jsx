@@ -1,9 +1,10 @@
 import React from 'react';
+import Stars from './reviewStarRating.jsx';
 
 const ReviewTile = ({ review }) => (
   <div className='reviewTile'>
     <header className='reviewHeader'>
-      <div>{review.rating}</div>
+      <div className='reviewTileStars'><Stars averageRating={review.rating}/></div>
       <div>{review.reviewer_name} {review.date}</div>
     </header>
     <section className='reviewContent'>

@@ -20,14 +20,14 @@ const ReviewList = ({ productID }) => {
     <div>
       <div id='reviewComponent'>
         <div id='breakdowns'>
-          <RatingBreakdown meta={meta} productID={productID}/>
+          <RatingBreakdown meta={meta}/>
           <ProductBreakdown meta={meta}/>
         </div>
         <div id='reviewAllTiles'>
         <Sort setSort={setSort} reviews={reviews}/>
         <NewReview productID={productID} meta={meta}/>
         {reviews.results && reviews.results.slice(0, count).map((review) => <ReviewTile
-        key={review.review_id} review={review} />)}
+        key={review.review_id} review={review}/>)}
           <div className='buttons'>
             <button className='reviewButton' type="button" onClick={() => { setCount(count + 2); }}>More reviews</button>
             <button className='newReviewButton' type="button" onClick={() => { document.getElementById('newReview').showModal(); }} >Write a review</button>
