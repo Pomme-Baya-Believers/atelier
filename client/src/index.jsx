@@ -14,7 +14,10 @@ const App = () => {
     <div>
       <Overview productID={productID} />
       {/* <RelatedWidget productID={productID} setProductID={setProductID}/> */}
+      {/* <Overview productID={productID} /> */}
       {/* <ReviewList productID={productID}/> */}
+      {/* <Star productID={productID}/> */}
+      {/* <Overview /> */}
     </div>
   );
 };
