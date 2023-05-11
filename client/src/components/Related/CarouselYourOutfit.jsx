@@ -11,7 +11,6 @@ let relatedComponents = [];
 const CarouselYourOutfit = ({
   numberOfTiles, productID, setProductID, related, relatedBool, mainData,
 }) => {
-  // console.log(mainData);
   const [position, setPosition] = useState(0);
   const clickRightArrow = () => {
     console.log('Right ARROW CLICKED');
@@ -44,10 +43,9 @@ const CarouselYourOutfit = ({
     ? <div className ="relatedArrow" onClick={clickRightArrow}> {'>'} </div>
     : <div className ="relatedArrowOFF"> {'>'} </div>;
 
-console.log(relatedComponents.length)
-if (relatedComponents.length < 1) {
-  relatedComponents[0] = <EmptyProductCard key={['empty']} mainData={mainData}/>
-}
+  if (relatedComponents.length < 1) {
+    relatedComponents[0] = <EmptyProductCard key={['empty']} mainData={mainData}/>
+  }
 
   return (
     <>

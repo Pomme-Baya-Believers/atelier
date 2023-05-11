@@ -3,31 +3,34 @@ let storage;
 
 const EmptyProductCard = ({ mainData }) => {
   const addItem = (item) => {
-    const { name } = item;
-    const entry = {[item.name]: item };
-    console.log("NAME", name);
-    storage = { ...localStorage.MyOutfit };
-    // if (Storage === undefined) {
-    //   Storage.MyOutfit[name] = item;
-    //   console.log(Storage.MyOutfit)
-    //   localStorage.setItem('MyOutfit', JSON.stringify(Storage));
-    // } else
-    console.log(storage)
-      console.log("NO STORAGE ")
+    const entry = [item];
+    storage = JSON.parse(localStorage.getItem('MyOutfit'));
+    if (storage === null)  {
       localStorage.setItem('MyOutfit', JSON.stringify(entry));
+      console.log("WAS empty")
+    } else {
+      const ids = storage.map((product) => {
+        return product.id;
+      });
+      if (!ids.includes(item.id)) {
+        storage.push(item);
+        localStorage.setItem('MyOutfit', JSON.stringify(storage));
+      }
+    }
   };
   const deleteItems = () => {
-    localStorage.clear()
+    localStorage.clear();
   };
 
   const readItems = () => {
-    storage = localStorage.MyOutfit
-    console.log(storage)
-    storage = JSON.parse(storage)
+    storage = JSON.parse(localStorage.getItem('MyOutfit'));
+    storage.forEach((product) => {
+      console.log(product)
+    });
+    console.log(storage.length)
   };
   const displayItems = () => {
 
-    console.log(storage['YEasy 350'].name)
   };
 
   return (

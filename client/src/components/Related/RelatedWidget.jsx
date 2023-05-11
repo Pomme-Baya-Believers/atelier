@@ -10,8 +10,6 @@ const RelatedWidget = ({ productID, setProductID }) => {
   const [related, setRelated] = useState([Number(productID)]);
   const [numberOfTiles, setNumberOfTiles] = useState(Math.floor(window.innerWidth / 217) );
   const [mainData, setMainData] = useState();
-  // const [position, setPosition] = useState(0);
-  console.log("NUMER OF TILES", numberOfTiles)
 
   useEffect(() => {
     apiHelper.getProduct(productID)

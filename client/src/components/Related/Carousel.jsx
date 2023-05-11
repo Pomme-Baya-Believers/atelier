@@ -23,10 +23,8 @@ const RelatedCarousel = ({
 
   if (relatedBool) {
     uniqueRelated = [...new Set(related)];
-    console.log(relatedBool)
   }
 
-  console.log(relatedBool, uniqueRelated)
   slicedRelated = uniqueRelated;
   slicedRelated = slicedRelated.slice(position, numberOfTiles + position);
   relatedComponents = slicedRelated.map((id) => {
