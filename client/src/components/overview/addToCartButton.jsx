@@ -1,21 +1,26 @@
 import React from 'react';
 import axios from 'axios';
 
-const AddToCartButton = ({ skus }) => {
-  const showSizeSelect = (element) => {
-    const event = document.createEvent('MouseEvents');
-    event.initMouseEvent('mousedown', true, true, window);
-    element.dispatchEvent(event);
+const AddToCartButton = ({ sku, quantity }) => {
+  axios.get('/matthew/cart')
+    .then((response) => console.log('This is the Cart reponse', response))
+    .catch((response) => console.log('Whoops on the cart grab', response));
+  const HandleAddClick = (item, amount) => {
+    for (let i = 0; i < amount; i += 1) {
+      axios.post('/matthew/cart', { sku_id: item.sku_id })
+        .then((response) => {
+          console.log('Congrats you added things to the cart', response);
+        })
+        .catch((response) => {
+          console.log('There was an error posting the items to the Cart ', response);
+        });
+    }
   };
-
-  window.runThis = () => {
-    const sizeSelector = document.getElementById('size');
-    showSizeSelect(sizeSelector);
-  };
-  console.log();
   return (
     <div>
-      {skus.length > 0 && <button onClick={(e) => window.runThis(e)}>Add To Cart</button>}
+      {sku && <button
+      onClick={() => HandleAddClick(sku, quantity)}>Add To Cart</button>}
+
     </div>
   );
 };

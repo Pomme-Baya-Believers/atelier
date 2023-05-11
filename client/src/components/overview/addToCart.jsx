@@ -21,6 +21,7 @@ const AddToCart = ({ options }) => {
   const handleSizeSelect = (e) => {
     console.log(e.target.value);
     setSize(e.target.value);
+    setQuantity(1);
   };
   const handleQuantitySelect = (e) => {
     console.log(e.target.value);
@@ -32,7 +33,7 @@ const AddToCart = ({ options }) => {
       handleSizeSelect={handleSizeSelect}/>}
       {skus && <QuantitySelector skus={skus}
       handleQuantitySelect={handleQuantitySelect} size={size}/>}
-      {skus.length > 0 && <AddToCartButton skus={skus} size={size} qunatity={quantity} />}
+      {skus.length > 0 && <AddToCartButton sku={skus[size]} quantity={quantity} />}
     </div>
   );
 };
