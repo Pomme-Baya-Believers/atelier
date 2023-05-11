@@ -2,7 +2,7 @@
 
 
 #RelatedModalBackdrop {
-  position:absolute;
+  position:fixed;
   top:0;
   left: 0;
   right:0;
@@ -15,7 +15,7 @@
 }
 
 #RelatedClearBackrop {
-  position:absolute;
+  position:fixed;
   top:0;
   left: 0;
   right:0;
@@ -45,8 +45,16 @@
 #closeModal {
   border:  1px solid black;
   align-self: center;
-  padding: 5px;
   cursor:pointer;
+}
+
+#RelatedMyOutfitButton {
+  padding: 5px;
+  background-color:rgb(240, 169, 128);
+  width: fit-content;
+  border-radius: 3px;
+  box-shadow: 0 0 3px yellow;
+  cursor: pointer
 }
 
 
@@ -54,16 +62,16 @@
 
 .relatedPanel {
   display: flex;
-  border: 10px solid grey;
-  background-color: grey;
-  width: auto;
-  justify-content: space-between;
+  border: 10px solid white;
+  background-color: white;
+  min-width: 100%;
 }
 
 
 .relatedCarousel    {
   display: flex;
-  background-color: grey;
+  width: 80%;
+  background-color: white;
   justify-content: flex-start;
 }
 
@@ -145,10 +153,9 @@
   color: darkorange
 }
 
-.relatedFogOfWarR {
-  background-color: grey;
-  width: 10%;
-  box-shadow:0px 0px 25px grey;
+.relatedFogOfWarL {
+  background-color: white;
+  width: fit-content;
   display: flex;
   align-items: center;
   padding-right: 40px;
@@ -157,16 +164,16 @@
   z-index: 2
 }
 
-.relatedFogOfWarL {
-  background-color: grey;
-  width: 10%;
-  /* box-shadow: 25px 0px 25px grey; */
+.relatedFogOfWarR {
+  background-color: white;
+  border: 5px solid white;
+  width: fit-content;
   display: flex;
   align-items: center;
-  padding-right: 40px;
-  justify-content: end;
+  justify-self: end;
   font-size: 300%;
-  z-index: 2
+  box-shadow: -40px 0 30px white;
+  z-index: 3
 }
 
 .relatedArrow {
@@ -176,14 +183,14 @@
 }
 .relatedArrowOFF {
   border-radius: 50%;
-  color: grey;
+  color: white;
 }
 
 
 /* STAR COMPONENT */
 
 :root {
-  --star-size: 60px;
+  --star-size: 100%;
   --star-color: #fff;
   --star-background: #fc0;
 }
