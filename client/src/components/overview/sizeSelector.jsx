@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 const SizeSelector = ({ skus, handleSizeSelect }) => {
   console.log(skus);
   return (
-    <select name="size" onChange={handleSizeSelect}>
+    <select id="size" name="size" onChange={handleSizeSelect}>
       {skus.length > 0 && <option value="">--Select Size--</option>}
       {skus.length > 0 && skus.map((sku, index) => {
         // console.log('this is the current sku', sku);

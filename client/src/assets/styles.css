@@ -212,7 +212,7 @@
 /* STAR COMPONENT */
 
 :root {
-  --star-size: 60px;
+  --star-size: 100%;
   --star-color: #fff;
   --star-background: #fc0;
 }
