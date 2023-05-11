@@ -1,24 +1,33 @@
 const React = 'react';
+let storage;
 
 const EmptyProductCard = ({ mainData }) => {
   const addItem = (item) => {
-    console.log(item.name)
-    localStorage.setItem(JSON.stringify(item.name), JSON.stringify(item));
+    const { name } = item;
+    const entry = {[item.name]: item };
+    console.log("NAME", name);
+    storage = { ...localStorage.MyOutfit };
+    // if (Storage === undefined) {
+    //   Storage.MyOutfit[name] = item;
+    //   console.log(Storage.MyOutfit)
+    //   localStorage.setItem('MyOutfit', JSON.stringify(Storage));
+    // } else
+    console.log(storage)
+      console.log("NO STORAGE ")
+      localStorage.setItem('MyOutfit', JSON.stringify(entry));
   };
   const deleteItems = () => {
     localStorage.clear()
-  }
+  };
 
-  let Storage;
   const readItems = () => {
-    Storage = localStorage
-  }
+    storage = localStorage.MyOutfit
+    console.log(storage)
+    storage = JSON.parse(storage)
+  };
   const displayItems = () => {
-    console.log(Storage)
-    for ( let i in Storage) {
-      console.log(JSON.parse(Storage[i]).default_price)
-    }
-  }
+    console.log(storage['YEasy 350'].name)
+  };
 
   return (
     <>
