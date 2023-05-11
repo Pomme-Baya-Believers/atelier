@@ -21,13 +21,13 @@ const ReviewTile = ({ review }) => {
     {review.response
     && <div className='reviewResponse'>
       <div className='responseHeader'>Response from seller</div>
-      <div>{review.response}testestsetasetasasdfasdfdsafasfdsf</div>
+      <div>{review.response}</div>
     </div>}
     <footer className='reviewFooter'>
       Helpful? Yes {review.helpfulness}
     </footer>
   </div>
-  )
+  );
 };
 
 export default ReviewTile;
