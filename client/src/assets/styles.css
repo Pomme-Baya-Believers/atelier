@@ -285,6 +285,29 @@
   justify-content: space-between;
 }
 
+.ratingBreakdownAverage {
+  font-size: 250%;
+  font-weight: bold;
+  margin-top: 1%;
+}
+
+.reviewStars {
+  --percent: calc(var(--rating) / 5 * 100%);
+
+  display: inline-block;
+  font-size: 30px;
+  font-family: Times;
+  line-height: 1;
+
+  &::before {
+    content: '★★★★★';
+    letter-spacing: 3px;
+    background: linear-gradient(90deg, var(--star-background) var(--percent), var(--star-color) var(--percent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
 #ratingRecommend {
   font-size: 80%;
   padding-bottom: 3%;
