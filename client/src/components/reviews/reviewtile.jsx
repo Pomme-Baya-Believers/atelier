@@ -12,6 +12,11 @@ const ReviewTile = ({ review }) => (
       <p id='reviewBody'>{review.body}</p>
       {review.recommend ? <p>{'I recommend this product'}</p> : null}
     </section>
+    {review.response
+    && <div className='reviewResponse'>
+      <div className='responseHeader'>Response from seller</div>
+      <div>{review.response}testestsetasetasasdfasdfdsafasfdsf</div>
+    </div>}
     <footer className='reviewFooter'>
       Helpful? Yes {review.helpfulness}
     </footer>
