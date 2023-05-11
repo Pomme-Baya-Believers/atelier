@@ -3,7 +3,7 @@ import { FacebookShareButton, FacebookIcon, TwitterShareButton, TwitterIcon, Pin
 // import '../../assets/styles.css';
 
 function ProductDescription({ product }) {
-  console.log('This is the product prop', product);
+  // console.log('This is the product prop', product);
 
   // const divStyle = {
   //   transform: rotate("45deg");

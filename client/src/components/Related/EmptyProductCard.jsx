@@ -26,6 +26,7 @@ const EmptyProductCard = ({ mainData }) => {
     storage = JSON.parse(storage)
   };
   const displayItems = () => {
+
     console.log(storage['YEasy 350'].name)
   };
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import apiHelper from './apihelpers.jsx';
 import DetailsModal from './DetailsModal.jsx'
+import StarRating from '../starRating.jsx'
 
 const { useState, useEffect } = React;
 
@@ -63,7 +64,8 @@ const RelatedProductsCard = ({
         <div className="relatedCategory">{category}</div>
         <strong className="relatedProductName">{name}</strong>
         <div className="relatedPrice"> ${price} </div>
-        <div className="relatedStars"> ★★★★★ </div>
+        {/* <div className="relatedStars"> ★★★★★ </div> */}
+      <StarRating productID={thisID}/>
       </div>
     </div>
   );

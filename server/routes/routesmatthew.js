@@ -6,5 +6,4 @@ Router.get('/meta', controllers.getMeta);
 Router.get('/product', controllers.getProduct);
 Router.get('/styles', controllers.getStyles);
 
-
 module.exports = Router;

@@ -45,8 +45,9 @@ const RelatedCarousel = ({
     : <div className ="relatedArrowOFF"> {'>'} </div>;
 
   return (
-      <div className="relatedPanel">
+    <>
         Related
+      <div className="relatedPanel">
           <div className="relatedFogOfWarL">
              {leftArrow}
           </div>
@@ -59,6 +60,7 @@ const RelatedCarousel = ({
             {rightArrow}
           </div>
       </div>
+    </>
   );
 };
 

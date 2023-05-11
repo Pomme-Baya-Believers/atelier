@@ -50,8 +50,9 @@ if (relatedComponents.length < 1) {
 }
 
   return (
-      <div className="relatedPanel">
+    <>
           YOUR CarouselYourOutfit
+      <div className="relatedPanel">
           <div className="relatedFogOfWarL">
              {leftArrow}
           </div>
@@ -64,6 +65,7 @@ if (relatedComponents.length < 1) {
             {rightArrow}
           </div>
       </div>
+    </>
   );
 };
 
