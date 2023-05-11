@@ -1,4 +1,5 @@
 import React from 'react';
+import Stars from './reviewStarRating.jsx';
 
 const ReviewTile = ({ review }) => {
   const readableDate = new Date(review.date).toLocaleDateString('en-US', {
@@ -9,7 +10,7 @@ const ReviewTile = ({ review }) => {
   return (
   <div className='reviewTile'>
     <header className='reviewHeader'>
-      <div>{review.rating}</div>
+      <div className='reviewTileStars'><Stars averageRating={review.rating}/></div>
       <div>{review.reviewer_name} {readableDate}</div>
     </header>
     <section className='reviewContent'>

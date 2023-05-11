@@ -1,7 +1,7 @@
 import React from 'react';
-import Star from '../starRating.jsx';
+import Stars from './reviewStarRating.jsx';
 
-const RatingBreakdown = ({ meta, productID }) => {
+const RatingBreakdown = ({ meta }) => {
   console.log(meta);
   let avgRating;
   let recommended;
@@ -23,7 +23,7 @@ const RatingBreakdown = ({ meta, productID }) => {
   return (
     <div id='ratingComponent'>
       <h6 id='ratingBreakdownHeader'>RATING BREAKDOWN</h6>
-      <h1>{avgRating}</h1>
+      <h1 className='ratingBreakdownAverage'>{avgRating}<Stars averageRating={avgRating}/></h1>
       <span id='ratingRecommend'>{recommended}% of reviews recommend this product</span>
       <div id="ratingBreakdown">
         <div className="rating">
