@@ -178,36 +178,7 @@
   border-radius: 50%;
   color: grey;
 }
-#reviewAllTiles {
-  display: flex;
-  flex-direction: column;
-  border-style: solid;
-}
 
-.reviewTile {
-  border-style: solid;
-  margin: 2%;
-}
-
-.reviewButton {
-  margin: 2%;
-  width: 10%;
-}
-
-.newReviewButton {
-  margin: 2%;
-  width: 10%;
-}
-
-.reviewHeader {
-  display: flex;
-  justify-content: space-between;
-}
-
-.reviewContent {
-  display: flex;
-  flex-direction: column;
-}
 
 /* STAR COMPONENT */
 
@@ -234,38 +205,102 @@
   }
 }
 
+/* RATING AND REVIEWS */
+#reviewComponent {
+  display: flex;
+  justify-content: center;
+}
+
+#reviewAllTiles {
+  display: flex;
+  flex-direction: column;
+  padding: 1%;
+  width: 80%;
+  /* border-style: solid; */
+}
+
+.reviewButton {
+  margin: 2%;
+  width: 10%;
+}
+
+.newReviewButton {
+  margin: 2%;
+  width: 10%;
+}
+
+  /* review tile */
+.reviewHeader {
+  display: flex;
+  justify-content: space-between;
+  height: 10%;
+  font-size: 80%;
+}
+
+.reviewTile {
+  display: flex;
+  flex-direction: column;
+  border-bottom: solid;
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+
+.reviewContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.reviewFooter {
+  height: 10%;
+  font-size: 80%;
+}
+
+  /* breakdowns */
+
+#breakdowns {
+  width: 20%;
+  padding: 1%;
+}
+
 #ratingComponent {
   display: flex;
-  border-style: solid;
   flex-direction: column;
+}
+
+#ratingBreakdownHeader {
+  margin-top: 1%;
+  margin-bottom: 1%;
 }
 
 .rating {
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
+#ratingRecommend {
+  font-size: 80%;
+  padding-bottom: 3%;
+}
+
+.ratingCount {
+  width: 5%;
+  justify-content: flex-end;
+}
 .ratingBar {
   height: 10px;
-  width: 15%;
+  width: 70%;
+  justify-content: center;
   background-color: lightgrey;
 }
 
+.ratingLabel {
+  width: 20%;
+  white-space: nowrap;
+}
 .ratingBarGreen {
   height: 100%;
   background-color: green;
-}
-
-
-.newCharacteristic {
-  display: flex;
-  align-items: center;
-}
-
-.newDescription {
-  display:flex;
-  flex-direction:column;
-  justify-content: space-evenly;
 }
 
 #productBreakdown {
@@ -276,7 +311,6 @@
 .breakdownCharacteristic {
   display: flex;
   flex-direction: column;
-  width: 25%;
 }
 
 .breakdownBar {
@@ -299,4 +333,26 @@
   border-top: 10px solid black;
   position:relative;
   align-self: center;
+}
+
+    /* sort */
+#sortComponent {
+  font-weight: bold;
+  padding-bottom: 3%;
+}
+#sortMenu {
+  width: 10%;
+  border: none;
+  font-weight: bold;
+}
+    /* newReview */
+.newCharacteristic {
+  display: flex;
+  align-items: center;
+}
+
+.newDescription {
+  display:flex;
+  flex-direction:column;
+  justify-content: space-evenly;
 }
