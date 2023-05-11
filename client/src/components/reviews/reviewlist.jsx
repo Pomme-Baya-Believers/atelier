@@ -29,7 +29,7 @@ const ReviewList = ({ productID }) => {
         {reviews.results && reviews.results.slice(0, count).map((review) => <ReviewTile
         key={review.review_id} review={review}/>)}
           <div className='buttons'>
-            <button className='reviewButton' type="button" onClick={() => { setCount(count + 2); }}>More reviews</button>
+            {reviews.results && count <= reviews.results.length && <button className='reviewButton' type="button" onClick={() => { setCount(count + 2); }}>More reviews</button>}
             <button className='newReviewButton' type="button" onClick={() => { document.getElementById('newReview').showModal(); }} >Write a review</button>
           </div>
         </div>
