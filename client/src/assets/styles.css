@@ -60,6 +60,12 @@
 
 /* RELATED CAROUSEL RELATED CAROUSEL*/
 
+.relatedCarouselTitle {
+  font-family: sans-serif;
+  color: rgb(113, 113, 113);
+  font-size: 115%;
+}
+
 .relatedPanel {
   display: flex;
   border: 10px solid white;
@@ -126,7 +132,7 @@
   margin: 2%;
   font-family: sans-serif;
   font-size: .8em;
-  color: grsey
+  color: grey
 }
 
 .relatedProductName {
