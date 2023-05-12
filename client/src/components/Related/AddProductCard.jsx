@@ -1,6 +1,18 @@
-const React = 'react';
+import React from 'react';
+import apiHelper from './apihelpers.jsx';
 
-const AddProductCard = ({ mainData, setStorage }) => {
+const { useState, useEffect } = React;
+
+const AddProductCard = ({ productID, mainData, setStorage }) => {
+  const [productImage, setProductImage] = useState('');
+  console.log(productID)
+  useEffect(() => {
+    apiHelper.getStyles(productID)
+      .then((res) => {
+        setProductImage(res.data.results[0].photos[0].thumbnail_url);
+
+      });
+  }, [productID]);
 
   let storage;
   const addItem = (item) => {
@@ -12,6 +24,7 @@ const AddProductCard = ({ mainData, setStorage }) => {
     if (!storage) {
       localStorage.setItem('MyOutfit', JSON.stringify(entry));
     } else {
+      // eslint-disable-next-line arrow-body-style
       const ids = storage.map((product) => {
         return product.id;
       });
@@ -23,39 +36,24 @@ const AddProductCard = ({ mainData, setStorage }) => {
       }
     }
   };
-  const deleteItems = () => {
-    localStorage.clear();
-    setStorage([])
-  };
 
-  const deleteThisItem = (item) => {
-    console.log(item.id);
-    storage = JSON.parse(localStorage.getItem('MyOutfit'));
-    storage = storage.filter((product) => {
-      return product.id != item.id
-    });
-    localStorage.setItem('MyOutfit', JSON.stringify(storage))
-    console.log("FILTERED", storage)
-  };
+let name = 'Item';
 
-  const readItems = () => {
-    storage = JSON.parse(localStorage.getItem('MyOutfit'));
-    storage.forEach((product) => {
-      console.log(product);
-    });
-    console.log(storage.length);
-  };
-  const displayItems = () => {
-
-  };
+  if (mainData) {
+    console.log(mainData.name)
+    name = mainData.name;
+  }
 
   return (
     <>
-    <div  className="relatedCard" onClick={() => addItem(mainData)}>Click Here to Add Item to Your Outfit</div>
-    {/* <div className="relatedCard" onClick={() => deleteThisItem(mainData)}>Delete THIS item</div> */}
-    {/* <div className="relatedCard" onClick={() => deleteItems(mainData)}>Delete All Items</div> */}
-    {/* <div className="relatedCard" onClick={() => readItems(mainData)}>ReadItems</div> */}
-    {/* <div className="relatedCard" onClick={() => displayItems(mainData)}>displayItems</div> */}
+    <div className="relatedAddCard" onClick={() => addItem(mainData)}>
+            <img key='image' src={productImage}/>
+        <div>
+            <div className="relatedAddText">Add  </div>
+            <strong className="relatedAddText">{name} </strong>
+            <div className="relatedAddText">To Your Outfit!!</div>
+        </div>
+    </div>
     </>
 
   );

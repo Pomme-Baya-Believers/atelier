@@ -7,7 +7,7 @@ import Carousel from './Carousel.jsx';
 const { useState, useEffect } = React;
 
 const RelatedWidget = ({ productID, setProductID }) => {
-  const [related, setRelated] = useState([Number(productID)]);
+  const [related, setRelated] = useState(); //////WEIRD FLASH LOADS
   const [numberOfTiles, setNumberOfTiles] = useState(Math.floor(window.innerWidth / 217) );
   const [mainData, setMainData] = useState();
   const [storage, setStorage] = useState(JSON.parse(localStorage.getItem('MyOutfit')))

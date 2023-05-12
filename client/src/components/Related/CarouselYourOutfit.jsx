@@ -44,11 +44,11 @@ const CarouselYourOutfit = ({
 
   if (relatedComponents.length < 1) {
     relatedComponents[0] = <>
-    <AddProductCard key={1} mainData={mainData} setStorage={setStorage}/>
+    <AddProductCard key={1} mainData={mainData} productID={productID} setStorage={setStorage}/>
     </>
   } else (
     relatedComponents.unshift(
-      <AddProductCard mainData={mainData} setStorage={setStorage}/>
+      <AddProductCard mainData={mainData}  productID={productID} setStorage={setStorage}/>
 
     )
 
