@@ -1,61 +1,76 @@
-const React = 'react';
+import React from 'react';
+import apiHelper from './apihelpers.jsx';
+import DetailsModal from './DetailsModal.jsx'
+import StarRating from '../starRating.jsx'
 
-const MyOutfit = ({ mainData }) => {
-  let storage;
-  const addItem = (item) => {
-    const entry = [item];
-    storage = JSON.parse(localStorage.getItem('MyOutfit'));
-    console.log(storage)
-    if (!storage)  {
-      localStorage.setItem('MyOutfit', JSON.stringify(entry));
-      console.log("WAS empty")
-    } else {
-      const ids = storage.map((product) => {
-        console.log(product.id);
-        return product.id;
+const { useState, useEffect } = React;
+
+const MyOutfitCard = ({
+  thisID, productID, setProductID, setPosition, related, mainData, data, setStorage,
+}) => {
+  // const related = true;
+  // console.log(mainData)
+  // const [name, setName] = useState('');
+  // const [price, setPrice] = useState('');
+  // const [category, setCategory] = useState('');
+  // const [data, setData] = useState('');
+  const [productImage, setProductImage] = useState(
+    'https://cdn.shopify.com/s/files/1/0419/1525/products/1024x1024-Men-Captain-Tobacco-043021-2.jpg?v=1620400973')
+  const [showModal, setShowModal] = useState(false);
+    console.log(data)
+  const {category} = data;
+  const {price} = data;
+  const {name} = data;
+
+  console.log("thisID", thisID)
+  useEffect(() => {
+    apiHelper.getStyles(thisID)
+      .then((res) => {
+        setProductImage(res.data.results[0].photos[0].thumbnail_url);
       });
-      if (!ids.includes(item.id)) {
-        storage.push(item);
-        localStorage.setItem('MyOutfit', JSON.stringify(storage));
-      }
-    }
-  };
-  const deleteItems = () => {
-    localStorage.clear();
+  }, []);
+
+  const cardClick = () => {
+    setProductID(thisID);
+    setPosition(0);
   };
 
-  const deleteThisItem = (item) => {
-    console.log(item.id);
-    storage = JSON.parse(localStorage.getItem('MyOutfit'));
-    console.log(storage)
-    storage = storage.filter((product) => {
-      return product.id != item.id
-    });
-    localStorage.setItem('MyOutfit', JSON.stringify(storage))
-    console.log("FILTERED", storage)
+  const actionClick = () => {
+    setShowModal(true);
   };
 
-  const readItems = () => {
-    storage = JSON.parse(localStorage.getItem('MyOutfit'));
-    storage.forEach((product) => {
-      console.log(product);
-    });
-    console.log(storage.length);
+  const closeModal = () => {
+    setShowModal(false);
   };
-  const displayItems = () => {
 
-  };
+  const actionText = related ? '★' : 'X';
 
   return (
-    <>
-    {/* <div className="relatedCard" onClick={() => addItem(mainData)}>Click Here to Add Item to Your Outfit</div> */}
-    <div className="relatedCard" onClick={() => deleteThisItem(mainData)}>Delete THIS item</div>
-    {/* <div className="relatedCard" onClick={() => deleteItems(mainData)}>Delete All Items</div> */}
-    {/* <div className="relatedCard" onClick={() => readItems(mainData)}>ReadItems</div> */}
-    {/* <div className="relatedCard" onClick={() => displayItems(mainData)}>displayItems</div> */}
-    </>
-
+    <div className="relatedCard" >
+         {/* div wrapping DetailsModal, which recieves props
+            outerDiv conditional */}
+        <DetailsModal productID={productID} mainData={mainData}
+  thisID={thisID} showModal={showModal} closeModal={closeModal} data={data}/>
+            <div className="relatedProductImage">
+        <div className="relatedActionButton" onClick={actionClick}>
+        {actionText} </div>
+        <img onClick={cardClick} src={productImage}>
+        </img>
+      </div>
+      <div className="relatedBottomTile" onClick={cardClick}>
+        <div className="relatedCategory">{category}</div>
+        <strong className="relatedProductName">{name}</strong>
+        <div className="relatedPrice"> ${price} </div>
+        {/* <div className="relatedStars"> ★★★★★ </div> */}
+      <StarRating productID={thisID}/>
+      </div>
+    </div>
   );
 };
+{/* <button className='newReviewButton' type="button" onClick={() => { document.getElementById('newReview').showModal(); }} >Write a review</button> */}
 
-export default MyOutfit;
+export default MyOutfitCard;
+
+//GET /products/:product_id/related
+//returns [40946,40831,41246] array of numbers to utilize for related list
+{/* "https://cdn.shopify.com/s/files/1/0419/1525/products/1024x1024-Men-Captain-Tobacco-043021-2.jpg?v=1620400973" */}

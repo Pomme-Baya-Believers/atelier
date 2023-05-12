@@ -1,10 +1,14 @@
 const React = 'react';
 
-const AddProductCard = ({ mainData }) => {
+const AddProductCard = ({ mainData, setStorage }) => {
+
   let storage;
   const addItem = (item) => {
     const entry = [item];
     storage = JSON.parse(localStorage.getItem('MyOutfit'));
+    if (storage === null) {
+      localStorage.setItem('MyOutfit', JSON.stringify([]))
+    }
     console.log(storage)
     if (!storage)  {
       localStorage.setItem('MyOutfit', JSON.stringify(entry));
@@ -15,7 +19,9 @@ const AddProductCard = ({ mainData }) => {
         return product.id;
       });
       if (!ids.includes(item.id)) {
-        storage.push(item);
+        const newEntry = storage;
+        newEntry.push(item);
+        setStorage(newEntry);
         localStorage.setItem('MyOutfit', JSON.stringify(storage));
       }
     }
@@ -48,10 +54,10 @@ const AddProductCard = ({ mainData }) => {
 
   return (
     <>
-    <div className="relatedCard" onClick={() => addItem(mainData)}>Click Here to Add Item to Your Outfit</div>
+    <div  className="relatedCard" onClick={() => addItem(mainData)}>Click Here to Add Item to Your Outfit</div>
     {/* <div className="relatedCard" onClick={() => deleteThisItem(mainData)}>Delete THIS item</div> */}
-    {/* <div className="relatedCard" onClick={() => deleteItems(mainData)}>Delete All Items</div> */}
-    <div className="relatedCard" onClick={() => readItems(mainData)}>ReadItems</div>
+    <div className="relatedCard" onClick={() => deleteItems(mainData)}>Delete All Items</div>
+    {/* <div className="relatedCard" onClick={() => readItems(mainData)}>ReadItems</div> */}
     {/* <div className="relatedCard" onClick={() => displayItems(mainData)}>displayItems</div> */}
     </>
 

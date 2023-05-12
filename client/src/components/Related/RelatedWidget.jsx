@@ -10,7 +10,12 @@ const RelatedWidget = ({ productID, setProductID }) => {
   const [related, setRelated] = useState([Number(productID)]);
   const [numberOfTiles, setNumberOfTiles] = useState(Math.floor(window.innerWidth / 217) );
   const [mainData, setMainData] = useState();
-
+  const [storage, setStorage] = useState(JSON.parse(localStorage.getItem('MyOutfit')))
+  if(storage === null) {
+    console.log("WHATTT", storage)
+    setStorage([]);
+    localStorage.setItem('MyOutfit', JSON.stringify([]))
+  }
   useEffect(() => {
     apiHelper.getProduct(productID)
       .then((res) => {
@@ -44,7 +49,7 @@ const RelatedWidget = ({ productID, setProductID }) => {
   return (
     <>
     <Carousel {...commonProps} relatedBool={true}/>
-    <CarouselYourOutfit {...commonProps} relatedBool={false}/>
+    <CarouselYourOutfit {...commonProps} relatedBool={false} storage={storage} setStorage={setStorage}/>
     </>
   );
 };
