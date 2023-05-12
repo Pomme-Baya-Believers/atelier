@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Stars from './reviewStarRating.jsx';
 
 const ReviewTile = ({ review }) => {
+  const [bodyDisplay, setBodyDisplay] = useState(review.body.slice(0, 250));
   const readableDate = new Date(review.date).toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'long',
@@ -15,7 +16,11 @@ const ReviewTile = ({ review }) => {
     </header>
     <section className='reviewContent'>
       <h3 id='reviewSummary'>{review.summary}</h3>
-      <p id='reviewBody'>{review.body}</p>
+      <div id='reviewBody'>
+        <div>{bodyDisplay}</div>
+        {review.body.length > 251 && bodyDisplay === review.body.slice(0, 250)
+        && <button className='reviewShowMore' onClick={() => setBodyDisplay(review.body)}>Show more</button>}
+      </div>
       {review.recommend ? <p>&#x2714;{'I recommend this product'}</p> : null}
     </section>
     {review.response

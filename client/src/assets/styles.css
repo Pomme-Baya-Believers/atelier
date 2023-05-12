@@ -262,6 +262,10 @@
   padding-bottom: 1%;
 }
 
+.reviewShowMore {
+  font-size: 70%;
+}
+
 .responseHeader {
   font-size: 70%;
   font-weight: bold;
