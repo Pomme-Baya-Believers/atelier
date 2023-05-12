@@ -10,7 +10,6 @@ let relatedComponents = [];
 const RelatedCarousel = ({
   numberOfTiles, productID, setProductID, related, relatedBool, mainData,
 }) => {
-  // console.log(mainData);
   const [position, setPosition] = useState(0);
   const clickRightArrow = () => {
     console.log('Right ARROW CLICKED');
@@ -23,10 +22,8 @@ const RelatedCarousel = ({
 
   if (relatedBool) {
     uniqueRelated = [...new Set(related)];
-    console.log(relatedBool)
   }
 
-  console.log(relatedBool, uniqueRelated)
   slicedRelated = uniqueRelated;
   slicedRelated = slicedRelated.slice(position, numberOfTiles + position);
   relatedComponents = slicedRelated.map((id) => {
@@ -46,7 +43,7 @@ const RelatedCarousel = ({
 
   return (
     <>
-        Related
+        <div className='relatedCarouselTitle'> Similar Items</div>
       <div className="relatedPanel">
           <div className="relatedFogOfWarL">
              {leftArrow}
