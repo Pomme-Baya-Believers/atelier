@@ -2,7 +2,7 @@
 
 
 #RelatedModalBackdrop {
-  position:absolute;
+  position:fixed;
   top:0;
   left: 0;
   right:0;
@@ -15,7 +15,7 @@
 }
 
 #RelatedClearBackrop {
-  position:absolute;
+  position:fixed;
   top:0;
   left: 0;
   right:0;
@@ -45,8 +45,16 @@
 #closeModal {
   border:  1px solid black;
   align-self: center;
-  padding: 5px;
   cursor:pointer;
+}
+
+#RelatedMyOutfitButton {
+  padding: 5px;
+  background-color:rgb(240, 169, 128);
+  width: fit-content;
+  border-radius: 3px;
+  box-shadow: 0 0 3px yellow;
+  cursor: pointer
 }
 
 
@@ -54,16 +62,16 @@
 
 .relatedPanel {
   display: flex;
-  border: 10px solid grey;
-  background-color: grey;
-  width: auto;
-  justify-content: space-between;
+  border: 10px solid white;
+  background-color: white;
+  min-width: 100%;
 }
 
 
 .relatedCarousel    {
   display: flex;
-  background-color: grey;
+  width: 80%;
+  background-color: white;
   justify-content: flex-start;
 }
 
@@ -145,10 +153,9 @@
   color: darkorange
 }
 
-.relatedFogOfWarR {
-  background-color: grey;
-  width: 10%;
-  box-shadow:0px 0px 25px grey;
+.relatedFogOfWarL {
+  background-color: white;
+  width: fit-content;
   display: flex;
   align-items: center;
   padding-right: 40px;
@@ -157,16 +164,16 @@
   z-index: 2
 }
 
-.relatedFogOfWarL {
-  background-color: grey;
-  width: 10%;
-  /* box-shadow: 25px 0px 25px grey; */
+.relatedFogOfWarR {
+  background-color: white;
+  border: 5px solid white;
+  width: fit-content;
   display: flex;
   align-items: center;
-  padding-right: 40px;
-  justify-content: end;
+  justify-self: end;
   font-size: 300%;
-  z-index: 2
+  box-shadow: -40px 0 30px white;
+  z-index: 3
 }
 
 .relatedArrow {
@@ -176,38 +183,9 @@
 }
 .relatedArrowOFF {
   border-radius: 50%;
-  color: grey;
-}
-#reviewAllTiles {
-  display: flex;
-  flex-direction: column;
-  border-style: solid;
+  color: white;
 }
 
-.reviewTile {
-  border-style: solid;
-  margin: 2%;
-}
-
-.reviewButton {
-  margin: 2%;
-  width: 10%;
-}
-
-.newReviewButton {
-  margin: 2%;
-  width: 10%;
-}
-
-.reviewHeader {
-  display: flex;
-  justify-content: space-between;
-}
-
-.reviewContent {
-  display: flex;
-  flex-direction: column;
-}
 
 /* STAR COMPONENT */
 
@@ -234,29 +212,200 @@
   }
 }
 
+/* RATING AND REVIEWS */
+#reviewComponent {
+  display: flex;
+  justify-content: center;
+}
+
+#reviewAllTiles {
+  display: flex;
+  flex-direction: column;
+  padding: 1%;
+  width: 80%;
+  /* border-style: solid; */
+}
+
+.reviewButton {
+  margin: 2%;
+  width: 10%;
+}
+
+.newReviewButton {
+  margin: 2%;
+  width: 10%;
+}
+
+  /* review tile */
+.reviewHeader {
+  display: flex;
+  justify-content: space-between;
+  height: 10%;
+  font-size: 80%;
+}
+
+.reviewTile {
+  display: flex;
+  flex-direction: column;
+  border-bottom: solid;
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+
+.reviewContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.reviewResponse {
+  background-color: rgb(238, 238, 238);
+  padding-bottom: 1%;
+}
+
+.reviewShowMore {
+  font-size: 70%;
+}
+
+.reviewAllPhotos {
+  display: flex;
+  margin-top: 1%;
+}
+
+.reviewPhoto {
+  margin-right: 1%;
+}
+.reviewThumbnail {
+  height: 50px;
+  width: 50px;
+}
+
+.responseHeader {
+  font-size: 70%;
+  font-weight: bold;
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+
+.reviewFooter {
+  height: 10%;
+  font-size: 80%;
+  margin-top: 1%;
+}
+
+  /* breakdowns */
+
+#breakdowns {
+  width: 20%;
+  padding: 1%;
+}
+
 #ratingComponent {
   display: flex;
-  border-style: solid;
   flex-direction: column;
+}
+
+#ratingBreakdownHeader {
+  margin-top: 1%;
+  margin-bottom: 1%;
 }
 
 .rating {
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
+.ratingBreakdownAverage {
+  font-size: 250%;
+  font-weight: bold;
+  margin-top: 1%;
+}
+
+.reviewStars {
+  --percent: calc(var(--rating) / 5 * 100%);
+
+  display: inline-block;
+  font-size: 30px;
+  font-family: Times;
+  line-height: 1;
+
+  &::before {
+    content: '★★★★★';
+    letter-spacing: 3px;
+    background: linear-gradient(90deg, var(--star-background) var(--percent), var(--star-color) var(--percent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+#ratingRecommend {
+  font-size: 80%;
+  padding-bottom: 3%;
+}
+
+.ratingCount {
+  width: 5%;
+  justify-content: flex-end;
+}
 .ratingBar {
   height: 10px;
-  width: 15%;
-  background-color: grey;
+  width: 70%;
+  justify-content: center;
+  background-color: lightgrey;
 }
 
+.ratingLabel {
+  width: 20%;
+  white-space: nowrap;
+}
 .ratingBarGreen {
   height: 100%;
   background-color: green;
 }
 
+#productBreakdown {
+  display: flex;
+  flex-direction: column;
+}
 
+.breakdownCharacteristic {
+  display: flex;
+  flex-direction: column;
+}
+
+.breakdownBar {
+  display:flex;
+  background-color: lightgrey;
+  height: 10px;
+}
+
+.breakdownDescriptions {
+  display: flex;
+  justify-content: space-between;
+  font-size: 80%;
+}
+
+#triangle-down {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 10px solid black;
+  position:relative;
+  align-self: center;
+}
+
+    /* sort */
+#sortComponent {
+  font-weight: bold;
+  padding-bottom: 3%;
+}
+#sortMenu {
+  width: 10%;
+  border: none;
+  font-weight: bold;
+}
+    /* newReview */
 .newCharacteristic {
   display: flex;
   align-items: center;

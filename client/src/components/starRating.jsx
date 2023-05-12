@@ -5,7 +5,7 @@ import axios from 'axios';
 
 const Star = ({ productID }) => {
   const [averageRating, setAverageRating] = useState(0);
-  console.log('This is the star productID', productID);
+  // console.log('This is the star productID', productID);
 
   useEffect(() => {
     axios.get('/matthew/meta', { params: { endpoint: `?product_id=${productID}` } })
@@ -16,7 +16,7 @@ const Star = ({ productID }) => {
         for (const [key,value] of Object.entries(ratings)) {
           totalScore += (key * value);
           totalRatings += Number(value)
-          console.log('This is the average rating', totalScore / totalRatings)
+          // console.log('This is the average rating', totalScore / totalRatings)
           setAverageRating(totalScore / totalRatings)
         }
       });
