@@ -5,12 +5,10 @@ const { useState, useEffect } = React;
 
 const AddProductCard = ({ productID, mainData, setStorage }) => {
   const [productImage, setProductImage] = useState('');
-  console.log(productID)
   useEffect(() => {
     apiHelper.getStyles(productID)
       .then((res) => {
         setProductImage(res.data.results[0].photos[0].thumbnail_url);
-
       });
   }, [productID]);
 
@@ -40,7 +38,6 @@ const AddProductCard = ({ productID, mainData, setStorage }) => {
 let name = 'Item';
 
   if (mainData) {
-    console.log(mainData.name)
     name = mainData.name;
   }
 
