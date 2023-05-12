@@ -455,3 +455,9 @@
   flex-direction:column;
   justify-content: space-evenly;
 }
+
+.newPhoto {
+  height: 50px;
+  width: 50px;
+  margin-right: 1%;
+}
