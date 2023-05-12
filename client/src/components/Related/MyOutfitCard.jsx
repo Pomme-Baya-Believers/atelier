@@ -5,26 +5,23 @@ import StarRating from '../starRating.jsx'
 
 const { useState, useEffect } = React;
 
-const RelatedProductsCard = ({
-  thisID, productID, setProductID, setPosition, related, mainData,
+const MyOutfitCard = ({
+  thisID, productID, setProductID, setPosition, related, mainData, data, setStorage,
 }) => {
-  const [name, setName] = useState('');
-  const [price, setPrice] = useState('');
-  const [category, setCategory] = useState('');
-  const [data, setData] = useState('');
+  // const related = true;
+  // console.log(mainData)
+  // const [name, setName] = useState('');
+  // const [price, setPrice] = useState('');
+  // const [category, setCategory] = useState('');
+  // const [data, setData] = useState('');
   const [productImage, setProductImage] = useState(
     'https://cdn.shopify.com/s/files/1/0419/1525/products/1024x1024-Men-Captain-Tobacco-043021-2.jpg?v=1620400973')
   const [showModal, setShowModal] = useState(false);
+  const {category} = data;
+  const {price} = data;
+  const {name} = data;
 
   useEffect(() => {
-    apiHelper.getProduct(thisID)
-      .then((res) => {
-        setName(res.data.name);
-        setPrice(res.data.default_price);
-        setCategory(res.data.category);
-        setData(res.data);
-      })
-      .catch((err) => console.error(err));
     apiHelper.getStyles(thisID)
       .then((res) => {
         setProductImage(res.data.results[0].photos[0].thumbnail_url);
@@ -70,7 +67,7 @@ const RelatedProductsCard = ({
 };
 {/* <button className='newReviewButton' type="button" onClick={() => { document.getElementById('newReview').showModal(); }} >Write a review</button> */}
 
-export default RelatedProductsCard;
+export default MyOutfitCard;
 
 //GET /products/:product_id/related
 //returns [40946,40831,41246] array of numbers to utilize for related list

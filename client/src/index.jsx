@@ -8,17 +8,15 @@ import RelatedWidget from './components/Related/RelatedWidget.jsx';
 import "./assets/styles.css";
 
 const App = () => {
-  const [productID, setProductID] = useState('40355');
+  const [productID, setProductID] = useState(40348);
+
   return (
     <div>
 
-      {/* <RelatedWidget productID={productID} setProductID={setProductID}/> */}
       {/* <Overview productID={productID} /> */}
-      {/* <RelatedCarousel  productID={productID} setProductID={setProductID}/>
-      test */}
-      <ReviewList productID={productID}/>
+      {/* <RelatedWidget productID={productID} setProductID={setProductID}/> */}
+      {/* <ReviewList productID={productID}/> */}
       {/* <Star productID={productID}/> */}
-      {/* <Overview /> */}
     </div>
   );
 };

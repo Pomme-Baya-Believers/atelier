@@ -45,8 +45,15 @@ const NewReview = ({ productID, meta }) => {
     }
   };
 
+  const submitHandler = (e) => {
+    e.preventDefault();
+    document.getElementById('newReview').close();
+    apiHelper.postReview(form);
+    setForm({ product_id: Number(productID) });
+  };
+
   const descriptions = {
-    Size: ['A size too small', '1/2 a size too small', 'Perfect', '1/2 a size too big', 'A size too wide'],
+    Size: ['A size too small', '1/2 a size too small', 'Perfect', '1/2 a size too big', 'A size too big'],
     Width: ['Too narrow', 'Slightly narrow', 'Perfect', 'Slightly wide', 'Too wide'],
     Comfort: ['Uncomfortable', 'Slightly uncomfortable', 'Ok', 'Comfortable', 'Perfect'],
     Quality: ['Poor', 'Below average', 'What I expected', 'Pretty great', 'Perfect'],
