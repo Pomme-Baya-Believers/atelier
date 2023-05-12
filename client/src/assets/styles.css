@@ -315,10 +315,23 @@
   margin-bottom: 1%;
 }
 
+#ratingFilter {
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+
+#ratingFilterButton {
+  font-size: 70%;
+}
+
 .rating {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.rating:hover {
+  background-color: lightblue;
 }
 
 .ratingBreakdownAverage {
