@@ -30,7 +30,6 @@ const RelatedWidget = ({ productID, setProductID }) => {
       console.log('RESIZE', window.innerWidth, window.innerHeight);
       setNumberOfTiles(Math.floor(window.innerWidth / 217));
     };
-
     window.addEventListener('resize', handleResize);
   }, [productID, window.innerWidth]);
 

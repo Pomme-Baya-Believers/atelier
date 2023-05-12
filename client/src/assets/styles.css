@@ -1,5 +1,5 @@
-/* RELATED MODAL  */
 
+/* RELATED MODAL  */
 
 #RelatedModalBackdrop {
   position:fixed;
@@ -110,16 +110,36 @@
   top:  8%;
   z-index: 1;
   font-size: 100%;
-  color: yellow;
+  color: black;
   width: 1.5em;
-  background-color: rgb(255, 208, 0);
-  border: 1% solid rgb(255, 208, 0);
+  background-color: white;
+  border: 1% solid white;
+  box-shadow: 0 0 6px white;
   border-radius: 50%;
   text-align: center;
   cursor: pointer;
   font-family: sans-serif
 }
 
+.MyOutfitActionButton {
+  position: absolute;
+  right: 8%;
+  top:  8%;
+  z-index: 1;
+  font-size: 100%;
+  color: rgb(0, 0, 0);
+  width: 1.5em;
+  height: 1.5em;
+  background-color: white;
+  border: 0px solid white;
+  box-shadow: 0 0 6px white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-family: sans-serif
+}
 .relatedBottomTile {
   height: 25%;
   display: flex;

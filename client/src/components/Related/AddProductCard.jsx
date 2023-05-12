@@ -9,7 +9,7 @@ const AddProductCard = ({ mainData, setStorage }) => {
     if (storage === null) {
       localStorage.setItem('MyOutfit', JSON.stringify([]))
     }
-    if (!storage)  {
+    if (!storage) {
       localStorage.setItem('MyOutfit', JSON.stringify(entry));
     } else {
       const ids = storage.map((product) => {

@@ -34,14 +34,21 @@ const MyOutfitCard = ({
   };
 
   const actionClick = () => {
-    setShowModal(true);
+    console.log(thisID)
+    let storage = JSON.parse(localStorage.getItem('MyOutfit'));
+    storage = storage.filter((product) => {
+      return product.id != thisID
+    });
+    localStorage.setItem('MyOutfit', JSON.stringify(storage))
+    console.log("FILTERED", storage)
+    setStorage(storagew)
   };
 
   const closeModal = () => {
     setShowModal(false);
   };
 
-  const actionText = related ? '★' : 'X';
+  const actionText = <div onClick={actionClick}> 	ⓧ </div>;
 
   return (
     <div className="relatedCard" >
@@ -50,7 +57,7 @@ const MyOutfitCard = ({
         <DetailsModal productID={productID} mainData={mainData}
   thisID={thisID} showModal={showModal} closeModal={closeModal} data={data}/>
             <div className="relatedProductImage">
-        <div className="relatedActionButton" onClick={actionClick}>
+        <div className="MyOutfitActionButton" >
         {actionText} </div>
         <img onClick={cardClick} src={productImage}>
         </img>
