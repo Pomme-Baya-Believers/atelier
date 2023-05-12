@@ -44,7 +44,7 @@ const RelatedProductsCard = ({
     setShowModal(false);
   };
 
-  const actionText = related ? '★' : 'X';
+  const actionText = '☆';
 
   return (
     <div className="relatedCard" >
