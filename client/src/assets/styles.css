@@ -257,9 +257,39 @@
   flex-direction: column;
 }
 
+.reviewResponse {
+  background-color: rgb(238, 238, 238);
+  padding-bottom: 1%;
+}
+
+.reviewShowMore {
+  font-size: 70%;
+}
+
+.reviewAllPhotos {
+  display: flex;
+  margin-top: 1%;
+}
+
+.reviewPhoto {
+  margin-right: 1%;
+}
+.reviewThumbnail {
+  height: 50px;
+  width: 50px;
+}
+
+.responseHeader {
+  font-size: 70%;
+  font-weight: bold;
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+
 .reviewFooter {
   height: 10%;
   font-size: 80%;
+  margin-top: 1%;
 }
 
   /* breakdowns */
