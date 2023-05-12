@@ -41,7 +41,7 @@ const MyOutfitCard = ({
     });
     localStorage.setItem('MyOutfit', JSON.stringify(storage))
     console.log("FILTERED", storage)
-    setStorage(storagew)
+    setStorage(storage)
   };
 
   const closeModal = () => {
