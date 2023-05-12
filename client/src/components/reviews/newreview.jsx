@@ -28,7 +28,8 @@ const NewReview = ({ productID, meta }) => {
         });
       }
     });
-
+    document.getElementById('newReview').close();
+    setForm({ product_id: Number(productID) });
     apiHelper.postReview(formData);
   };
 
@@ -43,13 +44,6 @@ const NewReview = ({ productID, meta }) => {
     } else {
       setForm({ ...form, [name]: value });
     }
-  };
-
-  const submitHandler = (e) => {
-    e.preventDefault();
-    document.getElementById('newReview').close();
-    apiHelper.postReview(form);
-    setForm({ product_id: Number(productID) });
   };
 
   const descriptions = {

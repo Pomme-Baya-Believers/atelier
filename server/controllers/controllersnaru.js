@@ -15,13 +15,15 @@ const get = (req, res) => {
 
 const post = (req, res) => {
   const newReview = JSON.parse(JSON.stringify(req.body));
+  newReview.photos = [];
   newReview.characteristics = JSON.parse(newReview.characteristics);
   newReview.product_id = Number(newReview.product_id);
   newReview.rating = Number(newReview.rating);
   newReview.recommend = Boolean(newReview.recommend);
   req.files.forEach((photo) => {
-    newReview.photos = [photo.path];
+    newReview.photos.push(photo.path.slice(12, photo.path.length));
   });
+
   const options = {
     url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews',
     headers: {
