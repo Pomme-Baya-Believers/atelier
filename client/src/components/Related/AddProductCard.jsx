@@ -28,6 +28,7 @@ const AddProductCard = ({ mainData, setStorage }) => {
   };
   const deleteItems = () => {
     localStorage.clear();
+    setStorage([])
   };
 
   const deleteThisItem = (item) => {
