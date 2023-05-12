@@ -266,6 +266,19 @@
   font-size: 70%;
 }
 
+.reviewAllPhotos {
+  display: flex;
+  margin-top: 1%;
+}
+
+.reviewPhoto {
+  margin-right: 1%;
+}
+.reviewThumbnail {
+  height: 50px;
+  width: 50px;
+}
+
 .responseHeader {
   font-size: 70%;
   font-weight: bold;
