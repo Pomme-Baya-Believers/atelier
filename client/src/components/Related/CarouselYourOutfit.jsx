@@ -26,7 +26,7 @@ const CarouselYourOutfit = ({
   uniqueRelated = storage;
 
   slicedRelated = uniqueRelated;
-  slicedRelated = slicedRelated.slice(position, numberOfTiles + position);
+  slicedRelated = slicedRelated.slice(position, numberOfTiles - 1 + position);
   relatedComponents = slicedRelated.map((product) => {
     return (
     <MyOutfitCard key={product.id} related={relatedBool} data={product} thisID={product.id} productID={productID}
@@ -38,7 +38,7 @@ const CarouselYourOutfit = ({
     ? <div className ="relatedArrow" onClick={clickLeftArrow}> {'<'} </div>
     : <div className ="relatedArrowOFF" > {'<'} </div>;
 
-  const rightArrow = position + numberOfTiles < uniqueRelated.length
+  const rightArrow = position + numberOfTiles - 1 < uniqueRelated.length
     ? <div className ="relatedArrow" onClick={clickRightArrow}> {'>'} </div>
     : <div className ="relatedArrowOFF"> {'>'} </div>;
 

@@ -53,7 +53,7 @@ const AddProductCard = ({ mainData, setStorage }) => {
     <>
     <div  className="relatedCard" onClick={() => addItem(mainData)}>Click Here to Add Item to Your Outfit</div>
     {/* <div className="relatedCard" onClick={() => deleteThisItem(mainData)}>Delete THIS item</div> */}
-    <div className="relatedCard" onClick={() => deleteItems(mainData)}>Delete All Items</div>
+    {/* <div className="relatedCard" onClick={() => deleteItems(mainData)}>Delete All Items</div> */}
     {/* <div className="relatedCard" onClick={() => readItems(mainData)}>ReadItems</div> */}
     {/* <div className="relatedCard" onClick={() => displayItems(mainData)}>displayItems</div> */}
     </>

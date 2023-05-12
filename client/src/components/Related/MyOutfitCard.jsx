@@ -52,10 +52,6 @@ const MyOutfitCard = ({
 
   return (
     <div className="relatedCard" >
-         {/* div wrapping DetailsModal, which recieves props
-            outerDiv conditional */}
-        <DetailsModal productID={productID} mainData={mainData}
-  thisID={thisID} showModal={showModal} closeModal={closeModal} data={data}/>
             <div className="relatedProductImage">
         <div className="MyOutfitActionButton" >
         {actionText} </div>
@@ -66,7 +62,6 @@ const MyOutfitCard = ({
         <div className="relatedCategory">{category}</div>
         <strong className="relatedProductName">{name}</strong>
         <div className="relatedPrice"> ${price} </div>
-        {/* <div className="relatedStars"> ★★★★★ </div> */}
       <StarRating productID={thisID}/>
       </div>
     </div>
