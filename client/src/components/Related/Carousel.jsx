@@ -10,7 +10,6 @@ let relatedComponents = [];
 const RelatedCarousel = ({
   numberOfTiles, productID, setProductID, related, relatedBool, mainData,
 }) => {
-  // console.log(mainData);
   const [position, setPosition] = useState(0);
   const clickRightArrow = () => {
     console.log('Right ARROW CLICKED');

@@ -23,11 +23,9 @@ const CarouselYourOutfit = ({
     if (position > 0) { setPosition(position - 1); }
   };
 
-
-    uniqueRelated = storage;
+  uniqueRelated = storage;
 
   slicedRelated = uniqueRelated;
-  console.log('SLICEDRELATED', slicedRelated)
   slicedRelated = slicedRelated.slice(position, numberOfTiles + position);
   relatedComponents = slicedRelated.map((product) => {
     return (

@@ -9,13 +9,10 @@ const AddProductCard = ({ mainData, setStorage }) => {
     if (storage === null) {
       localStorage.setItem('MyOutfit', JSON.stringify([]))
     }
-    console.log(storage)
     if (!storage)  {
       localStorage.setItem('MyOutfit', JSON.stringify(entry));
-      console.log("WAS empty")
     } else {
       const ids = storage.map((product) => {
-        console.log(product.id);
         return product.id;
       });
       if (!ids.includes(item.id)) {
@@ -34,7 +31,6 @@ const AddProductCard = ({ mainData, setStorage }) => {
   const deleteThisItem = (item) => {
     console.log(item.id);
     storage = JSON.parse(localStorage.getItem('MyOutfit'));
-    console.log(storage)
     storage = storage.filter((product) => {
       return product.id != item.id
     });

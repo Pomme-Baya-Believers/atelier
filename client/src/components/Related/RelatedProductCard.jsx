@@ -8,8 +8,6 @@ const { useState, useEffect } = React;
 const RelatedProductsCard = ({
   thisID, productID, setProductID, setPosition, related, mainData,
 }) => {
-  // const related = true;
-  // console.log(mainData)
   const [name, setName] = useState('');
   const [price, setPrice] = useState('');
   const [category, setCategory] = useState('');

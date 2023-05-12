@@ -17,12 +17,10 @@ const MyOutfitCard = ({
   const [productImage, setProductImage] = useState(
     'https://cdn.shopify.com/s/files/1/0419/1525/products/1024x1024-Men-Captain-Tobacco-043021-2.jpg?v=1620400973')
   const [showModal, setShowModal] = useState(false);
-    console.log(data)
   const {category} = data;
   const {price} = data;
   const {name} = data;
 
-  console.log("thisID", thisID)
   useEffect(() => {
     apiHelper.getStyles(thisID)
       .then((res) => {

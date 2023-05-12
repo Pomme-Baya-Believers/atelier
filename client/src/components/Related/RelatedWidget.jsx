@@ -11,8 +11,7 @@ const RelatedWidget = ({ productID, setProductID }) => {
   const [numberOfTiles, setNumberOfTiles] = useState(Math.floor(window.innerWidth / 217) );
   const [mainData, setMainData] = useState();
   const [storage, setStorage] = useState(JSON.parse(localStorage.getItem('MyOutfit')))
-  if(storage === null) {
-    console.log("WHATTT", storage)
+  if (storage === null) {
     setStorage([]);
     localStorage.setItem('MyOutfit', JSON.stringify([]))
   }
