@@ -18,6 +18,11 @@ const apiHelper = {
     axios.post('/naru', newReview)
       .catch((err) => console.error(err));
   },
+
+  putHelpful: (reviewID) => {
+    axios.put('/naru', { reviewID } )
+      .catch((err) => console.error(err));
+  },
 };
 
 export default apiHelper;

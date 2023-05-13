@@ -346,11 +346,19 @@ BarLoader {
 }
 
 .reviewFooter {
+  display: flex;
+  color: rgb(68, 68, 68);
   height: 10%;
   font-size: 80%;
   margin-top: 1%;
 }
 
+
+.reviewHelpfulClick:hover {
+  color: black;
+  text-decoration: underline;
+  font-weight: bold;
+}
   /* breakdowns */
 
 #breakdowns {

@@ -36,4 +36,17 @@ const post = (req, res) => {
     .catch((err) => res.status(500).send(err));
 };
 
-module.exports = { get, post };
+const put = (req, res) => {
+  const options = {
+    url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/${req.body.reviewID}/helpful`,
+    headers: {
+      Authorization: `${process.env.API_TOKEN}`,
+    },
+  };
+
+  axios.put(options.url, { review_id: req.body.reviewID }, { headers: options.headers })
+    .then(() => res.status(205).send())
+    .catch((err) => res.status(500).send(err));
+};
+
+module.exports = { get, post, put };
