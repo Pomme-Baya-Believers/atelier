@@ -2,6 +2,7 @@ import React from 'react';
 import apiHelper from './apihelpers.jsx';
 import DetailsModal from './DetailsModal.jsx';
 import StarRating from '../starRating.jsx';
+import PriceStrike from '../PriceStrike.jsx'
 
 const { useState, useEffect } = React;
 
@@ -11,6 +12,7 @@ const RelatedProductsCard = ({
   const [data, setData] = useState('');
   const [productImage, setProductImage] = useState('');
   const [showModal, setShowModal] = useState(false);
+  const [style, setStyle] = useState('');
 
   useEffect(() => {
     apiHelper.getProduct(thisID)
@@ -20,6 +22,7 @@ const RelatedProductsCard = ({
       .catch((err) => console.error(err));
     apiHelper.getStyles(thisID)
       .then((res) => {
+        setStyle(res);
         setProductImage(res.data.results[0].photos[0].thumbnail_url);
       });
   }, []);
@@ -51,8 +54,9 @@ const RelatedProductsCard = ({
     <div className="relatedBottomTile" onClick={cardClick}>
       <div className="relatedCategory">{data.category}</div>
       <strong className="relatedProductName">{data.name}</strong>
-      <div className="relatedPrice"> {data.defaul_price} </div>
-      <StarRating productID={thisID}/>
+      {/* <div className="relatedPrice"> {`$${data.default_price}`} </div> */}
+      <PriceStrike styles={style} />
+      <StarRating productID={thisID} data={data}/>
     </div>
   </div>
   );
