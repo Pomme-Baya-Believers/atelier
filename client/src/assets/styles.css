@@ -285,14 +285,17 @@ BarLoader {
   /* border-style: solid; */
 }
 
+.listButtons {
+  margin-top: 1%;
+}
+
 .reviewButton {
-  margin: 2%;
   width: 10%;
 }
 
 .newReviewButton {
-  margin: 2%;
   width: 10%;
+  margin-left: 1%;
 }
 
   /* review tile */
@@ -478,19 +481,96 @@ BarLoader {
   font-weight: bold;
 }
     /* newReview */
+#newReview {
+  width: 50%;
+}
+
+#newReviewForm {
+  display: flex;
+  flex-direction: column;
+}
+
+#newReviewHeader {
+  font-size: 150%;
+  font-weight: bold;
+}
+
+#newReviewName {
+  font-weight: bold;
+  font-size: 80%;
+  padding-bottom: 5%;
+}
+
+.newInputHeader {
+  font-weight: bold;
+  font-size: 110%;
+}
+
+#newStars {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.ratingLabels {
+  font-size: 25px;
+}
+
+#characteristics {
+  display: flex;
+  flex-direction: column;
+}
+
+.newCharacteristicBlock {
+  display: flex;
+  align-self: center;
+  flex-direction: column;
+  border: solid;
+  border-width: 1px;
+  margin-bottom: 1%;
+  width: 90%;
+}
+
+.newCharacteristicHeader {
+  align-self: center;
+  font-weight: bold;
+}
+
 .newCharacteristic {
   display: flex;
-  align-items: center;
+  justify-content: space-around;
 }
 
 .newDescription {
   display:flex;
-  flex-direction:column;
-  justify-content: space-evenly;
+  flex-direction: column;
+  font-size: 80%;
 }
 
 .newPhoto {
   height: 50px;
   width: 50px;
   margin-right: 1%;
+}
+
+#newSummaryInput {
+  width: 100%;
+}
+
+#newBody {
+  display: flex;
+  flex-direction: column;
+}
+#newBodyInput {
+  width: 100%;
+  resize: vertical;
+}
+
+#newMinChars {
+  font-size: 75%;
+  align-self: flex-end;
+}
+
+#newButtons {
+  display: flex;
+  justify-content: right;
 }
