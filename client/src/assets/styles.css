@@ -54,7 +54,6 @@
 
 /* RELATED MODAL  */
 
-
 #RelatedModalBackdrop {
   position:fixed;
   top:0;
@@ -114,6 +113,12 @@
 
 /* RELATED CAROUSEL RELATED CAROUSEL*/
 
+.relatedCarouselTitle {
+  font-family: sans-serif;
+  color: rgb(113, 113, 113);
+  font-size: 115%;
+}
+
 .relatedPanel {
   display: flex;
   border: 10px solid white;
@@ -130,6 +135,7 @@
 }
 
 
+
 /* RELATED CARD INDIVIDUAL CARD */
 
 .relatedCard  {
@@ -141,6 +147,32 @@
   background-color: rgba(237, 232, 232, 0.867);
 }
 
+.relatedAddCard  {
+  height: 300px;
+  width: 10%;
+  min-width: 150px;
+  margin: 10px;
+  justify-items: center;
+  box-shadow: -2px 2px 13px black;
+  background-color: rgba(237, 232, 232, 0.867);
+  font-family: sans-serif;
+  text-align: center ;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.relatedAddText {
+  color:rgb(84, 84, 84);
+  padding: .5rem;
+}
+
+#AddImage {
+position: absolute;
+  z-index: 0;
+  box-shadow: 0 0 5px blue;
+}
+
 .relatedProductImage {
   position: relative;
   cursor: pointer;
@@ -148,9 +180,14 @@
   height: 175px;
   display: flex;
   justify-content: center;
+  align-items: center;
   /* height: 75%; */
 }
 
+
+BarLoader {
+  z-index: -1;
+}
 
 .relatedActionButton {
   position: absolute;
@@ -158,16 +195,36 @@
   top:  8%;
   z-index: 1;
   font-size: 100%;
-  color: yellow;
+  color: black;
   width: 1.5em;
-  background-color: rgb(255, 208, 0);
-  border: 1% solid rgb(255, 208, 0);
+  background-color: white;
+  border: 1% solid white;
+  box-shadow: 0 0 6px white;
   border-radius: 50%;
   text-align: center;
   cursor: pointer;
   font-family: sans-serif
 }
 
+.MyOutfitActionButton {
+  position: absolute;
+  right: 8%;
+  top:  8%;
+  z-index: 1;
+  font-size: 100%;
+  color: rgb(0, 0, 0);
+  width: 1.5em;
+  height: 1.5em;
+  background-color: white;
+  border: 0px solid white;
+  box-shadow: 0 0 6px white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-family: sans-serif
+}
 .relatedBottomTile {
   height: 25%;
   display: flex;
@@ -180,7 +237,7 @@
   margin: 2%;
   font-family: sans-serif;
   font-size: .8em;
-  color: grsey
+  color: grey
 }
 
 .relatedProductName {
@@ -208,26 +265,27 @@
 }
 
 .relatedFogOfWarL {
-  background-color: white;
+  /* background-color: white; */
   width: fit-content;
   display: flex;
   align-items: center;
   padding-right: 40px;
   justify-content: end;
   font-size: 300%;
-  z-index: 2
+  z-index: 2;
+  /* box-shadow: 40px 0 30px white; */
 }
 
 .relatedFogOfWarR {
   background-color: white;
-  border: 5px solid white;
+  /* border: 5px solid white; */
   width: fit-content;
   display: flex;
   align-items: center;
   justify-self: end;
   font-size: 300%;
   box-shadow: -40px 0 30px white;
-  z-index: 3
+  z-index: 2
 }
 
 .relatedArrow {
@@ -280,14 +338,17 @@
   /* border-style: solid; */
 }
 
+.listButtons {
+  margin-top: 1%;
+}
+
 .reviewButton {
-  margin: 2%;
   width: 10%;
 }
 
 .newReviewButton {
-  margin: 2%;
   width: 10%;
+  margin-left: 1%;
 }
 
   /* review tile */
@@ -363,10 +424,23 @@
   margin-bottom: 1%;
 }
 
+#ratingFilter {
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+
+#ratingFilterButton {
+  font-size: 70%;
+}
+
 .rating {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.rating:hover {
+  background-color: lightblue;
 }
 
 .ratingBreakdownAverage {
@@ -460,13 +534,96 @@
   font-weight: bold;
 }
     /* newReview */
+#newReview {
+  width: 50%;
+}
+
+#newReviewForm {
+  display: flex;
+  flex-direction: column;
+}
+
+#newReviewHeader {
+  font-size: 150%;
+  font-weight: bold;
+}
+
+#newReviewName {
+  font-weight: bold;
+  font-size: 80%;
+  padding-bottom: 5%;
+}
+
+.newInputHeader {
+  font-weight: bold;
+  font-size: 110%;
+}
+
+#newStars {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.ratingLabels {
+  font-size: 25px;
+}
+
+#characteristics {
+  display: flex;
+  flex-direction: column;
+}
+
+.newCharacteristicBlock {
+  display: flex;
+  align-self: center;
+  flex-direction: column;
+  border: solid;
+  border-width: 1px;
+  margin-bottom: 1%;
+  width: 90%;
+}
+
+.newCharacteristicHeader {
+  align-self: center;
+  font-weight: bold;
+}
+
 .newCharacteristic {
   display: flex;
-  align-items: center;
+  justify-content: space-around;
 }
 
 .newDescription {
   display:flex;
-  flex-direction:column;
-  justify-content: space-evenly;
+  flex-direction: column;
+  font-size: 80%;
+}
+
+.newPhoto {
+  height: 50px;
+  width: 50px;
+  margin-right: 1%;
+}
+
+#newSummaryInput {
+  width: 100%;
+}
+
+#newBody {
+  display: flex;
+  flex-direction: column;
+}
+#newBodyInput {
+  width: 100%;
+  resize: vertical;
+}
+
+#newMinChars {
+  font-size: 75%;
+  align-self: flex-end;
+}
+
+#newButtons {
+  display: flex;
+  justify-content: right;
 }

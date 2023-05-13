@@ -1,29 +1,20 @@
 import React from 'react';
 import apiHelper from './apihelpers.jsx';
-import DetailsModal from './DetailsModal.jsx'
-import StarRating from '../starRating.jsx'
+import DetailsModal from './DetailsModal.jsx';
+import StarRating from '../starRating.jsx';
 
 const { useState, useEffect } = React;
 
 const RelatedProductsCard = ({
-  thisID, productID, setProductID, setPosition, related, mainData,
+  thisID, productID, setProductID, setPosition, mainData,
 }) => {
-  // const related = true;
-  // console.log(mainData)
-  const [name, setName] = useState('');
-  const [price, setPrice] = useState('');
-  const [category, setCategory] = useState('');
   const [data, setData] = useState('');
-  const [productImage, setProductImage] = useState(
-    'https://cdn.shopify.com/s/files/1/0419/1525/products/1024x1024-Men-Captain-Tobacco-043021-2.jpg?v=1620400973')
+  const [productImage, setProductImage] = useState('');
   const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     apiHelper.getProduct(thisID)
       .then((res) => {
-        setName(res.data.name);
-        setPrice(res.data.default_price);
-        setCategory(res.data.category);
         setData(res.data);
       })
       .catch((err) => console.error(err));
@@ -46,34 +37,25 @@ const RelatedProductsCard = ({
     setShowModal(false);
   };
 
-  const actionText = related ? '★' : 'X';
+  const actionText = '☆';
 
   return (
     <div className="relatedCard" >
-         {/* div wrapping DetailsModal, which recieves props
-            outerDiv conditional */}
-        <DetailsModal productID={productID} mainData={mainData}
+      <DetailsModal productID={productID} mainData={mainData}
   thisID={thisID} showModal={showModal} closeModal={closeModal} data={data}/>
-            <div className="relatedProductImage">
-        <div className="relatedActionButton" onClick={actionClick}>
-        {actionText} </div>
-        <img onClick={cardClick} src={productImage}>
-        </img>
-      </div>
-      <div className="relatedBottomTile" onClick={cardClick}>
-        <div className="relatedCategory">{category}</div>
-        <strong className="relatedProductName">{name}</strong>
-        <div className="relatedPrice"> ${price} </div>
-        {/* <div className="relatedStars"> ★★★★★ </div> */}
-      <StarRating productID={thisID}/>
-      </div>
+    <div className="relatedProductImage">
+      <div className="relatedActionButton" onClick={actionClick}>
+      {actionText} </div>
+      <img onClick={cardClick} src={productImage} />
     </div>
+    <div className="relatedBottomTile" onClick={cardClick}>
+      <div className="relatedCategory">{data.category}</div>
+      <strong className="relatedProductName">{data.name}</strong>
+      <div className="relatedPrice"> {data.defaul_price} </div>
+      <StarRating productID={thisID}/>
+    </div>
+  </div>
   );
 };
-{/* <button className='newReviewButton' type="button" onClick={() => { document.getElementById('newReview').showModal(); }} >Write a review</button> */}
 
 export default RelatedProductsCard;
-
-//GET /products/:product_id/related
-//returns [40946,40831,41246] array of numbers to utilize for related list
-{/* "https://cdn.shopify.com/s/files/1/0419/1525/products/1024x1024-Men-Captain-Tobacco-043021-2.jpg?v=1620400973" */}

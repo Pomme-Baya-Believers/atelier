@@ -7,13 +7,16 @@ import Carousel from './Carousel.jsx';
 const { useState, useEffect } = React;
 
 const RelatedWidget = ({ productID, setProductID }) => {
-  const [related, setRelated] = useState([Number(productID)]);
-  const [numberOfTiles, setNumberOfTiles] = useState(Math.floor(window.innerWidth / 217) );
+  const [related, setRelated] = useState();
+  const [numberOfTiles, setNumberOfTiles] = useState(Math.floor(window.innerWidth / 217));
   const [mainData, setMainData] = useState();
-  // const [position, setPosition] = useState(0);
-  console.log("NUMER OF TILES", numberOfTiles)
+  const [storage, setStorage] = useState(JSON.parse(localStorage.getItem('MyOutfit')));
+  const [carouselShadow, setCarouselShadow] = useState('relatedCarousel');
 
-  useEffect(() => {
+  if (storage === null) {
+    setStorage([]);
+    localStorage.setItem('MyOutfit', JSON.stringify([]));
+  } useEffect(() => {
     apiHelper.getProduct(productID)
       .then((res) => {
         setMainData(res.data);
@@ -28,25 +31,25 @@ const RelatedWidget = ({ productID, setProductID }) => {
       console.log('RESIZE', window.innerWidth, window.innerHeight);
       setNumberOfTiles(Math.floor(window.innerWidth / 217));
     };
-
     window.addEventListener('resize', handleResize);
   }, [productID, window.innerWidth]);
 
   const commonProps = {
-    mainData: mainData,
-    related: related,
-    numberOfTiles: numberOfTiles,
-    setRelated: setRelated,
-    productID: productID,
-    setProductID: setProductID,
-    // position: position,
-    // setPosition: setPosition
+    mainData,
+    related,
+    numberOfTiles,
+    setRelated,
+    productID,
+    setProductID,
+    carouselShadow,
+    setCarouselShadow,
   };
 
   return (
     <>
     <Carousel {...commonProps} relatedBool={true}/>
-    <CarouselYourOutfit {...commonProps} relatedBool={false}/>
+    <CarouselYourOutfit {...commonProps} relatedBool={false}
+      storage={storage} setStorage={setStorage}/>
     </>
   );
 };
