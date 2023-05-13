@@ -2,15 +2,14 @@ import React from 'react';
 import RelatedProductCard from './RelatedProductCard.jsx';
 import EmptyCard from './EmptyCard.jsx';
 
-const {useState} = React;
-
-let uniqueRelated = [];
-let slicedRelated = [];
-let relatedComponents = [];
+const { useState } = React;
 
 const RelatedCarousel = ({
-  numberOfTiles, productID, setProductID, related, relatedBool, mainData,
+  numberOfTiles, productID, setProductID, related, relatedBool, mainData, setCarouselShadow,
 }) => {
+  let uniqueRelated = [];
+  let slicedRelated = [];
+  let relatedComponents = [];
   const [position, setPosition] = useState(0);
   const clickRightArrow = () => {
     console.log('Right ARROW CLICKED');
@@ -50,21 +49,23 @@ const RelatedCarousel = ({
     ? <div className ="relatedArrow" onClick={clickRightArrow}> {'>'} </div>
     : <div className ="relatedArrowOFF"> {'>'} </div>;
 
+  if (position + numberOfTiles < uniqueRelated.length && position > 0) {
+    setCarouselShadow('relatedCarouselBoth');
+  } else if (position > 0) {
+    setCarouselShadow('relatedCarouselLeft');
+  } else if (position + numberOfTiles < uniqueRelated.length) {
+    setCarouselShadow('relatedCarouselRight');
+  }
+
   return (
     <>
-        <div className='relatedCarouselTitle'> Similar Items</div>
+      <div className='relatedCarouselTitle'> Similar Items</div>
       <div className="relatedPanel">
-          <div className="relatedFogOfWarL">
-             {leftArrow}
-          </div>
-          {/* <div> */}
-            <div className="relatedCarousel">
+          <div className="relatedFogOfWarL">{leftArrow}</div>
+            <div className='relatedCarousel'>
               {relatedComponents}
-            {/* </div> */}
-          </div>
-          <div className="relatedFogOfWarR">
-            {rightArrow}
-          </div>
+            </div>
+          <div className="relatedFogOfWarR">{rightArrow}</div>
       </div>
     </>
   );

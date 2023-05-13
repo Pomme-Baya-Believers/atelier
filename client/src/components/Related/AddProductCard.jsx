@@ -17,7 +17,7 @@ const AddProductCard = ({ productID, mainData, setStorage }) => {
     const entry = [item];
     storage = JSON.parse(localStorage.getItem('MyOutfit'));
     if (storage === null) {
-      localStorage.setItem('MyOutfit', JSON.stringify([]))
+      localStorage.setItem('MyOutfit', JSON.stringify([]));
     }
     if (!storage) {
       localStorage.setItem('MyOutfit', JSON.stringify(entry));
@@ -27,15 +27,14 @@ const AddProductCard = ({ productID, mainData, setStorage }) => {
         return product.id;
       });
       if (!ids.includes(item.id)) {
-        const newEntry = storage;
-        newEntry.push(item);
-        setStorage(newEntry);
+        storage.push(item);
+        setStorage(storage);
         localStorage.setItem('MyOutfit', JSON.stringify(storage));
       }
     }
   };
 
-let name = 'Item';
+  let name = 'Item';
 
   if (mainData) {
     name = mainData.name;
@@ -44,12 +43,12 @@ let name = 'Item';
   return (
     <>
     <div className="relatedAddCard" onClick={() => addItem(mainData)}>
-            <img key='image' src={productImage}/>
         <div>
             <div className="relatedAddText">Add  </div>
             <strong className="relatedAddText">{name} </strong>
             <div className="relatedAddText">To Your Outfit!!</div>
         </div>
+            <img key='image' src={productImage}/>
     </div>
     </>
 

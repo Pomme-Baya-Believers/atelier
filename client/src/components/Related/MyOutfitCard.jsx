@@ -1,7 +1,7 @@
 import React from 'react';
+import BarLoader from 'react-spinners/BarLoader';
 import apiHelper from './apihelpers.jsx';
-import BarLoader from 'react-spinners/BarLoader'
-import StarRating from '../starRating.jsx'
+import StarRating from '../starRating.jsx';
 
 const { useState, useEffect } = React;
 
@@ -10,7 +10,7 @@ const MyOutfitCard = ({
 }) => {
   const [productImage, setProductImage] = useState('');
   const { category } = data;
-  const { price } = data;
+  const price = `$ ${data.default_price}`;
   const { name } = data;
 
   useEffect(() => {
@@ -33,7 +33,7 @@ const MyOutfitCard = ({
       return product.id !== thisID;
     });
     localStorage.setItem('MyOutfit', JSON.stringify(storage));
-    console.log("FILTERED", storage);
+    console.log('FILTERED', storage);
     setStorage(storage);
   };
 
@@ -50,16 +50,11 @@ const MyOutfitCard = ({
       <div className="relatedBottomTile" onClick={cardClick}>
         <div className="relatedCategory">{category}</div>
         <strong className="relatedProductName">{name}</strong>
-        <div className="relatedPrice"> ${price} </div>
+        <div className="relatedPrice"> {price} </div>
       <StarRating productID={thisID}/>
       </div>
     </div>
   );
 };
-{/* <button className='newReviewButton' type="button" onClick={() => { document.getElementById('newReview').showModal(); }} >Write a review</button> */}
 
 export default MyOutfitCard;
-
-//GET /products/:product_id/related
-//returns [40946,40831,41246] array of numbers to utilize for related list
-{/* "https://cdn.shopify.com/s/files/1/0419/1525/products/1024x1024-Men-Captain-Tobacco-043021-2.jpg?v=1620400973" */}
