@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import BasicProductInfo from './basicProductInfo.jsx';
 import StyleSelector from './styleSelector.jsx';
-import ProductDescription from './ProductDescription.jsx';
+import ProductDescription from './productDescription.jsx';
 import AddToCart from './addToCart.jsx';
+import ImageGallery from './imageGallery.jsx';
 import '../../assets/styles.css';
 
 function Overview({ productID }) {
@@ -19,7 +20,7 @@ function Overview({ productID }) {
 
   const getStyles = (id) => {
     axios.get('/matthew/styles', { params: { endpoint: `${id}` } })
-      .then(({ data }) => { setStyles(data.results); console.log('This is what the getStyles API Call is making ', styles); })
+      .then(({ data }) => { setStyles(data.results); console.log('This is what the getStyles API Call is making ', data.results); })
       .catch((err) => console.error(err));
   };
 
@@ -35,11 +36,12 @@ function Overview({ productID }) {
 
   return (
     <div>
-      <BasicProductInfo style={styles[style]} product={product}/>
+      {styles.length > 0 && <ImageGallery styles={styles} style={style}/>}
+      {/* <BasicProductInfo style={styles[style]} product={product} productID={productID}/>
       <ProductDescription product={product}/>
       {product && styles && <AddToCart product={product} options={styles[style]}/>}
       <StyleSelector product={product} styles={styles}
-      style={style} handleStyleClick={handleStyleClick}/>
+      style={style} handleStyleClick={handleStyleClick}/> */}
     </div>
   );
 }
