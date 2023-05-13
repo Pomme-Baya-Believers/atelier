@@ -4,7 +4,6 @@ import MyOutfitCard from './MyOutfitCard.jsx';
 
 const { useState } = React;
 
-let uniqueRelated = [];
 let slicedRelated = [];
 let relatedComponents = [];
 
@@ -34,7 +33,7 @@ const CarouselYourOutfit = ({
     ? <div className ="relatedArrow" onClick={clickLeftArrow}> {'<'} </div>
     : <div className ="relatedArrowOFF" > {'<'} </div>;
 
-  const rightArrow = position + numberOfTiles - 1 < uniqueRelated.length
+  const rightArrow = position + numberOfTiles <= storage.length
     ? <div className ="relatedArrow" onClick={clickRightArrow}> {'>'} </div>
     : <div className ="relatedArrowOFF"> {'>'} </div>;
 
@@ -44,7 +43,7 @@ const CarouselYourOutfit = ({
     </>;
   } else {
     relatedComponents.unshift(
-      <AddProductCard key='2' mainData={mainData} productID={productID} setStorage={setStorage}/>,
+      <AddProductCard key='1' mainData={mainData} productID={productID} setStorage={setStorage}/>,
     );
   }
 

@@ -2,7 +2,7 @@ import React from 'react';
 import apiHelper from './apihelpers.jsx';
 import DetailsModal from './DetailsModal.jsx';
 import StarRating from '../starRating.jsx';
-import PriceStrike from '../PriceStrike.jsx'
+import PriceStrike from '../PriceStrike.jsx';
 
 const { useState, useEffect } = React;
 

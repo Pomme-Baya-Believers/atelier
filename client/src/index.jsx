@@ -12,8 +12,8 @@ const App = () => {
 
   return (
     <div>
-      <Overview productID={productID} />
-      <RelatedWidget productID={productID} setProductID={setProductID}/>
+      {/* <Overview productID={productID} /> */}
+      {/* <RelatedWidget productID={productID} setProductID={setProductID}/> */}
       {/* <ReviewList productID={productID}/> */}
       {/* <Star productID={productID}/> */}
     </div>
