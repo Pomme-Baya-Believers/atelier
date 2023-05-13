@@ -1,13 +1,29 @@
 import React, { useState } from 'react';
 import Stars from './reviewStarRating.jsx';
+import apiHelpers from './apihelpers.jsx';
 
 const ReviewTile = ({ review }) => {
   const [bodyDisplay, setBodyDisplay] = useState(review.body.slice(0, 250));
+  const [helpfulDisplay, setHelpfulDisplay] = useState(review.helpfulness);
+  const [clicked, setClicked] = useState(false);
   const readableDate = new Date(review.date).toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'long',
     day: 'numeric',
   });
+
+  const helpfulHandler = (val) => {
+    if (!clicked) {
+      if (val === 'yes') {
+        apiHelpers.putHelpful(review.review_id);
+        setHelpfulDisplay(helpfulDisplay + 1);
+        document.getElementById(`${review.review_id}yes`).style = 'text-decoration: underline; color: black; font-weight: bold;';
+      } else {
+        document.getElementById(`${review.review_id}no`).style = 'text-decoration: underline; color: black; font-weight: bold;';
+      }
+      setClicked(true);
+    }
+  };
 
   return (
   <div className='reviewTile'>
@@ -40,7 +56,9 @@ const ReviewTile = ({ review }) => {
       <div>{review.response}</div>
     </div>}
     <footer className='reviewFooter'>
-      Helpful? Yes {review.helpfulness}
+      Helpful?&#160;
+      <div className='reviewHelpfulClick' id={`${review.review_id}yes`} onClick={() => helpfulHandler('yes')}>Yes {`(${helpfulDisplay})`}</div>&#160;&#160;
+      <div className='reviewHelpfulClick' id={`${review.review_id}no`} onClick={() => helpfulHandler('no')}>No</div>
     </footer>
   </div>
   );

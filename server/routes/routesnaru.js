@@ -6,5 +6,6 @@ const controllers = require('../controllers/controllersnaru');
 
 Router.get('/', controllers.get);
 Router.post('/', upload.array('photos'), controllers.post);
+Router.put('/', controllers.put);
 
 module.exports = Router;
