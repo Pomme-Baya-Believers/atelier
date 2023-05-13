@@ -93,6 +93,32 @@
   background-color: rgba(237, 232, 232, 0.867);
 }
 
+.relatedAddCard  {
+  height: 300px;
+  width: 10%;
+  min-width: 150px;
+  margin: 10px;
+  justify-items: center;
+  box-shadow: 0px 0px 7px black;
+  background-color: rgba(237, 232, 232, 0.867);
+  font-family: sans-serif;
+  text-align: center ;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.relatedAddText {
+  color:rgb(84, 84, 84);
+  padding: .5rem;
+}
+
+#AddImage {
+position: absolute;
+  z-index: 0;
+  box-shadow: 0 0 5px blue;
+}
+
 .relatedProductImage {
   position: relative;
   cursor: pointer;
@@ -100,9 +126,14 @@
   height: 175px;
   display: flex;
   justify-content: center;
+  align-items: center;
   /* height: 75%; */
 }
 
+
+BarLoader {
+  z-index: -1;
+}
 
 .relatedActionButton {
   position: absolute;

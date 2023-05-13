@@ -1,25 +1,17 @@
 import React from 'react';
 import apiHelper from './apihelpers.jsx';
-import DetailsModal from './DetailsModal.jsx'
+import BarLoader from 'react-spinners/BarLoader'
 import StarRating from '../starRating.jsx'
 
 const { useState, useEffect } = React;
 
 const MyOutfitCard = ({
-  thisID, productID, setProductID, setPosition, related, mainData, data, setStorage,
+  thisID, setProductID, setPosition, data, setStorage,
 }) => {
-  // const related = true;
-  // console.log(mainData)
-  // const [name, setName] = useState('');
-  // const [price, setPrice] = useState('');
-  // const [category, setCategory] = useState('');
-  // const [data, setData] = useState('');
-  const [productImage, setProductImage] = useState(
-    'https://cdn.shopify.com/s/files/1/0419/1525/products/1024x1024-Men-Captain-Tobacco-043021-2.jpg?v=1620400973')
-  const [showModal, setShowModal] = useState(false);
-  const {category} = data;
-  const {price} = data;
-  const {name} = data;
+  const [productImage, setProductImage] = useState('');
+  const { category } = data;
+  const { price } = data;
+  const { name } = data;
 
   useEffect(() => {
     apiHelper.getStyles(thisID)
@@ -34,29 +26,26 @@ const MyOutfitCard = ({
   };
 
   const actionClick = () => {
-    console.log(thisID)
+    console.log(thisID);
     let storage = JSON.parse(localStorage.getItem('MyOutfit'));
+    // eslint-disable-next-line arrow-body-style
     storage = storage.filter((product) => {
-      return product.id != thisID
+      return product.id !== thisID;
     });
-    localStorage.setItem('MyOutfit', JSON.stringify(storage))
-    console.log("FILTERED", storage)
-    setStorage(storage)
+    localStorage.setItem('MyOutfit', JSON.stringify(storage));
+    console.log("FILTERED", storage);
+    setStorage(storage);
   };
 
-  const closeModal = () => {
-    setShowModal(false);
-  };
-
-  const actionText = <div onClick={actionClick}> 	ⓧ </div>;
+  const actionText = <div onClick={actionClick}> ⓧ </div>;
 
   return (
     <div className="relatedCard" >
             <div className="relatedProductImage">
         <div className="MyOutfitActionButton" >
         {actionText} </div>
-        <img onClick={cardClick} src={productImage}>
-        </img>
+        <img onClick={cardClick} src={productImage} />
+        <BarLoader color="#36d7b7"/>
       </div>
       <div className="relatedBottomTile" onClick={cardClick}>
         <div className="relatedCategory">{category}</div>

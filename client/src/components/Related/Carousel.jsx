@@ -1,5 +1,6 @@
 import React from 'react';
 import RelatedProductCard from './RelatedProductCard.jsx';
+import EmptyCard from './EmptyCard.jsx';
 
 const {useState} = React;
 
@@ -26,12 +27,20 @@ const RelatedCarousel = ({
 
   slicedRelated = uniqueRelated;
   slicedRelated = slicedRelated.slice(position, numberOfTiles + position);
+  // eslint-disable-next-line arrow-body-style
   relatedComponents = slicedRelated.map((id) => {
     return (
     <RelatedProductCard key={id} related={relatedBool} thisID={id} productID={productID}
     setProductID={setProductID} setPosition={setPosition} mainData={mainData}/>
     );
   });
+
+  if (related === undefined) {
+    // eslint-disable-next-line no-plusplus
+    for (let i = 0; i < numberOfTiles; i++) {
+      relatedComponents.push(<EmptyCard productID={productID}/>);
+    }
+  }
 
   const leftArrow = position > 0
     ? <div className ="relatedArrow" onClick={clickLeftArrow}> {'<'} </div>
