@@ -473,6 +473,11 @@
   font-size: 110%;
 }
 
+#newStars {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
 .ratingLabels {
   font-size: 25px;
 }

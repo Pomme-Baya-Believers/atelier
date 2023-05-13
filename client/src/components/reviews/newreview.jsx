@@ -1,7 +1,8 @@
+/* eslint-disable no-param-reassign */
+/* eslint-disable no-plusplus */
 import React, { useState, useEffect } from 'react';
 import apiHelper from './apihelpers.jsx';
 import apiHelperSean from '../Related/apihelpers.jsx';
-import Stars from './reviewStarRating.jsx';
 
 const NewReview = ({ productID, meta }) => {
   const [form, setForm] = useState({ product_id: (productID) });
@@ -15,6 +16,8 @@ const NewReview = ({ productID, meta }) => {
       .then(({ data }) => { setProduct(data); })
       .catch((err) => console.error(err));
   }, []);
+
+  const ratingDescriptions = ['', 'Poor', 'Fair', 'Average', 'Good', 'Great'];
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -87,7 +90,6 @@ const NewReview = ({ productID, meta }) => {
     Length: ['Runs short', 'Runs slightly short', 'Perfect', 'Runs slightly long', 'Runs long'],
     Fit: ['Runs tight', 'Runs slightly right', 'Perfect', 'Runs slightly long', 'Runs long'],
   };
-//          //onClick={() => document.getElementById('r1l').style.color='rgb(255, 196, 0)'}
 
   return (
     <dialog id='newReview'>
@@ -97,16 +99,19 @@ const NewReview = ({ productID, meta }) => {
        onChange={(e) => changeHandler(e)}>
         <div id='newRating'>
           <div className='newInputHeader'>Overall rating</div>
-          <label onMouseOver={() => mouseOverStar(1)} onMouseOut={() => mouseOutStar(1)} onClick={() => mouseClickStar(1)} id='r1l' className='ratingLabels' htmlFor="r1">&#9734;</label>
-          <input type='radio' name='rating' id='r1' value={1} hidden required/>
-          <label onMouseOver={() => mouseOverStar(2)} onMouseOut={() => mouseOutStar(2)} onClick={() => mouseClickStar(2)} id='r2l' className='ratingLabels' htmlFor="r2">&#9734;</label>
-          <input type='radio' name='rating' id='r2' hidden value={2}/>
-          <label onMouseOver={() => mouseOverStar(3)} onMouseOut={() => mouseOutStar(3)} onClick={() => mouseClickStar(3)} id='r3l' className='ratingLabels' htmlFor="r3">&#9734;</label>
-          <input type='radio' name='rating' id='r3' hidden value={3}/>
-          <label onMouseOver={() => mouseOverStar(4)} onMouseOut={() => mouseOutStar(4)} onClick={() => mouseClickStar(4)} id='r4l' className='ratingLabels' htmlFor="r4">&#9734;</label>
-          <input type='radio' name='rating' id='r4' hidden value={4}/>
-          <label onMouseOver={() => mouseOverStar(5)} onMouseOut={() => mouseOutStar(5)} onClick={() => mouseClickStar(5)} id='r5l' className='ratingLabels' htmlFor="r5">&#9734;</label>
-          <input type='radio' name='rating' id='r5' hidden value={5}/>
+            <div id='newStars'>
+              <label onMouseOver={() => mouseOverStar(1)} onMouseOut={() => mouseOutStar(1)} onClick={() => mouseClickStar(1)} id='r1l' className='ratingLabels' htmlFor="r1">&#9734;</label>
+              <input type='radio' name='rating' id='r1' value={1} hidden required/>
+              <label onMouseOver={() => mouseOverStar(2)} onMouseOut={() => mouseOutStar(2)} onClick={() => mouseClickStar(2)} id='r2l' className='ratingLabels' htmlFor="r2">&#9734;</label>
+              <input type='radio' name='rating' id='r2' hidden value={2}/>
+              <label onMouseOver={() => mouseOverStar(3)} onMouseOut={() => mouseOutStar(3)} onClick={() => mouseClickStar(3)} id='r3l' className='ratingLabels' htmlFor="r3">&#9734;</label>
+              <input type='radio' name='rating' id='r3' hidden value={3}/>
+              <label onMouseOver={() => mouseOverStar(4)} onMouseOut={() => mouseOutStar(4)} onClick={() => mouseClickStar(4)} id='r4l' className='ratingLabels' htmlFor="r4">&#9734;</label>
+              <input type='radio' name='rating' id='r4' hidden value={4}/>
+              <label onMouseOver={() => mouseOverStar(5)} onMouseOut={() => mouseOutStar(5)} onClick={() => mouseClickStar(5)} id='r5l' className='ratingLabels' htmlFor="r5">&#9734;</label>
+              <input type='radio' name='rating' id='r5' hidden value={5}/>
+              &#160;{ratingDescriptions[numStars]}
+            </div>
         </div>
         <div id='recommend'>
           <div className='newInputHeader'>Do you recommend this product?</div>
