@@ -25,13 +25,6 @@ const ReviewTile = ({ review }) => {
     }
   };
 
-  // const helpfulNoHandler = () => {
-  //   if (!clicked) {
-  //     document.getElementById(`${review.review_id}no`).style = 'text-decoration: underline; color: black; font-weight: bold;';
-  //     setClicked(true);
-  //   }
-  // };
-
   return (
   <div className='reviewTile'>
     <header className='reviewHeader'>
