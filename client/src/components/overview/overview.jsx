@@ -5,7 +5,7 @@ import StyleSelector from './styleSelector.jsx';
 import ProductDescription from './productDescription.jsx';
 import AddToCart from './addToCart.jsx';
 import ImageGallery from './imageGallery.jsx';
-import '../../assets/styles.css';
+// import '../../assets/styles.css';
 
 function Overview({ productID }) {
   const [product, setProduct] = useState([]);
