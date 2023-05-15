@@ -4,7 +4,6 @@ import MyOutfitCard from './MyOutfitCard.jsx';
 
 const { useState } = React;
 
-let uniqueRelated = [];
 let slicedRelated = [];
 let relatedComponents = [];
 
@@ -22,32 +21,29 @@ const CarouselYourOutfit = ({
     if (position > 0) { setPosition(position - 1); }
   };
 
-  uniqueRelated = storage;
-
-  slicedRelated = uniqueRelated;
-  slicedRelated = slicedRelated.slice(position, numberOfTiles - 1 + position);
+  slicedRelated = storage.slice(position, numberOfTiles - 1 + position);
   relatedComponents = slicedRelated.map((product) => (
-    <MyOutfitCard key={product.id} related={relatedBool}
-      data={product} thisID={product.id} productID={productID}
-    setProductID={setProductID} setPosition={setPosition}
-      setStorage={setStorage} mainData={mainData}/>
+      <MyOutfitCard key={product.id} related={relatedBool}
+        data={product} thisID={product.id} productID={productID}
+      setProductID={setProductID} setPosition={setPosition}
+        setStorage={setStorage} mainData={mainData}/>
   ));
 
   const leftArrow = position > 0
     ? <div className ="relatedArrow" onClick={clickLeftArrow}> {'<'} </div>
     : <div className ="relatedArrowOFF" > {'<'} </div>;
 
-  const rightArrow = position + numberOfTiles - 1 < uniqueRelated.length
+  const rightArrow = position + numberOfTiles <= storage.length
     ? <div className ="relatedArrow" onClick={clickRightArrow}> {'>'} </div>
     : <div className ="relatedArrowOFF"> {'>'} </div>;
 
   if (relatedComponents.length < 1) {
     relatedComponents[0] = <>
-    <AddProductCard key={1} mainData={mainData} productID={productID} setStorage={setStorage}/>
+    <AddProductCard key='1' mainData={mainData} productID={productID} setStorage={setStorage}/>
     </>;
   } else {
     relatedComponents.unshift(
-      <AddProductCard mainData={mainData} productID={productID} setStorage={setStorage}/>,
+      <AddProductCard key='1' mainData={mainData} productID={productID} setStorage={setStorage}/>,
     );
   }
 

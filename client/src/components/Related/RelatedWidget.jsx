@@ -11,7 +11,6 @@ const RelatedWidget = ({ productID, setProductID }) => {
   const [numberOfTiles, setNumberOfTiles] = useState(Math.floor(window.innerWidth / 217));
   const [mainData, setMainData] = useState();
   const [storage, setStorage] = useState(JSON.parse(localStorage.getItem('MyOutfit')));
-  const [carouselShadow, setCarouselShadow] = useState('relatedCarousel');
 
   if (storage === null) {
     setStorage([]);
@@ -41,8 +40,6 @@ const RelatedWidget = ({ productID, setProductID }) => {
     setRelated,
     productID,
     setProductID,
-    carouselShadow,
-    setCarouselShadow,
   };
 
   return (

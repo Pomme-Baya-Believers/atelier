@@ -24,8 +24,7 @@ const RelatedCarousel = ({
     uniqueRelated = [...new Set(related)];
   }
 
-  slicedRelated = uniqueRelated;
-  slicedRelated = slicedRelated.slice(position, numberOfTiles + position);
+  slicedRelated = uniqueRelated.slice(position, numberOfTiles + position);
   // eslint-disable-next-line arrow-body-style
   relatedComponents = slicedRelated.map((id) => {
     return (
@@ -37,7 +36,7 @@ const RelatedCarousel = ({
   if (related === undefined) {
     // eslint-disable-next-line no-plusplus
     for (let i = 0; i < numberOfTiles; i++) {
-      relatedComponents.push(<EmptyCard productID={productID}/>);
+      relatedComponents.push(<EmptyCard key={i} productID={productID}/>);
     }
   }
 
@@ -49,13 +48,13 @@ const RelatedCarousel = ({
     ? <div className ="relatedArrow" onClick={clickRightArrow}> {'>'} </div>
     : <div className ="relatedArrowOFF"> {'>'} </div>;
 
-  if (position + numberOfTiles < uniqueRelated.length && position > 0) {
-    setCarouselShadow('relatedCarouselBoth');
-  } else if (position > 0) {
-    setCarouselShadow('relatedCarouselLeft');
-  } else if (position + numberOfTiles < uniqueRelated.length) {
-    setCarouselShadow('relatedCarouselRight');
-  }
+  // if (position + numberOfTiles < uniqueRelated.length && position > 0) {
+  //   setCarouselShadow('relatedCarouselBoth');
+  // } else if (position > 0) {
+  //   setCarouselShadow('relatedCarouselLeft');
+  // } else if (position + numberOfTiles < uniqueRelated.length) {
+  //   setCarouselShadow('relatedCarouselRight');
+  // }
 
   return (
     <>
