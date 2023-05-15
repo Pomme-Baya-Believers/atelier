@@ -15,7 +15,7 @@ const PriceStrike = ({ styles, selectedStyle }) => {
     }
     const defaultPrice = defaultStyle.original_price;
     let salePrice = defaultStyle.sale_price;
-    salePrice = '49.00'; // UNCOMMENT for quick check for STRIKETHROUGH
+    // salePrice = '49.00'; // UNCOMMENT for quick check for STRIKETHROUGH
     if (salePrice === null) {
       priceComponent = <div className="relatedPrice">{`$${defaultPrice}`}</div>;
     } else {
@@ -35,7 +35,7 @@ const PriceStrike = ({ styles, selectedStyle }) => {
     } else {
       priceComponent = <div >
       <div className="relatedPriceStrike">{`$${selectedDefaultPrice}`}</div>
-      <div className="relatedPrice">{`$${selectedDefaultPrice}`}</div>
+      <div className="relatedPrice">{`Sale Price! $${selectedSalePrice}`}</div>
     </div>;
     }
   }
