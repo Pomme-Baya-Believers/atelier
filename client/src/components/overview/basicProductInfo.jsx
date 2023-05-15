@@ -1,5 +1,6 @@
 import React from 'react';
 import Star from '../starRating.jsx';
+import PriceStrike from '../PriceStrike.jsx';
 import '../../assets/styles.css';
 
 function BasicProductInfo({ style, product, productID }) {
@@ -11,7 +12,7 @@ function BasicProductInfo({ style, product, productID }) {
       <div>{productID && <Star productID={productID}/>}</div>
       <div>Category: {product.category}</div>
       <div>Product Title: {product.name}</div>
-      {style && style.sale_price === null && <div>${style.original_price}</div>}
+      {style && <PriceStrike selectedStyle={style}/>}
     </div>
   );
 }
