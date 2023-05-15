@@ -613,6 +613,10 @@ BarLoader {
   margin-right: 1%;
 }
 
+.newTip {
+  font-size: 75%;
+}
+
 #newSummaryInput {
   width: 100%;
 }
@@ -621,6 +625,7 @@ BarLoader {
   display: flex;
   flex-direction: column;
 }
+
 #newBodyInput {
   width: 100%;
   resize: vertical;

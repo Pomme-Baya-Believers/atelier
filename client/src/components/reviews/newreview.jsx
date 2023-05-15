@@ -153,11 +153,13 @@ const NewReview = ({ productID, meta }) => {
         </div>
         <div id='name'>
           <div className='newInputHeader'>Nickname</div>
-          <input type='text' name='name' maxLength='60' required/>
+          <input type='text' name='name' maxLength='60' placeholder='Example: jackson11!' required/>
+          <div className='newTip'>For privacy reasons, do not use your full name or email address</div>
         </div>
         <div id='email'>
           <div className='newInputHeader'>Email</div>
-          <input type='email' name='email' maxLength='60' required/>
+          <input type='email' name='email' maxLength='60' placeholder='Example: jackson11@email.com' required/>
+          <div className='newTip'>For authentication reasons, you will not be emailed</div>
         </div>
         <div id='newButtons'>
           <input value='Cancel' type='button' className='newReviewButton' onClick={() => document.getElementById('newReview').close()}/>
