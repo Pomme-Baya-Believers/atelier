@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import ImageGalleryThumbnails from './imageGalleryThumbnails.jsx';
-import '../../assets/styles.css';
 
 const ImageGallery = ({ styles, style }) => {
   const [mainPic, setMainPic] = useState(0);
