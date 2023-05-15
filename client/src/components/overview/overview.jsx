@@ -27,7 +27,7 @@ function Overview({ productID }) {
   useEffect(() => {
     getProduct(productID);
     getStyles(productID);
-  }, []);
+  }, [productID]);
 
   const handleStyleClick = (target) => {
     console.log(target);
@@ -37,11 +37,11 @@ function Overview({ productID }) {
   return (
     <div>
       {styles.length > 0 && <ImageGallery styles={styles} style={style}/>}
-      {/* <BasicProductInfo style={styles[style]} product={product} productID={productID}/>
+      <BasicProductInfo style={styles[style]} product={product} productID={productID}/>
       <ProductDescription product={product}/>
       {product && styles && <AddToCart product={product} options={styles[style]}/>}
       <StyleSelector product={product} styles={styles}
-      style={style} handleStyleClick={handleStyleClick}/> */}
+      style={style} handleStyleClick={handleStyleClick}/>
     </div>
   );
 }

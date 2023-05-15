@@ -13,7 +13,7 @@ const ReviewList = ({ productID }) => {
   const [meta, setMeta] = useState([]);
   const [displayedReviews, setDisplayedReviews] = useState([]);
 
-  useEffect(() => apiHelper.getReviews(10000, sort, productID, setReviews), []);
+  useEffect(() => apiHelper.getReviews(10000, sort, productID, setReviews), [productID]);
   useEffect(() => apiHelper.getReviews(10000, sort, productID, setReviews), [sort]);
   useEffect(() => apiHelper.getMeta(productID, setMeta), [reviews]);
 
