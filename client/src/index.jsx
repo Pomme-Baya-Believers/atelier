@@ -7,13 +7,17 @@ import Star from './components/starRating.jsx';
 import RelatedWidget from './components/Related/RelatedWidget.jsx';
 import apiHelper from './components/Related/apihelpers.jsx';
 
+import "./assets/styles.css";
+
 const App = () => {
   const [mainData, setMainData] = useState();
   const [productID, setProductID] = useState(40348);
 
   useEffect(() => {
     apiHelper.getProduct(productID)
-      .then((res) => { setMainData(res.data); })
+      .then((res) => {
+        setMainData(res.data);
+      })
       .catch((err) => console.log('ERROR', err));
   }, []);
 
