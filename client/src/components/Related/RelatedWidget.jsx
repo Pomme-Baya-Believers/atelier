@@ -23,7 +23,6 @@ const RelatedWidget = ({
       })
       .catch((err) => console.error(err));
     const handleResize = () => {
-      console.log('RESIZE', window.innerWidth, window.innerHeight);
       setNumberOfTiles(Math.floor(window.innerWidth / 217));
     };
     window.addEventListener('resize', handleResize);
@@ -36,13 +35,14 @@ const RelatedWidget = ({
     setRelated,
     productID,
     setProductID,
+    styles,
   };
 
   return (
     <>
     <Carousel {...commonProps}/>
     <CarouselYourOutfit {...commonProps}
-      storage={storage} setStorage={setStorage} styles={styles}/>
+      storage={storage} setStorage={setStorage}/>
     </>
   );
 };

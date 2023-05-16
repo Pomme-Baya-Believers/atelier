@@ -5,7 +5,7 @@ import EmptyCard from './EmptyCard.jsx';
 const { useState } = React;
 
 const RelatedCarousel = ({
-  numberOfTiles, productID, setProductID, relatedList, mainData,
+  numberOfTiles, productID, setProductID, relatedList, mainData, styles,
 }) => {
   let uniqueRelated = [];
   let slicedRelated = [];
@@ -25,7 +25,7 @@ const RelatedCarousel = ({
   // eslint-disable-next-line arrow-body-style
   relatedComponents = slicedRelated.map((id) => {
     return (
-    <RelatedProductCard key={id} thisID={id} productID={productID}
+    <RelatedProductCard key={id} thisID={id} productID={productID} styles={styles}
     setProductID={setProductID} setPosition={setPosition} mainData={mainData}/>
     );
   });

@@ -1,9 +1,8 @@
 import React from 'react';
 
 const AddProductCard = ({ mainData, setStorage, styles }) => {
-  // const [productImage, setProductImage] = useState('');
   let productImage;
-
+  console.log('In ADD PRODUCT', styles)
   if (styles) {
     productImage = styles.results[0].photos[0].thumbnail_url;
     // setProductImage(styles.results[0].photos[0].thumbnail_url);
