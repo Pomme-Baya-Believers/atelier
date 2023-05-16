@@ -5,35 +5,33 @@ import EmptyCard from './EmptyCard.jsx';
 const { useState } = React;
 
 const RelatedCarousel = ({
-  numberOfTiles, productID, setProductID, related, relatedBool, mainData, setCarouselShadow,
+  numberOfTiles, productID, setProductID, relatedList, mainData,
 }) => {
+  console.log("RELATED LIST", relatedList)
   let uniqueRelated = [];
   let slicedRelated = [];
   let relatedComponents = [];
   const [position, setPosition] = useState(0);
   const clickRightArrow = () => {
     console.log('Right ARROW CLICKED');
-    if (position + 2 < related.length) { setPosition(position + 1); }
+    if (position + 2 < relatedList.length) { setPosition(position + 1); }
   };
   const clickLeftArrow = () => {
     console.log('Left ARROW CLICKED');
     if (position > 0) { setPosition(position - 1); }
   };
-
-  if (relatedBool) {
-    uniqueRelated = [...new Set(related)];
-  }
+  uniqueRelated = [...new Set(relatedList)];
 
   slicedRelated = uniqueRelated.slice(position, numberOfTiles + position);
   // eslint-disable-next-line arrow-body-style
   relatedComponents = slicedRelated.map((id) => {
     return (
-    <RelatedProductCard key={id} related={relatedBool} thisID={id} productID={productID}
+    <RelatedProductCard key={id} thisID={id} productID={productID}
     setProductID={setProductID} setPosition={setPosition} mainData={mainData}/>
     );
   });
 
-  if (related === undefined) {
+  if (relatedList === undefined) {
     // eslint-disable-next-line no-plusplus
     for (let i = 0; i < numberOfTiles; i++) {
       relatedComponents.push(<EmptyCard key={i} productID={productID}/>);
@@ -47,14 +45,6 @@ const RelatedCarousel = ({
   const rightArrow = position + numberOfTiles < uniqueRelated.length
     ? <div className ="relatedArrow" onClick={clickRightArrow}> {'>'} </div>
     : <div className ="relatedArrowOFF"> {'>'} </div>;
-
-  // if (position + numberOfTiles < uniqueRelated.length && position > 0) {
-  //   setCarouselShadow('relatedCarouselBoth');
-  // } else if (position > 0) {
-  //   setCarouselShadow('relatedCarouselLeft');
-  // } else if (position + numberOfTiles < uniqueRelated.length) {
-  //   setCarouselShadow('relatedCarouselRight');
-  // }
 
   return (
     <>

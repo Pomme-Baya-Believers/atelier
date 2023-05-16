@@ -8,7 +8,8 @@ let slicedRelated = [];
 let relatedComponents = [];
 
 const CarouselYourOutfit = ({
-  numberOfTiles, productID, setProductID, related, relatedBool, mainData, storage, setStorage,
+  numberOfTiles, productID, setProductID, related,
+  mainData, storage, setStorage, styles,
 }) => {
   const [position, setPosition] = useState(0);
 
@@ -23,7 +24,7 @@ const CarouselYourOutfit = ({
 
   slicedRelated = storage.slice(position, numberOfTiles - 1 + position);
   relatedComponents = slicedRelated.map((product) => (
-      <MyOutfitCard key={product.id} related={relatedBool}
+      <MyOutfitCard key={product.id}
         data={product} thisID={product.id} productID={productID}
       setProductID={setProductID} setPosition={setPosition}
         setStorage={setStorage} mainData={mainData}/>
@@ -38,12 +39,10 @@ const CarouselYourOutfit = ({
     : <div className ="relatedArrowOFF"> {'>'} </div>;
 
   if (relatedComponents.length < 1) {
-    relatedComponents[0] = <>
-    <AddProductCard key='1' mainData={mainData} productID={productID} setStorage={setStorage}/>
-    </>;
+    relatedComponents[0] = <AddProductCard key='1' mainData={mainData} styles={styles} productID={productID} setStorage={setStorage}/>
   } else {
     relatedComponents.unshift(
-      <AddProductCard key='1' mainData={mainData} productID={productID} setStorage={setStorage}/>,
+      <AddProductCard key='1' mainData={mainData} styles={styles} productID={productID} setStorage={setStorage}/>,
     );
   }
 

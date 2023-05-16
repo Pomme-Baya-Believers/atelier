@@ -9,24 +9,24 @@ const { useState, useEffect } = React;
 const MyOutfitCard = ({
   thisID, setProductID, setPosition, data, setStorage,
 }) => {
+  const [productStyle, setProductStyle] = useState('');
   const [productImage, setProductImage] = useState('');
   const { category } = data;
-  const price = `$ ${data.default_price}`;
   const { name } = data;
-
   useEffect(() => {
     apiHelper.getStyles(thisID)
       .then((res) => {
+        setProductStyle(res.data.results[0]);
         setProductImage(res.data.results[0].photos[0].thumbnail_url);
       });
-  }, []);
+    }, []);
 
   const cardClick = () => {
     setProductID(thisID);
     setPosition(0);
   };
 
-  const actionClick = () => {
+  const removeProduct = () => {
     console.log(thisID);
     let storage = JSON.parse(localStorage.getItem('MyOutfit'));
     // eslint-disable-next-line arrow-body-style
@@ -38,7 +38,7 @@ const MyOutfitCard = ({
     setStorage(storage);
   };
 
-  const actionText = <div onClick={actionClick}> ⓧ </div>;
+  const actionText = <div onClick={removeProduct}> ⓧ </div>;
 
   return (
     <div className="relatedCard" >
@@ -51,8 +51,8 @@ const MyOutfitCard = ({
       <div className="relatedBottomTile" onClick={cardClick}>
         <div className="relatedCategory">{category}</div>
         <strong className="relatedProductName">{name}</strong>
-        <div className="relatedPrice"> {price} </div>
-        <PriceStrike />
+        {/* <div className="relatedPrice"> {price} </div> */}
+        <PriceStrike selectedStyle={productStyle} />
       <StarRating productID={thisID}/>
       </div>
     </div>
