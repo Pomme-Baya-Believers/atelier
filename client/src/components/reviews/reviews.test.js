@@ -3,13 +3,11 @@
  */
 import React from 'react';
 import { render, fireEvent, screen } from '@testing-library/react';
-import axios from 'axios';
 import ReviewList from './reviewlist.jsx';
 import ReviewTile from './reviewtile.jsx';
 import RatingBreakdown from './ratingbreakdown.jsx';
 import NewReview from './newreview.jsx';
 import ProductBreakdown from './productBreakdown.jsx';
-import apiHelpers from './apihelpers.jsx';
 
 const reviewData = {
   product: '40348',
@@ -241,12 +239,12 @@ describe('New Review Form', () => {
   it('should not render any thumbnails if there are no files chosen', () => {
     const { container } = render(<NewReview productID={40344} meta={metaData}/>);
     expect(container.querySelector('.newPhotos')).not.toContain('src');
-  })
+  });
 });
 
 describe('Product Breakdown', () => {
   it('sets characteristics based on meta data', () => {
     const { container } = render(<ProductBreakdown meta={metaData}/>);
     expect(container.innerHTML).toContain('Size');
-  })
+  });
 });
