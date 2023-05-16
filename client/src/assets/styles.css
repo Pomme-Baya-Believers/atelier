@@ -378,6 +378,11 @@ BarLoader {
   padding-bottom: 1%;
 }
 
+#Irecommend {
+  font-size: 85%;
+  margin-bottom: 1%;
+}
+
 .reviewContent {
   display: flex;
   flex-direction: column;
@@ -646,6 +651,7 @@ BarLoader {
 #newBodyInput {
   width: 100%;
   resize: vertical;
+  font-family: sans-serif;
 }
 
 #newMinChars {
