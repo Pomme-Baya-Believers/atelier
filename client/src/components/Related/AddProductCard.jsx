@@ -1,5 +1,4 @@
 import React from 'react';
-import apiHelper from './apihelpers.jsx';
 
 const AddProductCard = ({ mainData, setStorage, styles }) => {
   // const [productImage, setProductImage] = useState('');

@@ -19,7 +19,7 @@ const MyOutfitCard = ({
         setProductStyle(res.data.results[0]);
         setProductImage(res.data.results[0].photos[0].thumbnail_url);
       });
-    }, []);
+  }, []);
 
   const cardClick = () => {
     setProductID(thisID);
@@ -27,14 +27,12 @@ const MyOutfitCard = ({
   };
 
   const removeProduct = () => {
-    console.log(thisID);
     let storage = JSON.parse(localStorage.getItem('MyOutfit'));
     // eslint-disable-next-line arrow-body-style
     storage = storage.filter((product) => {
       return product.id !== thisID;
     });
     localStorage.setItem('MyOutfit', JSON.stringify(storage));
-    console.log('FILTERED', storage);
     setStorage(storage);
   };
 

@@ -7,7 +7,6 @@ const { useState } = React;
 const RelatedCarousel = ({
   numberOfTiles, productID, setProductID, relatedList, mainData,
 }) => {
-  console.log("RELATED LIST", relatedList)
   let uniqueRelated = [];
   let slicedRelated = [];
   let relatedComponents = [];

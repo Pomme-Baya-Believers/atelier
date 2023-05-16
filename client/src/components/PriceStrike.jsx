@@ -29,7 +29,6 @@ const PriceStrike = ({ styles, selectedStyle }) => {
 
   // *SHOULD* bw ready to receive a SPECIFIC STYLE as a prop]
   if (selectedStyle) {
-    // console.log("SelectedSTyle", JSON.stringify(selectedStyle))
     const selectedDefaultPrice = selectedStyle.original_price;
     const selectedSalePrice = selectedStyle.sale_price;
     if (selectedSalePrice === null) {
