@@ -34,7 +34,7 @@ const ReviewTile = ({ review }) => {
     <section className='reviewContent'>
       <h3 id='reviewSummary'>{review.summary}</h3>
       <div id='reviewBody'>
-        <div>{bodyDisplay}</div>
+        <div id='reviewBodyDisplay'>{bodyDisplay}</div>
         {review.body.length > 251 && bodyDisplay === review.body.slice(0, 250)
         && <button className='reviewShowMore' onClick={() => setBodyDisplay(review.body)}>Show more</button>}
       </div>
