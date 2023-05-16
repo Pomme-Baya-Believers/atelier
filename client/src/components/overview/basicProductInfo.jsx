@@ -1,7 +1,6 @@
 import React from 'react';
 import Star from '../starRating.jsx';
 import PriceStrike from '../PriceStrike.jsx';
-import '../../assets/styles.css';
 
 function BasicProductInfo({ style, product, productID }) {
   console.log('This is the style prop ', style);

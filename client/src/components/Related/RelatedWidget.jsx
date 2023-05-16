@@ -6,21 +6,15 @@ import Carousel from './Carousel.jsx';
 
 const { useState, useEffect } = React;
 
-const RelatedWidget = ({ productID, setProductID }) => {
+const RelatedWidget = ({ productID, setProductID, mainData }) => {
   const [related, setRelated] = useState();
   const [numberOfTiles, setNumberOfTiles] = useState(Math.floor(window.innerWidth / 217));
-  const [mainData, setMainData] = useState();
   const [storage, setStorage] = useState(JSON.parse(localStorage.getItem('MyOutfit')));
 
   if (storage === null) {
     setStorage([]);
     localStorage.setItem('MyOutfit', JSON.stringify([]));
   } useEffect(() => {
-    apiHelper.getProduct(productID)
-      .then((res) => {
-        setMainData(res.data);
-      })
-      .catch((err) => console.log('ERROR', err));
     apiHelper.getRelated(productID)
       .then((res) => {
         setRelated(res.data);

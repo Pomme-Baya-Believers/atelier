@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import "../assets/styles.css";
 import axios from 'axios';
 
 const Star = ({ productID }) => {
