@@ -471,7 +471,6 @@ describe('RelatedProductsCard Renders', () => {
 //     const index = render(<Index/>);
 //     expect(index).toBeDefined();
 //   });
-});
 
 describe('EmptyCard Renders', () => {
   it('renders the EmptyCard component', () => {
