@@ -10,6 +10,7 @@ const NewReview = ({ productID, meta }) => {
   const [photos, setPhotos] = useState([]);
   const [product, setProduct] = useState([]);
   const [numStars, setNumStars] = useState(0);
+  const [selectedChar, setSelectedChar] = useState({});
 
   useEffect(() => {
     apiHelperSean.getProduct(productID)
@@ -131,13 +132,19 @@ const NewReview = ({ productID, meta }) => {
           {meta.characteristics && Object.keys(meta.characteristics).map((characteristic) => (
             <div key={characteristic} className='newCharacteristicBlock'>
               <div className='newCharacteristicHeader'>{characteristic}</div>
+              <div className='newSelectedCharacteristic'>
+                {descriptions[characteristic][selectedChar[characteristic] - 1] || 'none selected'}
+              </div>
               <div className='newCharacteristic'>
                 {descriptions[characteristic].map((description, idx) => (
                   <div className='newDescription' key={`${characteristic}${idx}`}>
-                    <label htmlFor={`${characteristic}${idx}`}>{description}</label>
-                    <input type='radio' name={meta.characteristics[characteristic].id} id={`${characteristic}${idx}`} value={idx + 1} required/>
+                    <input type='radio' name={meta.characteristics[characteristic].id} id={`${characteristic}${idx}`} value={idx + 1} required onChange={(e) => setSelectedChar({ ...selectedChar, [characteristic]: e.target.value })}/>
                   </div>
                 ))}
+              </div>
+              <div className='newRange'>
+                <div>{descriptions[characteristic][0]}</div>
+                <div>{descriptions[characteristic][4]}</div>
               </div>
             </div>
           ))}
