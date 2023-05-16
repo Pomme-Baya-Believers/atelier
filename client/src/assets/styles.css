@@ -378,6 +378,11 @@ BarLoader {
   padding-bottom: 1%;
 }
 
+#Irecommend {
+  font-size: 85%;
+  margin-bottom: 1%;
+}
+
 .reviewContent {
   display: flex;
   flex-direction: column;
@@ -490,10 +495,16 @@ BarLoader {
   padding-bottom: 3%;
 }
 
+#ratingTotal {
+  font-size: 80%;
+  align-self: flex-end;
+}
+
 .ratingCount {
   width: 5%;
   justify-content: flex-end;
 }
+
 .ratingBar {
   height: 10px;
   width: 70%;
@@ -640,6 +651,7 @@ BarLoader {
 #newBodyInput {
   width: 100%;
   resize: vertical;
+  font-family: sans-serif;
 }
 
 #newMinChars {

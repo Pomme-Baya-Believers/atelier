@@ -51,13 +51,21 @@ const NewReview = ({ productID, meta }) => {
     }
   };
 
+  const photoHandler = (e) => {
+    if (photos.length + e.target.files.length > 5) {
+      alert('You can only upload a maximum of 5 photos');
+    } else {
+      setPhotos([...photos, ...e.target.files]);
+    }
+  };
+
   const mouseOverStar = (val) => {
     while (val > 0) {
       document.getElementById(`r${val}l`).innerHTML = '&#9733;';
       document.getElementById(`r${val}l`).style.color = '#fc0';
       val--;
     }
-  }
+  };
 
   const mouseOutStar = (val) => {
     while (val > numStars) {
@@ -65,7 +73,7 @@ const NewReview = ({ productID, meta }) => {
       document.getElementById(`r${val}l`).style.color = '';
       val--;
     }
-  }
+  };
 
   const mouseClickStar = (val) => {
     setNumStars(val);
@@ -80,7 +88,7 @@ const NewReview = ({ productID, meta }) => {
       document.getElementById(`r${val}l`).style.color = '#fc0';
       val--;
     }
-  }
+  };
 
   const descriptions = {
     Size: ['A size too small', '1/2 a size too small', 'Perfect', '1/2 a size too big', 'A size too big'],
@@ -145,7 +153,7 @@ const NewReview = ({ productID, meta }) => {
         </div>
         <div id='photos'>
           <div className='newInputHeader'>Add photos</div>
-          <input type="file" name='photos' multiple accept=".png, .jpg, .jpeg" onChange={(e) => setPhotos([...photos, ...e.target.files])}/>
+          <input type="file" name='photos' multiple accept=".png, .jpg, .jpeg" onChange={(e) => photoHandler(e)}/>
           <div className='newPhotos'>
           {photos && photos.map((photo, idx) => (
             <img key={`photo${idx}`} className='newPhoto' src={URL.createObjectURL(photo)}/>))}

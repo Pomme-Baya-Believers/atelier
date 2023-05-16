@@ -747,4 +747,3 @@ describe('StyleSelector Component', () => {
     const styleselector = render(<StyleSelector product={product} styles={styles} style={0} handleStyleClick={jest.fn()} />)
     expect(styleselector).toBeDefined()
   });
-});
