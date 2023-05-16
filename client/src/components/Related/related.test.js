@@ -451,18 +451,11 @@ describe('AddProductCard Renders', () => {
   it('renders the EmptyCard component', () => {
     const addProduct = render(<AddProductCard mainData={mainData} />);
     expect(addProduct).toBeDefined();
-  });
+  }),
   it('renders the EmptyCard component', () => {
     const addProduct = render(<AddProductCard mainData={mainData}  />);
     expect(addProduct).toBeDefined();
   });
-  // it('adds a product onClick', () => {
-  //   const { container } = render(<AddProductCard />)
-  //   const actionButton  = container.querySelector('.relatedAddCard')
-  //   fireEvent.click()
-  //   expect(addProduct).toBeDefined();
-  // });
-
 });
 
 describe('RelatedProductsCard Renders', () => {
