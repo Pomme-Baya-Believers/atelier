@@ -1,21 +1,10 @@
 import React from 'react';
-import apiHelper from './apihelpers.jsx';
 
 // const {useState, useEffect} = React;
 
 const DetailsModal = ({
-  productID, thisID, showModal, closeModal, data, mainData,
+  showModal, closeModal, data, mainData,
 }) => {
-  // console.log(mainData)
-  // const [mainProductData, setMainProductData] = useState([]);
-  // useEffect(() => {
-  //   apiHelper.getProduct(productID)
-  //     .then((res) => {
-  //       setMainProductData(res.data);
-  //     })
-  //     .catch((err) => console.error(err));
-  // }, []);
-
   let hash = {};
   if (data && mainData && mainData.features) {
     const mainFeatures = mainData.features;
@@ -34,6 +23,7 @@ const DetailsModal = ({
     });
   }
   hash = Object.entries(hash);
+  // eslint-disable-next-line arrow-body-style
   const entries = hash.map((e) => {
     return (
         <tr key={e[0]}>
@@ -63,8 +53,6 @@ const DetailsModal = ({
     </table>
     </div>
   </div>) : '';
-
-
 
   // const detailsBox = ''
 

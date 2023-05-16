@@ -4,7 +4,6 @@ import axios from 'axios';
 
 const Star = ({ productID }) => {
   const [averageRating, setAverageRating] = useState(0);
-  // console.log('This is the star productID', productID);
 
   useEffect(() => {
     axios.get('/matthew/meta', { params: { endpoint: `?product_id=${productID}` } })

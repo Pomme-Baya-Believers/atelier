@@ -6,8 +6,10 @@ import Carousel from './Carousel.jsx';
 
 const { useState, useEffect } = React;
 
-const RelatedWidget = ({ productID, setProductID, mainData }) => {
-  const [related, setRelated] = useState();
+const RelatedWidget = ({
+  productID, setProductID, mainData, styles,
+}) => {
+  const [relatedList, setRelated] = useState();
   const [numberOfTiles, setNumberOfTiles] = useState(Math.floor(window.innerWidth / 217));
   const [storage, setStorage] = useState(JSON.parse(localStorage.getItem('MyOutfit')));
 
@@ -29,7 +31,7 @@ const RelatedWidget = ({ productID, setProductID, mainData }) => {
 
   const commonProps = {
     mainData,
-    related,
+    relatedList,
     numberOfTiles,
     setRelated,
     productID,
@@ -38,9 +40,9 @@ const RelatedWidget = ({ productID, setProductID, mainData }) => {
 
   return (
     <>
-    <Carousel {...commonProps} relatedBool={true}/>
-    <CarouselYourOutfit {...commonProps} relatedBool={false}
-      storage={storage} setStorage={setStorage}/>
+    <Carousel {...commonProps}/>
+    <CarouselYourOutfit {...commonProps}
+      storage={storage} setStorage={setStorage} styles={styles}/>
     </>
   );
 };
