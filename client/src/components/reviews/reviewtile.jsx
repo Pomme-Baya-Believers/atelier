@@ -38,7 +38,7 @@ const ReviewTile = ({ review }) => {
         {review.body.length > 251 && bodyDisplay === review.body.slice(0, 250)
         && <button className='reviewShowMore' onClick={() => setBodyDisplay(review.body)}>Show more</button>}
       </div>
-      {review.recommend ? <p>&#x2714;{'I recommend this product'}</p> : null}
+      {review.recommend ? <p id='Irecommend'>&#x2714;{'I recommend this product'}</p> : null}
       <div className='reviewAllPhotos'>
         {review.photos && review.photos.map((photo) => (
           <div className='reviewPhoto' key={photo.url}>
