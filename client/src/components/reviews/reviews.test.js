@@ -127,36 +127,36 @@ describe('Rating Breakdown', () => {
 
 describe('Review Tile', () => {
   it('renders the Review Tile component', () => {
-    const reviewtile = render(<ReviewTile review={reviewData.results[0]}/>);
+    const reviewtile = render(<ReviewTile review={reviewData.results[0]} term=''/>);
     expect(reviewtile).toBeDefined();
   });
 
   it('sets the name', () => {
-    const { container } = render(<ReviewTile review={reviewData.results[0]}/>);
+    const { container } = render(<ReviewTile review={reviewData.results[0]} term=''/>);
     const name = container.querySelector('.reviewHeader');
     expect(name.innerHTML).toContain('ASDDFSDFS');
   });
 
   it ('sets the summary', () => {
-    const { container } = render(<ReviewTile review={reviewData.results[0]}/>);
+    const { container } = render(<ReviewTile review={reviewData.results[0]} term=''/>);
     const summary = container.querySelector('#reviewSummary');
     expect(summary.innerHTML).toContain('Good overall');
   });
 
   it('sets the body', () => {
-    const { container } = render(<ReviewTile review={reviewData.results[0]}/>);
+    const { container } = render(<ReviewTile review={reviewData.results[0]} term=''/>);
     const body = container.querySelector('#reviewBody');
     expect(body.innerHTML).toContain('Loved it super great');
   });
 
   it('shows less than 250 characters in the body', () => {
-    const { container } = render(<ReviewTile review={reviewData.results[1]}/>);
+    const { container } = render(<ReviewTile review={reviewData.results[1]} term=''/>);
     const body = container.querySelector('#reviewBodyDisplay');
     expect(body.innerHTML.length).toBeLessThan(251);
   });
 
   it('shows more when button is clicked', () => {
-    const { container } = render(<ReviewTile review={reviewData.results[1]}/>);
+    const { container } = render(<ReviewTile review={reviewData.results[1]} term=''/>);
     const body = container.querySelector('#reviewBodyDisplay');
     const button = container.querySelector('.reviewShowMore');
     fireEvent.click(button);
@@ -164,25 +164,25 @@ describe('Review Tile', () => {
   });
 
   it('renders photos', () => {
-    const { container } = render(<ReviewTile review={reviewData.results[1]}/>);
+    const { container } = render(<ReviewTile review={reviewData.results[1]} term=''/>);
     const photos = container.querySelector('.reviewAllPhotos');
     expect(photos.innerHTML).toContain('<img');
   });
 
   it('sets the response', () => {
-    const { container } = render(<ReviewTile review={reviewData.results[1]}/>);
+    const { container } = render(<ReviewTile review={reviewData.results[1]} term=''/>);
     const response = container.querySelector('.reviewResponse');
     expect(response.innerHTML).toContain('testing response');
   });
 
   it('shows number of helpfulness', () => {
-    const { container } = render(<ReviewTile review={reviewData.results[0]}/>);
+    const { container } = render(<ReviewTile review={reviewData.results[0]} term=''/>);
     const helpful = container.querySelector('.reviewFooter');
     expect(helpful.innerHTML).toContain('34');
   });
 
   it('increases helpfulness count on click', () => {
-    const { container } = render(<ReviewTile review={reviewData.results[0]}/>);
+    const { container } = render(<ReviewTile review={reviewData.results[0]} term=''/>);
     const helpful = container.querySelector('.reviewFooter');
     const yes = container.querySelector('.reviewHelpfulClick');
     fireEvent.click(yes);
