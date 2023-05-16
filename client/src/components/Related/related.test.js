@@ -12,6 +12,7 @@ import RelatedProductCard from './RelatedProductCard.jsx';
 import Carousel from './Carousel.jsx';
 import AddProductCard from './AddProductCard.jsx';
 
+
 const mainData = {id: 40348,
   campus: "hr-rfp",
   name: "Heir Force Ones",
@@ -470,6 +471,13 @@ describe('RelatedProductsCard Renders', () => {
       setProductID={jest.fn()} mainData={mainData} />);
     expect(relatedCard).toBeDefined();
   });
+});
+
+// describe('INDEX Renders', () => {
+//   it('renders the EmptyCard component', () => {
+//     const index = render(<Index/>);
+//     expect(index).toBeDefined();
+//   });
 });
 
 describe('EmptyCard Renders', () => {
