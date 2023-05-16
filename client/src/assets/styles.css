@@ -348,10 +348,14 @@ BarLoader {
   width: 70%;
 }
 
+#searchBar {
+  width: 20%;
+}
+
 #reviewAllTiles {
   display: flex;
   flex-direction: column;
-  height:450px;
+  max-height:800px;
   overflow-y:auto;
 }
 
@@ -360,11 +364,11 @@ BarLoader {
 }
 
 .reviewButton {
-  width: 10%;
+  width: 20%;
 }
 
 .newReviewButton {
-  width: 10%;
+  width: 20%;
   margin-left: 1%;
 }
 
