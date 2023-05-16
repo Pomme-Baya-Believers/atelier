@@ -490,10 +490,16 @@ BarLoader {
   padding-bottom: 3%;
 }
 
+#ratingTotal {
+  font-size: 80%;
+  align-self: flex-end;
+}
+
 .ratingCount {
   width: 5%;
   justify-content: flex-end;
 }
+
 .ratingBar {
   height: 10px;
   width: 70%;

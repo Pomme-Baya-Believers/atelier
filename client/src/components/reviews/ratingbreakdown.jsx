@@ -32,11 +32,12 @@ const RatingBreakdown = ({ meta, reviews, setDisplayedReviews }) => {
 
   let avgRating;
   let recommended;
+  let totalRatings;
   let ratings = [];
   let ratingRatio = [];
   if (meta.ratings) {
     ratings = Object.values(meta.ratings);
-    const totalRatings = ratings.reduce((acc, curr) => Number(acc) + Number(curr));
+    totalRatings = ratings.reduce((acc, curr) => Number(acc) + Number(curr));
     avgRating = (ratings.reduce(
       (acc, curr, idx) => Number(acc) + (idx + 1) * Number(curr),
     )) / totalRatings;
@@ -95,6 +96,7 @@ const RatingBreakdown = ({ meta, reviews, setDisplayedReviews }) => {
           <div className='ratingCount'>{ratings[0]}</div>
         </div>
       </div>
+      <div id='ratingTotal'>({totalRatings} total ratings)</div>
     </div>
   );
 };
