@@ -1,24 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
-
-import axios from 'axios';
+import apiHelper from './overview/apihelpers.jsx';
 
 const Star = ({ productID }) => {
   const [averageRating, setAverageRating] = useState(0);
 
   useEffect(() => {
-    axios.get('/matthew/meta', { params: { endpoint: `?product_id=${productID}` } })
-      .then((response) => {
-        const { ratings } = response.data;
-        let totalScore = 0;
-        let totalRatings = 0;
-        for (const [key,value] of Object.entries(ratings)) {
-          totalScore += (key * value);
-          totalRatings += Number(value)
-          // console.log('This is the average rating', totalScore / totalRatings)
-          setAverageRating(totalScore / totalRatings)
-        }
-      });
+    apiHelper.starRating(productID, setAverageRating);
   }, []);
 
   const style = { '--rating': averageRating };
