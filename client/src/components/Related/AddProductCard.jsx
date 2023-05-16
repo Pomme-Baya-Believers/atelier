@@ -1,16 +1,13 @@
 import React from 'react';
-import apiHelper from './apihelpers.jsx';
 
-const { useState, useEffect } = React;
+const AddProductCard = ({ mainData, setStorage, styles }) => {
+  // const [productImage, setProductImage] = useState('');
+  let productImage;
 
-const AddProductCard = ({ productID, mainData, setStorage }) => {
-  const [productImage, setProductImage] = useState('');
-  useEffect(() => {
-    apiHelper.getStyles(productID)
-      .then((res) => {
-        setProductImage(res.data.results[0].photos[0].thumbnail_url);
-      });
-  }, [productID]);
+  if (styles) {
+    productImage = styles.results[0].photos[0].thumbnail_url;
+    // setProductImage(styles.results[0].photos[0].thumbnail_url);
+  }
 
   let storage;
   const addItem = (item) => {

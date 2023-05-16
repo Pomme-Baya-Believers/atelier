@@ -1,6 +1,5 @@
 import React from 'react';
 import { FacebookShareButton, FacebookIcon, TwitterShareButton, TwitterIcon, PinterestShareButton, PinterestIcon } from 'react-share';
-// import '../../assets/styles.css';
 
 function ProductDescription({ product }) {
   // console.log('This is the product prop', product);

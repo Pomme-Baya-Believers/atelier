@@ -6,21 +6,17 @@ import Carousel from './Carousel.jsx';
 
 const { useState, useEffect } = React;
 
-const RelatedWidget = ({ productID, setProductID }) => {
-  const [related, setRelated] = useState();
+const RelatedWidget = ({
+  productID, setProductID, mainData, styles,
+}) => {
+  const [relatedList, setRelated] = useState();
   const [numberOfTiles, setNumberOfTiles] = useState(Math.floor(window.innerWidth / 217));
-  const [mainData, setMainData] = useState();
   const [storage, setStorage] = useState(JSON.parse(localStorage.getItem('MyOutfit')));
 
   if (storage === null) {
     setStorage([]);
     localStorage.setItem('MyOutfit', JSON.stringify([]));
   } useEffect(() => {
-    apiHelper.getProduct(productID)
-      .then((res) => {
-        setMainData(res.data);
-      })
-      .catch((err) => console.log('ERROR', err));
     apiHelper.getRelated(productID)
       .then((res) => {
         setRelated(res.data);
@@ -35,7 +31,7 @@ const RelatedWidget = ({ productID, setProductID }) => {
 
   const commonProps = {
     mainData,
-    related,
+    relatedList,
     numberOfTiles,
     setRelated,
     productID,
@@ -44,9 +40,9 @@ const RelatedWidget = ({ productID, setProductID }) => {
 
   return (
     <>
-    <Carousel {...commonProps} relatedBool={true}/>
-    <CarouselYourOutfit {...commonProps} relatedBool={false}
-      storage={storage} setStorage={setStorage}/>
+    <Carousel {...commonProps}/>
+    <CarouselYourOutfit {...commonProps}
+      storage={storage} setStorage={setStorage} styles={styles}/>
     </>
   );
 };

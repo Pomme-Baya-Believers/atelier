@@ -14,6 +14,7 @@ const PriceStrike = ({ styles, selectedStyle }) => {
       defaultStyle = styles.data.results[0];
     }
     const defaultPrice = defaultStyle.original_price;
+    // eslint-disable-next-line prefer-const
     let salePrice = defaultStyle.sale_price;
     // salePrice = '49.00'; // UNCOMMENT for quick check for STRIKETHROUGH
     if (salePrice === null) {
