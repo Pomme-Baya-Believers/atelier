@@ -1,7 +1,7 @@
 import React from 'react';
 import BarLoader from 'react-spinners/BarLoader';
 import apiHelper from './apihelpers.jsx';
-import StarRating from '../starRating.jsx';
+// import StarRating from '../starRating.jsx';
 import PriceStrike from '../PriceStrike.jsx';
 
 const { useState, useEffect } = React;
@@ -11,6 +11,7 @@ const MyOutfitCard = ({
 }) => {
   const [productStyle, setProductStyle] = useState('');
   const [productImage, setProductImage] = useState('');
+
   const { category } = data;
   const { name } = data;
   useEffect(() => {
@@ -49,9 +50,8 @@ const MyOutfitCard = ({
       <div className="relatedBottomTile" onClick={cardClick}>
         <div className="relatedCategory">{category}</div>
         <strong className="relatedProductName">{name}</strong>
-        {/* <div className="relatedPrice"> {price} </div> */}
         <PriceStrike selectedStyle={productStyle} />
-      <StarRating productID={thisID}/>
+      {/* <StarRating productID={thisID}/> */}
       </div>
     </div>
   );

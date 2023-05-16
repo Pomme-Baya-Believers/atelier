@@ -1,13 +1,13 @@
 import React from 'react';
 import apiHelper from './apihelpers.jsx';
 import DetailsModal from './DetailsModal.jsx';
-import StarRating from '../starRating.jsx';
+// import StarRating from '../starRating.jsx';
 import PriceStrike from '../PriceStrike.jsx';
 
 const { useState, useEffect } = React;
 
 const RelatedProductsCard = ({
-  thisID, productID, setProductID, setPosition, mainData,
+  thisID, productID, setProductID, setPosition, mainData, styles,
 }) => {
   const [data, setData] = useState('');
   const [productImage, setProductImage] = useState('');
@@ -41,7 +41,9 @@ const RelatedProductsCard = ({
   };
 
   const actionText = '☆';
-
+  if (styles) {
+   styles = styles.results
+  }
   return (
     <div className="relatedCard" >
       <DetailsModal productID={productID} mainData={mainData}
@@ -54,9 +56,8 @@ const RelatedProductsCard = ({
     <div className="relatedBottomTile" onClick={cardClick}>
       <div className="relatedCategory">{data.category}</div>
       <strong className="relatedProductName">{data.name}</strong>
-      {/* <div className="relatedPrice"> {`$${data.default_price}`} </div> */}
       <PriceStrike styles={style} />
-      <StarRating productID={thisID} data={data}/>
+      {/* <StarRating productID={thisID} data={data}/> */}
     </div>
   </div>
   );

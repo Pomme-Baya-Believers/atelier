@@ -4,14 +4,17 @@ import React from 'react';
 const PriceStrike = ({ styles, selectedStyle }) => {
   let defaultStyle = [];
   let priceComponent = <div>price</div>;
-  if (styles) {
+  if (styles && styles.data) {
     // eslint-disable-next-line arrow-body-style
     defaultStyle = styles.data.results.filter((style) => {
       return style['default?'];
     });
     defaultStyle = defaultStyle[0];
+    console.log(styles)
     if (defaultStyle === undefined) {
+      console.log('DEFAULT', defaultStyle);
       defaultStyle = styles.data.results[0];
+      console.log('DEFAULT', defaultStyle);
     }
     const defaultPrice = defaultStyle.original_price;
     // eslint-disable-next-line prefer-const

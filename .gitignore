@@ -7,3 +7,5 @@ package-lock.json
 .gitignore
 bundle.js
 coverage
+src/components/overview/overview.test.js
+src/components/reviews/reviews.test.js
