@@ -339,15 +339,21 @@ BarLoader {
 /* RATING AND REVIEWS */
 #reviewComponent {
   display: flex;
-  justify-content: center;
+  width: 80%;
+}
+
+#reviewMain {
+  display: flex;
+  flex-direction: column;
+  padding: 1%;
+  width: 70%;
 }
 
 #reviewAllTiles {
   display: flex;
   flex-direction: column;
-  padding: 1%;
-  width: 80%;
-  /* border-style: solid; */
+  height:450px;
+  overflow-y:auto;
 }
 
 .listButtons {

@@ -16,6 +16,18 @@ const ReviewList = ({ productID }) => {
   useEffect(() => apiHelper.getReviews(10000, sort, productID, setReviews), [productID, sort]);
   useEffect(() => apiHelper.getMeta(productID, setMeta), [productID]);
 
+  const reviewWindow = document.getElementById('reviewAllTiles');
+  const scrollHandler = () => {
+    if (reviewWindow.scrollTop + reviewWindow.offsetHeight + 2 >= reviewWindow.scrollHeight) {
+      setCount(count + 2);
+    }
+  };
+  const moreHandler = () => {
+    document.getElementById('showMoreOnce').style.display = 'none';
+    document.getElementById('reviewAllTiles').style.height = '800px';
+    setCount(count + 4);
+  };
+
   return (
     <div>
       <div id='reviewComponent'>
@@ -24,13 +36,15 @@ const ReviewList = ({ productID }) => {
           setDisplayedReviews={setDisplayedReviews}/>
           <ProductBreakdown meta={meta}/>
         </div>
-        <div id='reviewAllTiles'>
-        <Sort setSort={setSort} displayedReviews={displayedReviews}/>
-        <NewReview productID={productID} meta={meta}/>
-        {displayedReviews && displayedReviews.slice(0, count).map((review) => <ReviewTile
-        key={review.review_id} review={review}/>)}
+        <div id='reviewMain'>
+          <Sort setSort={setSort} displayedReviews={displayedReviews}/>
+          <NewReview productID={productID} meta={meta}/>
+          <div id='reviewAllTiles' onScroll={scrollHandler}>
+          {displayedReviews && displayedReviews.slice(0, count).map((review) => <ReviewTile
+          key={review.review_id} review={review}/>)}
+          </div>
           <div className='listButtons'>
-            {displayedReviews && count < displayedReviews.length && <button className='reviewButton' type="button" onClick={() => { setCount(count + 2); }}>More reviews</button>}
+            <button id='showMoreOnce' className='reviewButton' type="button" onClick={moreHandler}>More reviews</button>
             <button className='newReviewButton' type="button" onClick={() => { document.getElementById('newReview').showModal(); }} >Write a review</button>
           </div>
         </div>

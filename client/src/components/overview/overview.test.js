@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, fireEvent, screen } from '@testing-library/react';
 import AddToCart from './addToCart.jsx';
 import AddToCartButton from './addToCartButton.jsx';
 import BasicProductInfo from './basicProductInfo.jsx';
@@ -13,7 +13,6 @@ import ProductDescription from './productDescription.jsx';
 import QuantitySelector from './quantitySelector.jsx';
 import SizeSelector from './sizeSelector.jsx';
 import StyleSelector from './styleSelector.jsx';
-import StyleThumbnail from './styleThumbnail.jsx';
 
 const style = {
   style_id: 240525,
@@ -671,8 +670,15 @@ const skus = [
   }
 ]
 
-jest.mock('./overview.jsx')
-jest.mock('./addToCartButton.jsx')
+jest.mock('./apihelpers.jsx', () => ({
+    getProduct: jest.fn(() => Promise.resolve({})),
+    getStyles: jest.fn(() => Promise.resolve({})),
+    addToCart: jest.fn(() => Promise.resolve({})),
+    starRating: jest.fn(() => Promise.resolve({})),
+}));
+jest.mock('../Related/apihelpers.jsx', () => ({
+    getProduct: jest.fn(() => Promise.resolve({})),
+  }));
 
 describe('AddToCart Component', () => {
   it('renders the AddToCart Component', () => {
@@ -698,9 +704,19 @@ describe('BasicProductInfo Component', () => {
 
 describe('ImageGallery Component', () => {
   it('renders the ImageGallery Component', () => {
-    const imagegallery =  render(<ImageGallery styles={styles} style={0} />);
+    const imagegallery =  render(<ImageGallery styles={styles} style={1} />);
     expect(imagegallery).toBeDefined();
   });
+
+  it('should change the mainPic on Arrow Click', () => {
+    const { container } =  render(<ImageGallery styles={styles} style={1} />);
+    const mainpic = container.querySelector('.overviewMain')
+    expect(mainpic.getAttribute('src')).toBe('https://images.unsplash.com/photo-1542280756-74b2f55e73ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80')
+    const rightArrow = container.querySelector('.right');
+    fireEvent.click(rightArrow)
+    const mainpic2 = container.querySelector('.overviewMain')
+    expect(mainpic2.getAttribute('src')).toBe('https://images.unsplash.com/photo-1521093470119-a3acdc43374a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80')
+  })
 });
 
 describe('ImageGalleryThumbnails Component', () => {
@@ -730,7 +746,7 @@ describe('ProductDescription Component', () => {
 
 describe('QuantitySelector Component', () => {
   it('renders the Quantity Selector Component', () => {
-    const quantityselector = render(<QuantitySelector skus={skus} handleQuantitySelect={jest.fn()} size={0} />)
+    const quantityselector = render(<QuantitySelector skus={skus} handleQuantitySelect={jest.fn()} size={1} />)
     expect(quantityselector).toBeDefined();
   });
 });
@@ -747,4 +763,8 @@ describe('StyleSelector Component', () => {
     const styleselector = render(<StyleSelector product={product} styles={styles} style={0} handleStyleClick={jest.fn()} />)
     expect(styleselector).toBeDefined()
   });
+<<<<<<< HEAD
 });
+=======
+});
+>>>>>>> main
