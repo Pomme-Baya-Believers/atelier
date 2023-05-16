@@ -5,7 +5,7 @@ const ImageGallery = ({ styles, style }) => {
   const [mainPic, setMainPic] = useState(0);
   const { photos } = styles[style];
   if (styles) {
-    console.log('Image Gallery photos ', photos);
+    // console.log('Image Gallery styles ', styles);
   }
   const handleThumbClick = (e) => {
     console.log(e.target.getAttribute('class'));

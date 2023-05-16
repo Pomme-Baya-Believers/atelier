@@ -1,7 +1,7 @@
 import React from 'react';
 
 const QuantitySelector = ({ skus, handleQuantitySelect, size }) => {
-  console.log(skus);
+  // console.log(skus);
   const quantityOptions = [];
   if (skus.length > 0 && size) {
     const max = skus[size].quantity > 15 ? 15 : skus[size].quantity;

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 const SizeSelector = ({ skus, handleSizeSelect }) => {
-  console.log(skus);
+  // console.log(skus);
   return (
     <select id="size" name="size" onChange={handleSizeSelect}>
       {skus.length > 0 && <option value="">--Select Size--</option>}

@@ -19,7 +19,7 @@ function Overview({ productID }) {
 
   const getStyles = (id) => {
     axios.get('/matthew/styles', { params: { endpoint: `${id}` } })
-      .then(({ data }) => { setStyles(data.results); console.log('This is what the getStyles API Call is making ', data.results); })
+      .then(({ data }) => { setStyles(data.results); })
       .catch((err) => console.error(err));
   };
 

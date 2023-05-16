@@ -11,6 +11,7 @@ import PriceStrike from '../PriceStrike.jsx';
 import Carousel from './Carousel.jsx'
 // import RatingBreakdown from './ratingbreakdown.jsx';
 
+
 const mainData = {id: 40348,
   campus: "hr-rfp",
   name: "Heir Force Ones",
