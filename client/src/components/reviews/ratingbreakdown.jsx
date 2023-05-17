@@ -14,6 +14,12 @@ const RatingBreakdown = ({ meta, reviews, setDisplayedReviews }) => {
     }
   }, [filter, reviews]);
 
+  useEffect(() => {
+    if (document.getElementById('reviewAllTiles')) {
+      document.getElementById('reviewAllTiles').scrollTop = 0;
+    }
+  }, [filter]);
+
   const filterHandler = (rating) => {
     if (unfiltered) {
       setFilter([rating]);

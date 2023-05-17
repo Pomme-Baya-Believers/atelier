@@ -35,6 +35,12 @@ const NewReview = ({ productID, meta }) => {
       }
     });
     document.getElementById('newReview').close();
+    document.getElementById('newReviewForm').reset();
+    for (let i = 1; i < 6; i++) {
+      document.getElementById(`r${i}l`).innerHTML = '&#9734';
+      document.getElementById(`r${i}l`).style.color = '';
+    }
+    setNumStars(0);
     setForm({ product_id: Number(productID) });
     apiHelper.postReview(formData);
   };
@@ -131,9 +137,11 @@ const NewReview = ({ productID, meta }) => {
         <div className='newInputHeader'>Characteristics</div>
           {meta.characteristics && Object.keys(meta.characteristics).map((characteristic) => (
             <div key={characteristic} className='newCharacteristicBlock'>
-              <div className='newCharacteristicHeader'>{characteristic}</div>
-              <div className='newSelectedCharacteristic'>
-                {descriptions[characteristic][selectedChar[characteristic] - 1] || 'none selected'}
+              <div className='newCharHeaderBlock'>
+                <div className='newCharacteristicHeader'>{characteristic}:&nbsp;</div>
+                <div className='newSelectedCharacteristic'>
+                  {descriptions[characteristic][selectedChar[characteristic] - 1] || 'none selected'}
+                </div>
               </div>
               <div className='newCharacteristic'>
                 {descriptions[characteristic].map((description, idx) => (
@@ -155,7 +163,7 @@ const NewReview = ({ productID, meta }) => {
         </div>
         <div id='newBody'>
           <div className='newInputHeader'>Body</div>
-          <textarea id='newBodyInput' type='text' name='body' minLength='50' maxLength='1000' placeholder='Why did you like the product or not?' required onChange={(e) => { setBodyChars(50 - e.target.value.length); }}/>
+          <textarea id='newBodyInput' type='text' rows='5' name='body' minLength='50' maxLength='1000' placeholder='Why did you like the product or not?' required onChange={(e) => { setBodyChars(50 - e.target.value.length); }}/>
             <div id='newMinChars'>{bodyChars > 0 ? `Minimum required characters left: ${bodyChars}` : 'Minimum reached'}</div>
         </div>
         <div id='photos'>
@@ -168,12 +176,12 @@ const NewReview = ({ productID, meta }) => {
         </div>
         <div id='name'>
           <div className='newInputHeader'>Nickname</div>
-          <input type='text' name='name' maxLength='60' placeholder='Example: jackson11!' required/>
+          <input type='text' name='name' id='nameInput' maxLength='60' placeholder='Example: jackson11!' required/>
           <div className='newTip'>For privacy reasons, do not use your full name or email address</div>
         </div>
         <div id='email'>
           <div className='newInputHeader'>Email</div>
-          <input type='email' name='email' maxLength='60' placeholder='Example: jackson11@email.com' required/>
+          <input type='email' name='email' id='emailInput' maxLength='60' placeholder='Example: jackson11@email.com' required/>
           <div className='newTip'>For authentication reasons, you will not be emailed</div>
         </div>
         <div id='newButtons'>
