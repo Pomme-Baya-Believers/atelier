@@ -208,6 +208,7 @@
 #relatedAddTextBox {
   display:block;
   height: fit-content;
+  width: 90%;
   position: absolute;
   flex-direction: column;
   z-index: 1;
@@ -218,6 +219,7 @@
 
 .relatedAddText {
   color: white;
+  text-align: center;
 }
 
 BarLoader {
