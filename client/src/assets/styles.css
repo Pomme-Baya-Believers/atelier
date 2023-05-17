@@ -7,6 +7,25 @@
   --background: #f2f2f2;
 }
 
+#appFooter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--background);
+  background-color: var(--accent);
+  padding-top: 5%;
+}
+
+.members {
+  color: var(--lowlight);
+}
+
+#internalUse {
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+
 /* OVERVIEW */
 /*   OVERVIEW ARROWS */
 
@@ -346,6 +365,7 @@ BarLoader {
   background-color: var(--background);
   border-top: solid 1px;
   border-color: lightgrey;
+  padding-bottom: 10%;
 }
 
 #reviewComponent {
