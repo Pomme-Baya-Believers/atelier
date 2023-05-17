@@ -1,22 +1,14 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-plusplus */
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import apiHelper from './apihelpers.jsx';
-import apiHelperSean from '../Related/apihelpers.jsx';
 
-const NewReview = ({ productID, meta }) => {
+const NewReview = ({ productID, meta, mainData }) => {
   const [form, setForm] = useState({ product_id: (productID) });
   const [bodyChars, setBodyChars] = useState(50);
   const [photos, setPhotos] = useState([]);
-  const [product, setProduct] = useState([]);
   const [numStars, setNumStars] = useState(0);
   const [selectedChar, setSelectedChar] = useState({});
-
-  useEffect(() => {
-    apiHelperSean.getProduct(productID)
-      .then(({ data }) => { setProduct(data); })
-      .catch((err) => console.error(err));
-  }, []);
 
   const ratingDescriptions = ['', 'Poor', 'Fair', 'Average', 'Good', 'Great'];
 
@@ -109,7 +101,7 @@ const NewReview = ({ productID, meta }) => {
   return (
     <dialog id='newReview'>
       <div id='newReviewHeader'>Write Your Review</div>
-      <div id='newReviewName'>About the {product.name}</div>
+      <div id='newReviewName'>About the {mainData && mainData.name}</div>
       <form id='newReviewForm' encType="multipart/form-data" onSubmit={(e) => { submitHandler(e); }}
        onChange={(e) => changeHandler(e)}>
         <div id='newRating'>

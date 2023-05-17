@@ -6,7 +6,7 @@ import NewReview from './newreview.jsx';
 import RatingBreakdown from './ratingbreakdown.jsx';
 import ProductBreakdown from './productBreakdown.jsx';
 
-const ReviewList = ({ productID }) => {
+const ReviewList = ({ productID, mainData }) => {
   const [reviews, setReviews] = useState({});
   const [count, setCount] = useState(2);
   const [sort, setSort] = useState('relevant');
@@ -66,7 +66,7 @@ const ReviewList = ({ productID }) => {
         <div id='reviewMain'>
           <Sort setSort={setSort} displayedReviews={displayedReviews}/>
           <input type='text' id='searchBar' placeholder='Search...' onChange={(e) => searchHandler(e)}/>
-          <NewReview productID={productID} meta={meta}/>
+          <NewReview productID={productID} meta={meta} mainData={mainData}/>
           <div id='reviewAllTiles' onScroll={scrollHandler}>
           {displayedReviews && displayedReviews.slice(0, count).map((review) => <ReviewTile
           key={review.review_id} review={review} term={term}/>)}
