@@ -1,7 +1,7 @@
 import React from 'react';
 import BarLoader from 'react-spinners/BarLoader';
 import apiHelper from './apihelpers.jsx';
-// import StarRating from '../starRating.jsx';
+import StarRating from '../starRating.jsx';
 import PriceStrike from '../PriceStrike.jsx';
 
 const { useState, useEffect } = React;
@@ -51,7 +51,7 @@ const MyOutfitCard = ({
         <div className="relatedCategory">{category}</div>
         <strong className="relatedProductName">{name}</strong>
         <PriceStrike selectedStyle={productStyle} />
-      {/* <StarRating productID={thisID}/> */}
+      <StarRating productID={thisID}/>
       </div>
     </div>
   );

@@ -10,11 +10,8 @@ const PriceStrike = ({ styles, selectedStyle }) => {
       return style['default?'];
     });
     defaultStyle = defaultStyle[0];
-    console.log(styles)
     if (defaultStyle === undefined) {
-      console.log('DEFAULT', defaultStyle);
       defaultStyle = styles.data.results[0];
-      console.log('DEFAULT', defaultStyle);
     }
     const defaultPrice = defaultStyle.original_price;
     // eslint-disable-next-line prefer-const
