@@ -18,6 +18,11 @@ const ReviewList = ({ productID }) => {
 
   useEffect(() => apiHelper.getReviews(10000, sort, productID, setReviews), [productID, sort]);
   useEffect(() => apiHelper.getMeta(productID, setMeta), [productID]);
+  useEffect(() => {
+    if (document.getElementById('reviewAllTiles')) {
+      document.getElementById('reviewAllTiles').scrollTop = 0;
+    }
+  }, [sort]);
 
   const reviewWindow = document.getElementById('reviewAllTiles');
   const scrollHandler = () => {
@@ -50,7 +55,7 @@ const ReviewList = ({ productID }) => {
   };
 
   return (
-    <div>
+    <div id='reviewContainer'>
       <div id='reviewComponent'>
         <div id='breakdowns'>
           <RatingBreakdown meta={meta} reviews={reviews}

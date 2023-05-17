@@ -35,6 +35,12 @@ const NewReview = ({ productID, meta }) => {
       }
     });
     document.getElementById('newReview').close();
+    document.getElementById('newReviewForm').reset();
+    for (let i = 1; i < 6; i++) {
+      document.getElementById(`r${i}l`).innerHTML = '&#9734';
+      document.getElementById(`r${i}l`).style.color = '';
+    }
+    setNumStars(0);
     setForm({ product_id: Number(productID) });
     apiHelper.postReview(formData);
   };
@@ -170,12 +176,12 @@ const NewReview = ({ productID, meta }) => {
         </div>
         <div id='name'>
           <div className='newInputHeader'>Nickname</div>
-          <input type='text' name='name' maxLength='60' placeholder='Example: jackson11!' required/>
+          <input type='text' name='name' id='nameInput' maxLength='60' placeholder='Example: jackson11!' required/>
           <div className='newTip'>For privacy reasons, do not use your full name or email address</div>
         </div>
         <div id='email'>
           <div className='newInputHeader'>Email</div>
-          <input type='email' name='email' maxLength='60' placeholder='Example: jackson11@email.com' required/>
+          <input type='email' name='email' id='emailInput' maxLength='60' placeholder='Example: jackson11@email.com' required/>
           <div className='newTip'>For authentication reasons, you will not be emailed</div>
         </div>
         <div id='newButtons'>
