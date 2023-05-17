@@ -131,9 +131,11 @@ const NewReview = ({ productID, meta }) => {
         <div className='newInputHeader'>Characteristics</div>
           {meta.characteristics && Object.keys(meta.characteristics).map((characteristic) => (
             <div key={characteristic} className='newCharacteristicBlock'>
-              <div className='newCharacteristicHeader'>{characteristic}</div>
-              <div className='newSelectedCharacteristic'>
-                {descriptions[characteristic][selectedChar[characteristic] - 1] || 'none selected'}
+              <div className='newCharHeaderBlock'>
+                <div className='newCharacteristicHeader'>{characteristic}:&nbsp;</div>
+                <div className='newSelectedCharacteristic'>
+                  {descriptions[characteristic][selectedChar[characteristic] - 1] || 'none selected'}
+                </div>
               </div>
               <div className='newCharacteristic'>
                 {descriptions[characteristic].map((description, idx) => (
@@ -155,7 +157,7 @@ const NewReview = ({ productID, meta }) => {
         </div>
         <div id='newBody'>
           <div className='newInputHeader'>Body</div>
-          <textarea id='newBodyInput' type='text' name='body' minLength='50' maxLength='1000' placeholder='Why did you like the product or not?' required onChange={(e) => { setBodyChars(50 - e.target.value.length); }}/>
+          <textarea id='newBodyInput' type='text' rows='5' name='body' minLength='50' maxLength='1000' placeholder='Why did you like the product or not?' required onChange={(e) => { setBodyChars(50 - e.target.value.length); }}/>
             <div id='newMinChars'>{bodyChars > 0 ? `Minimum required characters left: ${bodyChars}` : 'Minimum reached'}</div>
         </div>
         <div id='photos'>

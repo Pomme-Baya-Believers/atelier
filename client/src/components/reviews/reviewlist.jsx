@@ -56,6 +56,7 @@ const ReviewList = ({ productID }) => {
           <RatingBreakdown meta={meta} reviews={reviews}
           setDisplayedReviews={setDisplayedReviews}/>
           <ProductBreakdown meta={meta}/>
+          <button id='writeReviewButton' type="button" onClick={() => { document.getElementById('newReview').showModal(); }} >Write a review</button>
         </div>
         <div id='reviewMain'>
           <Sort setSort={setSort} displayedReviews={displayedReviews}/>
@@ -67,7 +68,6 @@ const ReviewList = ({ productID }) => {
           </div>
           <div className='listButtons'>
             <button id='showMoreOnce' className='reviewButton' type="button" onClick={moreHandler}>More reviews</button>
-            <button className='newReviewButton' type="button" onClick={() => { document.getElementById('newReview').showModal(); }} >Write a review</button>
           </div>
         </div>
       </div>
