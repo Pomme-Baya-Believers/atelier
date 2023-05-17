@@ -8,7 +8,6 @@ const RelatedCarousel = ({
   numberOfTiles, productID, setProductID, relatedList, mainData, styles,
 }) => {
   if (relatedList) {
-    console.log('INFINITY STONE DESTROYED')
     relatedList = relatedList.filter((item) => {
       return item !== 40353
     });
