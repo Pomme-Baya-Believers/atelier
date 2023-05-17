@@ -7,6 +7,14 @@ const { useState } = React;
 const RelatedCarousel = ({
   numberOfTiles, productID, setProductID, relatedList, mainData, styles,
 }) => {
+  if (relatedList) {
+    relatedList = relatedList.filter((item) => {
+      if (item === 40353) { console.log('infinityStone destroyed')}
+      if (item === 40345) { console.log("it's the bad one")}
+      return (item !== 40353 && item !== 40345);
+    });
+  }
+
   let uniqueRelated = [];
   let slicedRelated = [];
   let relatedComponents = [];

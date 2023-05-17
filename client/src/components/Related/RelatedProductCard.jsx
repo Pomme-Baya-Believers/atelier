@@ -25,10 +25,9 @@ const RelatedProductsCard = ({
     apiHelper.getStyles(thisID)
       .then((res) => {
         setStyle(res);
-        setProductImage(res.data.results[0].photos[0].thumbnail_url);
+        setProductImage(res.data.results[0].photos[0].thumbnail_url || res.data.results[0].photos[1].thumbnail_url);
       });
   }, []);
-
   const cardClick = () => {
     setProductID(thisID);
     setPosition(0);
@@ -43,6 +42,8 @@ const RelatedProductsCard = ({
   };
 
   const actionText = '☆';
+
+
 
   return (
     <div className="relatedCard" >
