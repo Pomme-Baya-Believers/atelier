@@ -39,10 +39,10 @@ const CarouselYourOutfit = ({
     : <div className ="relatedArrowOFF"> {'>'} </div>;
 
   if (relatedComponents.length < 1) {
-    relatedComponents[0] = <AddProductCard key='1' mainData={mainData} styles={styles} productID={productID} setStorage={setStorage}/>
+    relatedComponents[0] = <AddProductCard key='1' mainData={mainData} styles={styles.results} setStorage={setStorage}/>
   } else {
     relatedComponents.unshift(
-      <AddProductCard key='1' mainData={mainData} styles={styles} productID={productID} setStorage={setStorage}/>,
+      <AddProductCard key='1' mainData={mainData} styles={styles.results} setStorage={setStorage}/>,
     );
   }
 

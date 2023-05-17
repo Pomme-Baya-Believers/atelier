@@ -2,14 +2,13 @@ import React from 'react';
 
 const AddProductCard = ({ mainData, setStorage, styles }) => {
   let productImage;
-  console.log('In ADD PRODUCT', styles)
   if (styles) {
-    productImage = styles.results[0].photos[0].thumbnail_url;
+    productImage = styles[0].photos[0].thumbnail_url;
     // setProductImage(styles.results[0].photos[0].thumbnail_url);
   }
 
   let storage;
-  const addItem = (item) => {
+  function addItem(item) {
     const entry = [item];
     storage = JSON.parse(localStorage.getItem('MyOutfit'));
     if (storage === null) {
@@ -37,7 +36,6 @@ const AddProductCard = ({ mainData, setStorage, styles }) => {
   }
 
   return (
-    <>
     <div className="relatedAddCard" onClick={() => addItem(mainData)}>
         <div>
             <div className="relatedAddText">Add  </div>
@@ -46,8 +44,6 @@ const AddProductCard = ({ mainData, setStorage, styles }) => {
         </div>
             <img key='image' src={productImage}/>
     </div>
-    </>
-
   );
 };
 
