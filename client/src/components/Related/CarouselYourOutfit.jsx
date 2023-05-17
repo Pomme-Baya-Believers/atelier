@@ -8,14 +8,15 @@ let slicedRelated = [];
 let relatedComponents = [];
 
 const CarouselYourOutfit = ({
-  numberOfTiles, productID, setProductID, related,
+  numberOfTiles, productID, setProductID, relatedList,
   mainData, storage, setStorage, styles,
 }) => {
   const [position, setPosition] = useState(0);
 
   const clickRightArrow = () => {
     console.log('Right ARROW CLICKED');
-    if (position + 2 < related.length) { setPosition(position + 1); }
+    console.log(relatedList)
+    if (position + 2 < relatedList.length) { setPosition(position + 1); }
   };
   const clickLeftArrow = () => {
     console.log('Left ARROW CLICKED');
