@@ -44,7 +44,7 @@ const MyOutfitCard = ({
             <div className="relatedProductImage">
         <div className="MyOutfitActionButton" >
         {actionText} </div>
-        <img onClick={cardClick} src={productImage} />
+        <img onClick={cardClick} src={productImage} alt={productStyle.name} />
         <BarLoader color="#36d7b7"/>
       </div>
       <div className="relatedBottomTile" onClick={cardClick}>

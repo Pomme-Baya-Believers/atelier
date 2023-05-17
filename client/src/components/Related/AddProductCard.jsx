@@ -1,4 +1,6 @@
 import React from 'react';
+import BarLoader from 'react-spinners/BarLoader';
+
 
 const AddProductCard = ({ mainData, setStorage, styles }) => {
   let productImage;
@@ -29,20 +31,24 @@ const AddProductCard = ({ mainData, setStorage, styles }) => {
     }
   };
 
-  let name = 'Item';
-
+  let name = ' ';
+  let relatedText;
   if (mainData) {
     name = mainData.name;
+    relatedText = (
+      <div id="relatedAddTextBox">
+      <div className="relatedAddText">Add  </div>
+      <div className="relatedAddText">{name} </div>
+      <div className="relatedAddText">To Your Outfit!!</div>
+  </div>
+    );
   }
 
   return (
     <div className="relatedAddCard" onClick={() => addItem(mainData)}>
-          <img key='image' src={productImage}/>
-        <div id="relatedAddTextBox">
-            <div className="relatedAddText">Add  </div>
-            <strong className="relatedAddText">{name} </strong>
-            <div className="relatedAddText">To Your Outfit!!</div>
-        </div>
+      <img key='image' src={productImage}/>
+      <BarLoader color="#36d7b7"/>
+      {relatedText}
     </div>
   );
 };

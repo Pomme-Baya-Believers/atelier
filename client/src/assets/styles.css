@@ -220,6 +220,7 @@
 .relatedAddText {
   color: white;
   text-align: center;
+  margin-top: 2px;
 }
 
 BarLoader {
@@ -321,14 +322,14 @@ BarLoader {
 
 .relatedFogOfWarR {
   background-color: var(--background);
-  /* border: 5px solid white; */
+  border: 10px solid var(--background);
   width: fit-content;
   display: flex;
   align-items: center;
   justify-self: end;
   font-size: 300%;
-  box-shadow: -30px 0 40px var(--background);
-  z-index: 2
+  box-shadow: -30px 0 30px var(--background);
+  z-index: 3
 }
 
 .relatedArrow {

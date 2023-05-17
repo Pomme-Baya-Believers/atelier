@@ -13,6 +13,7 @@ const RelatedProductsCard = ({
 }) => {
   const [data, setData] = useState('');
   const [productImage, setProductImage] = useState('');
+  const [productName, setProductName] = useState('');
   const [showModal, setShowModal] = useState(false);
   const [style, setStyle] = useState('');
 
@@ -26,8 +27,10 @@ const RelatedProductsCard = ({
       .then((res) => {
         setStyle(res);
         setProductImage(res.data.results[0].photos[0].thumbnail_url);
+        setProductName(res.data.results[0].name);
       });
-  }, []);
+    }, []);
+    console.log(productName)
 
   const cardClick = () => {
     setProductID(thisID);
@@ -50,9 +53,10 @@ const RelatedProductsCard = ({
   thisID={thisID} showModal={showModal} closeModal={closeModal} data={data}/>
     <div className="relatedProductImage">
       <div className="relatedActionButton" onClick={actionClick}>
-      {actionText} </div>
+      {actionText}
+       </div>
       <BarLoader color="#36d7b7"/>
-      <img onClick={cardClick} src={productImage} />
+      <img onClick={cardClick} src={productImage} alt={productName} />
     </div>
     <div className="relatedBottomTile" onClick={cardClick}>
       <div className="relatedCategory">{data.category}</div>
