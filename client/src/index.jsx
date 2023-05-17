@@ -30,7 +30,7 @@ const App = () => {
       <Overview productID={productID} />
       <RelatedWidget productID={productID} styles={styles}
         setProductID={setProductID} mainData={mainData}/>
-      <ReviewList productID={productID}/>
+      <ReviewList productID={productID} mainData={mainData}/>
       {/* <Star productID={productID}/> */}
     </div>
   );
