@@ -428,6 +428,11 @@ BarLoader {
   flex-direction: column;
 }
 
+#reviewBodyDisplay {
+  font-size:90%;
+  word-wrap: break-word;
+}
+
 .reviewResponse {
   background-color: rgb(238, 238, 238);
   padding-bottom: 1%;
@@ -435,6 +440,8 @@ BarLoader {
 
 .reviewShowMore {
   font-size: 70%;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border: none;
 }
 
 .reviewAllPhotos {

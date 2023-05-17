@@ -17,7 +17,16 @@ const ReviewList = ({ productID, mainData }) => {
   const [scrolledCount, setScrolledCount] = useState(6);
 
   useEffect(() => apiHelper.getReviews(10000, sort, productID, setReviews), [productID, sort]);
-  useEffect(() => apiHelper.getMeta(productID, setMeta), [productID]);
+  useEffect(() => {
+    apiHelper.getMeta(productID, setMeta);
+    setCount(2);
+    setTerm('');
+    setClicked(false);
+    setScrolledCount(6);
+    setSort('relevant');
+    document.getElementById('showMoreOnce').style.display = 'inline';
+  }, [productID]);
+
   useEffect(() => {
     if (document.getElementById('reviewAllTiles')) {
       document.getElementById('reviewAllTiles').scrollTop = 0;
@@ -26,9 +35,11 @@ const ReviewList = ({ productID, mainData }) => {
 
   const reviewWindow = document.getElementById('reviewAllTiles');
   const scrollHandler = () => {
-    if (reviewWindow.scrollTop + reviewWindow.offsetHeight + 2 >= reviewWindow.scrollHeight && term === '') {
-      setCount(count + 2);
-      setScrolledCount(count + 2);
+    if (clicked) {
+      if (reviewWindow.scrollTop + reviewWindow.offsetHeight + 2 >= reviewWindow.scrollHeight && term === '') {
+        setCount(count + 2);
+        setScrolledCount(count + 2);
+      }
     }
   };
 
@@ -64,7 +75,7 @@ const ReviewList = ({ productID, mainData }) => {
           <button id='writeReviewButton' type="button" onClick={() => { document.getElementById('newReview').showModal(); }} >Write a review</button>
         </div>
         <div id='reviewMain'>
-          <Sort setSort={setSort} displayedReviews={displayedReviews}/>
+          <Sort sort={sort} setSort={setSort} displayedReviews={displayedReviews}/>
           <input type='text' id='searchBar' placeholder='Search...' onChange={(e) => searchHandler(e)}/>
           <NewReview productID={productID} meta={meta} mainData={mainData}/>
           <div id='reviewAllTiles' onScroll={scrollHandler}>
