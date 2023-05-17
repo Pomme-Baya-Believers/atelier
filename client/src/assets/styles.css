@@ -621,12 +621,11 @@ BarLoader {
 
 .newCharacteristicBlock {
   display: flex;
-  align-self: center;
   flex-direction: column;
   border: solid;
   border-width: 1px;
   margin-bottom: 1%;
-  width: 90%;
+  width: 50%;
 }
 
 .newCharacteristicHeader {
@@ -634,15 +633,20 @@ BarLoader {
   font-weight: bold;
 }
 
+.newSelectedCharacteristic {
+  align-self: center;
+  font-size: 80%;
+}
+
 .newCharacteristic {
   display: flex;
   justify-content: space-around;
 }
 
-.newDescription {
-  display:flex;
-  flex-direction: column;
-  font-size: 80%;
+.newRange {
+  display: flex;
+  font-size: 70%;
+  justify-content: space-between;
 }
 
 .newPhoto {
