@@ -1,8 +1,10 @@
 import React from 'react';
+import BarLoader from 'react-spinners/BarLoader';
 import apiHelper from './apihelpers.jsx';
 import DetailsModal from './DetailsModal.jsx';
 import StarRating from '../starRating.jsx';
 import PriceStrike from '../PriceStrike.jsx';
+
 
 const { useState, useEffect } = React;
 
@@ -41,9 +43,7 @@ const RelatedProductsCard = ({
   };
 
   const actionText = '☆';
-  // if (styles) {
-  //   styles = styles.results;
-  // }
+
   return (
     <div className="relatedCard" >
       <DetailsModal productID={productID} mainData={mainData}
@@ -51,6 +51,7 @@ const RelatedProductsCard = ({
     <div className="relatedProductImage">
       <div className="relatedActionButton" onClick={actionClick}>
       {actionText} </div>
+      <BarLoader color="#36d7b7"/>
       <img onClick={cardClick} src={productImage} />
     </div>
     <div className="relatedBottomTile" onClick={cardClick}>

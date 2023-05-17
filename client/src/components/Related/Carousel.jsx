@@ -47,7 +47,7 @@ const RelatedCarousel = ({
 
   return (
     <>
-      <div className='relatedCarouselTitle'> Similar Items</div>
+      <div className='relatedCarouselTitle'>Similar Items</div>
       <div className="relatedPanel">
           <div className="relatedFogOfWarL">{leftArrow}</div>
             <div className='relatedCarousel'>

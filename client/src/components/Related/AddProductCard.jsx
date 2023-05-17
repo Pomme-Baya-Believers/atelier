@@ -37,12 +37,12 @@ const AddProductCard = ({ mainData, setStorage, styles }) => {
 
   return (
     <div className="relatedAddCard" onClick={() => addItem(mainData)}>
-        <div>
+          <img key='image' src={productImage}/>
+        <div id="relatedAddTextBox">
             <div className="relatedAddText">Add  </div>
             <strong className="relatedAddText">{name} </strong>
             <div className="relatedAddText">To Your Outfit!!</div>
         </div>
-            <img key='image' src={productImage}/>
     </div>
   );
 };
