@@ -453,6 +453,14 @@ BarLoader {
   height: 10%;
   font-size: 80%;
 }
+.reviewNameDate {
+  display:flex;
+}
+
+.reviewerName {
+  color: var(--accent);
+  font-weight: bold;
+}
 
 .reviewTile {
   display: flex;
@@ -512,7 +520,7 @@ BarLoader {
 
 .reviewFooter {
   display: flex;
-  color: rgb(68, 68, 68);
+  color:var(--accent);
   height: 10%;
   font-size: 80%;
   margin-top: 1%;
@@ -758,6 +766,7 @@ BarLoader {
   align-self: center;
   font-size: 75%;
   font-style: italic;
+  color:var(--accent);
 }
 
 .newCharacteristic {
@@ -781,6 +790,7 @@ BarLoader {
 
 .newTip {
   font-size: 75%;
+  color:var(--accent)
 }
 
 #newSummaryInput {
@@ -801,6 +811,7 @@ BarLoader {
 #newMinChars {
   font-size: 75%;
   align-self: flex-end;
+  color: var(--accent)
 }
 
 #emailInput, #nameInput {

@@ -31,7 +31,10 @@ const ReviewTile = ({ review, term }) => {
     <div className='reviewTile'>
       <header className='reviewHeader'>
         <div className='reviewTileStars'><Stars averageRating={review.rating}/></div>
-        <div>{review.reviewer_name} {readableDate}</div>
+        <div className='reviewNameDate'>
+          <div className='reviewerName'>{review.reviewer_name}&nbsp;</div>
+          <div>{readableDate}</div>
+        </div>
       </header>
       <section className='reviewContent'>
         <h3 id='reviewSummary'>{review.summary}</h3>
