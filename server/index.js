@@ -19,5 +19,5 @@ app.use('/naru', routerNaru);
 
 app.use('/matthew', routerMatthew);
 
-app.listen(process.env.PORT) || 3000
+app.listen(process.env.PORT || 3000);
 console.log('Listening on port ' + process.env.PORT);
