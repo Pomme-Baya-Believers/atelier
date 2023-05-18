@@ -105,7 +105,7 @@ const NewReview = ({ productID, meta, mainData }) => {
       <form id='newReviewForm' encType="multipart/form-data" onSubmit={(e) => { submitHandler(e); }}
        onChange={(e) => changeHandler(e)}>
         <div id='newRating'>
-          <div className='newInputHeader'>Overall rating</div>
+          <div className='newInputHeader'>Overall rating *</div>
             <div id='newStars'>
               <label onMouseOver={() => mouseOverStar(1)} onMouseOut={() => mouseOutStar(1)} onClick={() => mouseClickStar(1)} id='r1l' className='ratingLabels' htmlFor="r1">&#9734;</label>
               <input type='radio' name='rating' id='r1' value={1} hidden required/>
@@ -121,12 +121,12 @@ const NewReview = ({ productID, meta, mainData }) => {
             </div>
         </div>
         <div id='recommend'>
-          <div className='newInputHeader'>Do you recommend this product?</div>
+          <div className='newInputHeader'>Do you recommend this product? *</div>
           Yes <input type='radio' name='recommend' value={true} required/>
           No <input type='radio' name='recommend' value={false}/>
         </div>
         <div id='characteristics'>
-        <div className='newInputHeader'>Characteristics</div>
+        <div className='newInputHeader'>Characteristics *</div>
           {meta.characteristics && Object.keys(meta.characteristics).map((characteristic) => (
             <div key={characteristic} className='newCharacteristicBlock'>
               <div className='newCharHeaderBlock'>
@@ -154,7 +154,7 @@ const NewReview = ({ productID, meta, mainData }) => {
           <input type='text' id='newSummaryInput' name='summary' maxLength='60' placeholder='Example: Best purchase ever!' />
         </div>
         <div id='newBody'>
-          <div className='newInputHeader'>Body</div>
+          <div className='newInputHeader'>Body *</div>
           <textarea id='newBodyInput' type='text' rows='5' name='body' minLength='50' maxLength='1000' placeholder='Why did you like the product or not?' required onChange={(e) => { setBodyChars(50 - e.target.value.length); }}/>
             <div id='newMinChars'>{bodyChars > 0 ? `Minimum required characters left: ${bodyChars}` : 'Minimum reached'}</div>
         </div>
@@ -167,12 +167,12 @@ const NewReview = ({ productID, meta, mainData }) => {
           </div>
         </div>
         <div id='name'>
-          <div className='newInputHeader'>Nickname</div>
+          <div className='newInputHeader'>Nickname *</div>
           <input type='text' name='name' id='nameInput' maxLength='60' placeholder='Example: jackson11!' required/>
           <div className='newTip'>For privacy reasons, do not use your full name or email address</div>
         </div>
         <div id='email'>
-          <div className='newInputHeader'>Email</div>
+          <div className='newInputHeader'>Email *</div>
           <input type='email' name='email' id='emailInput' maxLength='60' placeholder='Example: jackson11@email.com' required/>
           <div className='newTip'>For authentication reasons, you will not be emailed</div>
         </div>
