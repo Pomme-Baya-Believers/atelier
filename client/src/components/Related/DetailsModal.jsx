@@ -38,7 +38,6 @@ const DetailsModal = ({
   <div id="RelatedModalBackdrop" >
     <div id="RelatedClearBackrop" onClick={closeModal}></div>
     <div id="RelatedModalBox">
-      {/* <div id="closeModal" onClick={closeModal} >close</div> */}
     <table>
       <thead>
         <tr>
