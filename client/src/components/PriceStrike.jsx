@@ -3,7 +3,7 @@ import React from 'react';
 
 const PriceStrike = ({ styles, selectedStyle }) => {
   let defaultStyle = [];
-  let priceComponent = <div>price</div>;
+  let priceComponent = <div></div>;
   if (styles && styles.data) {
     // eslint-disable-next-line arrow-body-style
     defaultStyle = styles.data.results.filter((style) => {
