@@ -11,6 +11,7 @@ const App = () => {
   const [mainData, setMainData] = useState();
   const [productID, setProductID] = useState(40348);
   const [styles, setStyles] = useState('');
+  const [theme, setTheme] = useState(0);
 
   useEffect(() => {
     apiHelpers.getProduct(productID)
@@ -24,9 +25,34 @@ const App = () => {
       });
   }, [productID]);
 
+  useEffect(() => {
+    if (theme) {
+      document.getElementById('root').style = `
+        font-family: sans-serif;
+        --highlight: #ff9900;
+        --lowlight: #146eb4;
+        --accent: rgb(83, 83, 83);
+        --main: #000000;
+        --background: rgb(27, 27, 27);
+        --component: rgb(43, 43, 43);
+        background-color: var(--background);
+        color:rgb(196, 196, 196);`;
+    } else {
+      document.getElementById('root').style = `
+        font-family: sans-serif;
+          --highlight: #ff9900;
+          --lowlight: #146eb4;
+          --accent: #232f3e;
+          --main: #000000;
+          --background: #f2f2f2;
+          --component: white;
+          background-color: var(--background);`;
+    }
+  }, [theme]);
+
   return (
     <div>
-      <header id='appHeader'>Atelier</header>
+      <header id='appHeader'>Atelier<button onClick={() => setTheme(!theme)}>{theme ? 'Light mode' : 'Dark mode'}</button></header>
       <div id='appHeaderMargin'></div>
       <Overview productID={productID} />
       <RelatedWidget productID={productID} styles={styles}
