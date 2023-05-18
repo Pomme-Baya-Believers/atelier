@@ -11,7 +11,7 @@ const App = () => {
   const [mainData, setMainData] = useState();
   const [productID, setProductID] = useState(40348);
   const [styles, setStyles] = useState('');
-  const [theme, setTheme] = useState(0);
+  const [theme, setTheme] = useState(JSON.parse(localStorage.getItem('DarkMode')));
 
   useEffect(() => {
     apiHelpers.getProduct(productID)
@@ -25,7 +25,12 @@ const App = () => {
       });
   }, [productID]);
 
+  if (!theme) {
+    localStorage.setItem('DarkMode', JSON.stringify(false))
+  }
+
   useEffect(() => {
+    localStorage.setItem('DarkMode', JSON.stringify(theme))
     if (theme) {
       document.getElementById('root').style = `
         font-family: sans-serif;
