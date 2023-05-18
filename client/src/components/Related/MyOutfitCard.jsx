@@ -37,7 +37,21 @@ const MyOutfitCard = ({
     setStorage(storage);
   };
 
-  const actionText = <div onClick={removeProduct}> ⓧ </div>;
+  const removeEnter = (e) => {
+    if (e.code === 'Enter') {
+      console.log('removeEntered');
+      removeProduct();
+    }
+  };
+
+  const enterClick = (e) => {
+    if (e.code === 'Enter') {
+      console.log('clickedEntered');
+      cardClick();
+    }
+  };
+
+  const actionText = <div onClick={removeProduct} tabIndex="2" onKeyDown={(e) => removeEnter(e)}> ⓧ </div>;
 
   return (
     <div className="relatedCard" >
@@ -47,7 +61,7 @@ const MyOutfitCard = ({
         <img onClick={cardClick} src={productImage} />
         <BarLoader color="#36d7b7"/>
       </div>
-      <div className="relatedBottomTile" onClick={cardClick}>
+      <div className="relatedBottomTile" onClick={cardClick} tabIndex="1" onKeyDown={(e) => enterClick(e)}>
         <div className="relatedCategory">{category}</div>
         <strong className="relatedProductName">{name}</strong>
         <PriceStrike selectedStyle={productStyle} />

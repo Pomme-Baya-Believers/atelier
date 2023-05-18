@@ -8,9 +8,9 @@ const RelatedCarousel = ({
   numberOfTiles, productID, setProductID, relatedList, mainData, styles,
 }) => {
   if (relatedList) {
+    // eslint-disable-next-line no-param-reassign
     relatedList = relatedList.filter((item) => {
-      if (item === 40353) { console.log('infinityStone destroyed')}
-      if (item === 40345) { console.log("it's the bad one")}
+      if (item === 40353) { console.log('infinityStone destroyed'); }
       return (item !== 40353 && item !== 40345);
     });
   }
@@ -45,12 +45,26 @@ const RelatedCarousel = ({
     }
   }
 
+  const enterClickRight = (e) => {
+    console.log(e.code);
+    if (e.code === 'Enter') {
+      clickRightArrow();
+    }
+  };
+
+  const enterClickLeft = (e) => {
+    console.log(e.code);
+    if (e.code === 'Enter') {
+      clickLeftArrow();
+    }
+  };
+
   const leftArrow = position > 0
-    ? <div className ="relatedArrow" onClick={clickLeftArrow}> {'<'} </div>
+    ? <div className ="relatedArrow" tabIndex='1' onKeyDown={(e)=> enterClickLeft(e)} onClick={clickLeftArrow}> {'<'} </div>
     : <div className ="relatedArrowOFF" > {'<'} </div>;
 
   const rightArrow = position + numberOfTiles < uniqueRelated.length
-    ? <div className ="relatedArrow" onClick={clickRightArrow}> {'>'} </div>
+    ? <div className ="relatedArrow" tabIndex='1' onKeyDown={(e)=> enterClickRight(e)} onClick={clickRightArrow}> {'>'} </div>
     : <div className ="relatedArrowOFF"> {'>'} </div>;
 
   return (

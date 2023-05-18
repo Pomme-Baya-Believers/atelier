@@ -5,7 +5,6 @@ import DetailsModal from './DetailsModal.jsx';
 import StarRating from '../starRating.jsx';
 import PriceStrike from '../PriceStrike.jsx';
 
-
 const { useState, useEffect } = React;
 
 const RelatedProductsCard = ({
@@ -25,7 +24,8 @@ const RelatedProductsCard = ({
     apiHelper.getStyles(thisID)
       .then((res) => {
         setStyle(res);
-        setProductImage(res.data.results[0].photos[0].thumbnail_url || res.data.results[0].photos[1].thumbnail_url);
+        setProductImage(res.data.results[0].photos[0].thumbnail_url
+          || res.data.results[0].photos[1].thumbnail_url);
       });
   }, []);
   const cardClick = () => {
@@ -34,7 +34,7 @@ const RelatedProductsCard = ({
   };
 
   const actionClick = () => {
-    setShowModal(true);
+    setShowModal(!showModal);
   };
 
   const closeModal = () => {
@@ -43,14 +43,25 @@ const RelatedProductsCard = ({
 
   const actionText = '☆';
 
+  const enterClick = (e) => {
+    if (e.code === 'Enter') {
+      cardClick();
+    }
+  };
 
+  const enterModal = (e) => {
+    if (e.code === 'Enter') {
+      actionClick();
+    }
+  };
 
   return (
-    <div className="relatedCard" >
+    <div className="relatedCard" tabIndex="1" onKeyDown={(e) => enterClick(e)} >
       <DetailsModal productID={productID} mainData={mainData}
   thisID={thisID} showModal={showModal} closeModal={closeModal} data={data}/>
     <div className="relatedProductImage">
-      <div className="relatedActionButton" onClick={actionClick}>
+      <div className="relatedActionButton" onKeyDown={(e) => enterModal(e)}
+        onClick={actionClick} tabIndex="1">
       {actionText} </div>
       <BarLoader color="#36d7b7"/>
       <img onClick={cardClick} src={productImage} />
