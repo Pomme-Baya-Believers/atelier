@@ -34,7 +34,9 @@ const App = () => {
         --accent: rgb(83, 83, 83);
         --main: #000000;
         --background: rgb(27, 27, 27);
-        --component: rgb(43, 43, 43);
+        --tile: rgb(38,38,38);
+        --action-color:  rgb(55,55,55);
+        --component: rgb(50, 50, 50);
         background-color: var(--background);
         color:rgb(196, 196, 196);`;
     } else {
@@ -45,6 +47,7 @@ const App = () => {
           --accent: #232f3e;
           --main: #000000;
           --background: #f2f2f2;
+          --action-color: white;
           --component: white;
           background-color: var(--background);`;
     }

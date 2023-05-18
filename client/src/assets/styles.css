@@ -1,4 +1,4 @@
-#root {
+root {
   font-family: sans-serif;
   --highlight: #ff9900;
   --lowlight: #146eb4;
@@ -55,8 +55,8 @@ darkmode {
   justify-content: center;
   align-items: center;
   color: var(--background);
-  background-color: var(--accent);
-  padding-top: 5%;
+  background-color: var(--main);
+  padding-top: 2%;
 }
 
 .members {
@@ -66,6 +66,7 @@ darkmode {
 #internalUse {
   padding-top: 1%;
   padding-bottom: 1%;
+  color: white;
 }
 
 /* #end {
@@ -224,7 +225,7 @@ darkmode {
   min-width: 150px;
   margin: 10px;
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.35) ;
-  background-color: var(--component);
+  background-color: var(--tile);
 }
 
 .relatedAddCard  {
@@ -234,7 +235,7 @@ darkmode {
   margin: 10px;
   justify-items: center;
   box-shadow: 1px 1px 15px rgba(0,0,0,0.8);
-  background-color: var(--component);
+  background-color: var(--tile);
   font-family: sans-serif;
   position: relative;
   cursor: pointer;
@@ -298,9 +299,9 @@ BarLoader {
   font-size: 100%;
   color: black;
   width: 1.5em;
-  background-color: var(--tile);
-  border: 1% solid var(--tile);
-  box-shadow: 0 0 6px var(--tile);
+  background-color: var(--action-color);
+  border: 1% solid var(--action-color);
+  box-shadow: 0 0 6px var(--action-color);
   border-radius: 50%;
   text-align: center;
   cursor: pointer;
@@ -316,9 +317,9 @@ BarLoader {
   color: rgb(0, 0, 0);
   width: 1.5em;
   height: 1.5em;
-  background-color: var(--tile);
-  border: 0px solid var(--tile);
-  box-shadow: 0 0 6px var(--tile);
+  background-color: var(--action-color);
+  border: 0px solid var(--action-color);
+  box-shadow: 0 0 6px var(--action-color);
   border-radius: 50%;
   display: flex;
   justify-content: center;
