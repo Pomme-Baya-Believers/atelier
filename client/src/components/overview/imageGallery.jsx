@@ -24,7 +24,7 @@ const ImageGallery = ({ styles, style }) => {
       {typeof mainPic === 'number' && <ImageGalleryThumbnails handleThumbClick={handleThumbClick}
       photos={photos} mainPic={mainPic} />}
       {mainPic > 0 && <i className="arrow left" onClick={(e) => HandleArrowClick(e)}></i>}
-      {photos.length > 0 && <img className={'overviewMain'} src={photos[mainPic].url} />}
+      {photos.length > 0 && <img className={'overviewMainPic'} src={photos[mainPic].url} />}
       {mainPic < photos.length - 1 && <i className="arrow right" onClick={(e) => HandleArrowClick(e)}></i>}
     </div>
   );

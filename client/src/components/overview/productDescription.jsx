@@ -15,7 +15,7 @@ function ProductDescription({ product }) {
 
   // Need to add in checkmark styling for features
   return (
-    <div>
+    <div className='overviewProductDescription'>
       <div>{product.slogan}</div>
       <div>Product Description: {product.description}</div>
       {product.features && product.features.map((feature) =>

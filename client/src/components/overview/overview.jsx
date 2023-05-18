@@ -22,7 +22,7 @@ function Overview({ productID }) {
   };
 
   return (
-    <div>
+    <div className ='mainOverview'>
       {styles.length > 0 && <ImageGallery styles={styles} style={style}/>}
       <BasicProductInfo style={styles[style]} product={product} productID={productID}/>
       <ProductDescription product={product}/>
