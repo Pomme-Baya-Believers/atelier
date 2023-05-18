@@ -55,8 +55,8 @@ darkmode {
   justify-content: center;
   align-items: center;
   color: var(--background);
-  background-color: var(--accent);
-  padding-top: 5%;
+  background-color: var(--main);
+  padding-top: 2%;
 }
 
 .members {
@@ -66,6 +66,7 @@ darkmode {
 #internalUse {
   padding-top: 1%;
   padding-bottom: 1%;
+  color: white;
 }
 
 /* #end {
@@ -454,7 +455,7 @@ BarLoader {
   flex-direction: column;
   padding: 1%;
   width: 70%;
-  background-color: white;
+  background-color: var(--component);
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
@@ -585,7 +586,7 @@ BarLoader {
   align-self: flex-start;
   width: 20%;
   padding: 1%;
-  background-color: white;
+  background-color: var(--component);
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   min-width: 230px;
 }
