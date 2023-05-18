@@ -46,7 +46,7 @@ const ReviewTile = ({ review, term }) => {
             <div className='reviewPhoto' key={photo.url}>
               <img onClick={() => document.getElementById(`${photo.url}`).showModal()} className='reviewThumbnail' src={photo.url}/>
               <dialog id={photo.url} onClick={() => document.getElementById(`${photo.url}`).close()}>
-                <img src={photo.url}/>
+                <img src={photo.url} style={{ maxHeight: '1000px', maxWidth: '1000px' }}/>
               </dialog>
           </div>
           ))}

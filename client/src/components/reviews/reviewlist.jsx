@@ -24,6 +24,7 @@ const ReviewList = ({ productID, mainData }) => {
     setClicked(false);
     setScrolledCount(6);
     setSort('relevant');
+    document.getElementById('searchBar').value = '';
     document.getElementById('showMoreOnce').style.display = 'inline';
   }, [productID]);
 
