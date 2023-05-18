@@ -28,7 +28,7 @@ const AddToCart = ({ options }) => {
     setQuantity(e.target.value);
   };
   return (
-    <div>
+    <div className='overviewAddToCart'>
       {skus && <SizeSelector skus={skus}
       handleSizeSelect={handleSizeSelect}/>}
       {skus && <QuantitySelector skus={skus}

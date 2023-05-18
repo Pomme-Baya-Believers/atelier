@@ -13,7 +13,7 @@ const ImageGalleryThumbnails = ({ photos, mainPic, handleThumbClick }) => {
   };
   return (
     <div className="imageGalleryThumbs">
-        {thumbnailPosition !== 0 && <i className="arrow up" onClick={(e) => HandleArrowClick(e)}></i>}
+        { <i className={`${thumbnailPosition !== 0 && 'arrow '} up`} onClick={(e) => HandleArrowClick(e)}></i>}
         {photos.length > 0 && photos.map((photo, index) => {
           if (index >= thumbnailPosition && index < displayCheck) {
             return (
