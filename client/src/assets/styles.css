@@ -1,4 +1,4 @@
-root {
+#root {
   font-family: sans-serif;
   --highlight: #ff9900;
   --lowlight: #146eb4;
@@ -24,6 +24,10 @@ darkmode {
 } */
 
 #appHeader {
+  position: fixed;
+  top:0;
+  left:0;
+  right:0;
   display:flex;
   justify-content: space-between;
   font-size: 200%;
@@ -32,11 +36,21 @@ darkmode {
   color:rgb(196, 196, 196);
   background-color: var(--main);
   padding: 2.5%;
+  height: 20px;
 }
 
 #appHeaderMargin {
-  height: 50px;
+  position: fixed;
+  border-top: 200px (--accent);
+  left:0;
+  right:0;
+  height: 100px;
   background-color: var(--accent);
+  z-index:3;
+}
+
+#appHeaderFiller {
+  height: 100px;
 }
 
 #appFooterMargin {
@@ -518,7 +532,7 @@ BarLoader {
 
 :root {
   --star-size: 100%;
-  --star-color: #b3b3b3;
+  --star-color: #fff;
   --star-background: #fc0;
 }
 
