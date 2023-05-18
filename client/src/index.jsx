@@ -40,6 +40,7 @@ const App = () => {
         --main: #000000;
         --background: rgb(27, 27, 27);
         --tile: rgb(38,38,38);
+        --text2: rgb(196, 196, 196);
         --action-color:  rgb(55,55,55);
         --component: rgb(50, 50, 50);
         background-color: var(--background);
