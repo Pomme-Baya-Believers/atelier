@@ -26,10 +26,13 @@ const App = () => {
 
   return (
     <div>
+      <header id='appHeader'>Atelier</header>
+      <div id='appHeaderMargin'></div>
       <Overview productID={productID} />
       <RelatedWidget productID={productID} styles={styles}
         setProductID={setProductID} mainData={mainData}/>
       <ReviewList productID={productID} mainData={mainData}/>
+      <div id='appFooterMargin'>Back to top</div>
       <footer id='appFooter'>
         <a className='members' href='https://www.linkedin.com/in/matthew-baseman/'>Matthew Baseman</a>
         <a className='members' href='https://www.linkedin.com/in/sean-winnik-9644aa47/'>Sean Winnik</a>

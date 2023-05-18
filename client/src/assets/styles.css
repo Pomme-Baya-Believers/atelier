@@ -8,14 +8,38 @@
   background-color: var(--background);
 }
 
+#appHeader {
+  font-size: 200%;
+  font-weight: bolder;
+  font-style: italic;
+  color: var(--background);
+  background-color: var(--main);
+  padding: 2.5%;
+}
+
+#appHeaderMargin {
+  height: 50px;
+  background-color: var(--accent);
+}
+
+#appFooterMargin {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  font-size: 80%;
+  color: var(--background);
+  background-color: var(--accent);
+}
+
 #appFooter {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   color: var(--background);
-  background-color: var(--accent);
-  padding-top: 5%;
+  background-color: var(--main);
+  padding-top: 2%;
 }
 
 .members {
