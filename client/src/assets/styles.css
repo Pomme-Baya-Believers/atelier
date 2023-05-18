@@ -41,7 +41,6 @@ darkmode {
 
 #appHeaderMargin {
   position: fixed;
-  border-top: 200px (--accent);
   left:0;
   right:0;
   height: 100px;
@@ -49,8 +48,13 @@ darkmode {
   z-index:3;
 }
 
+#darkButton {
+  background-color: var(--lowlight);
+}
+
 #appHeaderFiller {
   height: 100px;
+  border-radius: 4px;
 }
 
 #appFooterMargin {

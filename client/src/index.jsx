@@ -61,7 +61,7 @@ const App = () => {
   return (
     <div>
       <div id='appHeaderMargin'>
-      <header id='appHeader'>Atelier<button onClick={() => setTheme(!theme)}>{theme ? 'Light mode' : 'Dark mode'}</button></header>
+      <header id='appHeader'>Atelier<button id="darkButton" onClick={() => setTheme(!theme)}>{theme ? 'Light mode' : 'Dark mode'}</button></header>
       </div>
       <div id='appHeaderFiller'></div>
       <Overview productID={productID} />
