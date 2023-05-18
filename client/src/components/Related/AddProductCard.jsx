@@ -27,7 +27,7 @@ const AddProductCard = ({ mainData, setStorage, styles }) => {
         localStorage.setItem('MyOutfit', JSON.stringify(storage));
       }
     }
-  };
+  }
 
   let name = 'Item';
 
@@ -35,8 +35,15 @@ const AddProductCard = ({ mainData, setStorage, styles }) => {
     name = mainData.name;
   }
 
+  const enterClick = (e) => {
+    if (e.code === 'Enter') {
+      addItem(mainData);
+    }
+  };
+
   return (
-    <div className="relatedAddCard" onClick={() => addItem(mainData)}>
+    <div className="relatedAddCard" tabIndex="1" onKeyDown={(e) => enterClick(e)}
+      onClick={() => addItem(mainData)}>
           <img key='image' src={productImage}/>
         <div id="relatedAddTextBox">
             <div className="relatedAddText">Add  </div>

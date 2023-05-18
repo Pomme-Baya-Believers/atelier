@@ -15,7 +15,6 @@ const CarouselYourOutfit = ({
 
   const clickRightArrow = () => {
     console.log('Right ARROW CLICKED');
-    console.log(relatedList)
     if (position + 2 < relatedList.length) { setPosition(position + 1); }
   };
   const clickLeftArrow = () => {
@@ -40,7 +39,8 @@ const CarouselYourOutfit = ({
     : <div className ="relatedArrowOFF"> {'>'} </div>;
 
   if (relatedComponents.length < 1) {
-    relatedComponents[0] = <AddProductCard key='1' mainData={mainData} styles={styles.results} setStorage={setStorage}/>
+    relatedComponents[0] = <AddProductCard key='1' mainData={mainData}
+      styles={styles.results} setStorage={setStorage}/>;
   } else {
     relatedComponents.unshift(
       <AddProductCard key='1' mainData={mainData} styles={styles.results} setStorage={setStorage}/>,
