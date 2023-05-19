@@ -377,7 +377,7 @@ div.styleCheck {
   background-color: var(--background);
   border: 3px solid rgb(75, 75, 75);
   box-shadow: 0 0 10px rgb(255, 255, 255);
-  color: var(--text);
+  color: var(--text2);
   border-radius: 5px;
   width: 60%;
   height: fit-content;
