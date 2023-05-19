@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 #root {
   font-family: sans-serif;
   --highlight: #ff9900;
@@ -164,7 +168,7 @@ darkmode {
   max-width: 100%;
   max-height: 100%;
   display: grid;
-  grid: 1fr 10% 1fr /3% 10% 3% 1fr 3% ;
+  grid: 1fr 10% 1fr /8% 10% 3% 1fr 3% 3%;
   background-color: var(--background);
   /* border: 3px solid #000000; */
 }
@@ -174,7 +178,7 @@ darkmode {
   border-radius: 5%;
   max-width: 95%;
   max-height: 95%;
-  grid-column: 1 / span 5;
+  grid-column: 1 / span 6;
   grid-row: 1 / span 3;
   /* border: 3px solid #000000; */
   justify-self: center;
@@ -278,8 +282,27 @@ darkmode {
 
 .overviewAddToCart {
   grid-area: addToCart;
-
+  display: grid;
+  grid-template:
+    "selector selector selector" 1fr
+    ". button ." 1fr
+    / 1fr 1fr 1fr;
   /* border: 3px solid #000000; */
+}
+
+.overviewAddToCart select {
+  font-size: 100%;
+}
+
+.cartSelectors {
+  grid-area: selector;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.addToCartButoon {
+  grid-area: button;
 }
 
 /* OVERVIEW STYLE SELECTOR */
@@ -652,6 +675,25 @@ BarLoader {
     -webkit-text-fill-color: transparent;
   }
 }
+
+.basicProductInfo .Stars {
+  --percent: calc(var(--rating) / 5 * 100%);
+
+  display: inline-block;
+  font-size: 200%;
+  font-family: Times;
+  line-height: 1;
+  cursor: default;
+
+  &::before {
+    content: '★★★★★';
+    letter-spacing: 3px;
+    background: linear-gradient(90deg, var(--star-background) var(--percent), var(--star-color) var(--percent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
 
 /* RATING AND REVIEWS */
 #reviewContainer {

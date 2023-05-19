@@ -10,11 +10,11 @@ const QuantitySelector = ({ skus, handleQuantitySelect, size }) => {
     }
   }
   return (
-    <select name="quantity" onChange={handleQuantitySelect} disabled={!size}>
+    <h2><select name="quantity" onChange={handleQuantitySelect} disabled={!size}>
       {!size && <option>-</option>}
       {quantityOptions.length > 0
       && quantityOptions.map((quant) => <option key={quant}>{quant}</option>)}
-    </select>
+    </select></h2>
   );
 };
 

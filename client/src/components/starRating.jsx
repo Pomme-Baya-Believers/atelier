@@ -6,7 +6,7 @@ const Star = ({ productID }) => {
 
   useEffect(() => {
     apiHelper.starRating(productID, setAverageRating);
-  }, []);
+  }, [productID]);
 
   const style = { '--rating': averageRating };
   return (

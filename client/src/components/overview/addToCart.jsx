@@ -29,10 +29,10 @@ const AddToCart = ({ options }) => {
   };
   return (
     <div className='overviewAddToCart'>
-      {skus && <SizeSelector skus={skus}
+      <div className="cartSelectors">{skus && <SizeSelector skus={skus}
       handleSizeSelect={handleSizeSelect}/>}
       {skus && <QuantitySelector skus={skus}
-      handleQuantitySelect={handleQuantitySelect} size={size}/>}
+      handleQuantitySelect={handleQuantitySelect} size={size}/>}</div>
       {skus.length > 0 && <AddToCartButton sku={skus[size]} quantity={quantity} />}
     </div>
   );
