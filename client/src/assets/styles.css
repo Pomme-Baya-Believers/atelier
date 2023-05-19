@@ -50,6 +50,15 @@ darkmode {
   padding: 4px;
   border-radius: 5px;
 }
+
+.membersTop{
+  font-size: 70%;
+  /* background-color: var(--accent); */
+  color: var(--accent);
+  padding: 4px;
+  border-radius: 5px;
+}
+
 #backdrop {
   position: fixed;
   background-color: var(--background);
@@ -451,7 +460,7 @@ BarLoader {
   width: 1.5em;
   background-color: var(--action-color);
   border: 1% solid var(--action-color);
-  box-shadow: 0 0 6px var(--action-color);
+  box-shadow: 0 0 6px whitesmoke;
   border-radius: 50%;
   text-align: center;
   cursor: pointer;
@@ -469,7 +478,7 @@ BarLoader {
   height: 1.5em;
   background-color: var(--action-color);
   border: 0px solid var(--action-color);
-  box-shadow: 0 0 6px var(--action-color);
+  box-shadow: 0 0 6px whitesmoke;
   border-radius: 50%;
   display: flex;
   justify-content: center;
