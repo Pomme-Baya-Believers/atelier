@@ -7,10 +7,9 @@ function BasicProductInfo({ style, product, productID }) {
   //   console.log('This is the product prop ', product);
   return (
     <div className='basicProductInfo'>
-      Basic Product Info and stuff
       <div>{productID && <Star productID={productID}/>}</div>
-      <div>Category: {product.category}</div>
-      <div>Product Title: {product.name}</div>
+      <h3>{product.category}</h3>
+      <h1>{product.name}</h1>
       {style && <PriceStrike selectedStyle={style}/>}
     </div>
   );

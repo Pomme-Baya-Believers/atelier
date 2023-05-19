@@ -8,8 +8,7 @@ const AddToCartButton = ({ sku, quantity }) => {
   const HandleAddClick = apiHelper.addToCart;
   return (
     <div>
-      {sku && <button
-      onClick={() => HandleAddClick(sku, quantity)}>Add To Cart</button>}
+      <button disabled={!sku} onClick={() => HandleAddClick(sku, quantity)}>Add To Cart</button>
 
     </div>
   );

@@ -4,7 +4,7 @@ import StyleThumbnail from './styleThumbnail.jsx';
 function StyleSelector({ styles, style, handleStyleClick }) {
   // console.log('These are the styles', styles);
   // console.log('this is the style currently pointed to', styles[style]);
-  const styleContHeight = { 'max-height': `${(100 / Math.ceil(styles.length / 4))}%` };
+  const styleContHeight = { maxHeight: `${(100 / Math.ceil(styles.length / 4))}%` };
   return (
     <div className="overviewStyleSelector">
       {styles[style] && <div>Style {'>'} {styles[style].name}</div>}
