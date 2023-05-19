@@ -1,6 +1,7 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import AddProductCard from './AddProductCard.jsx';
 import MyOutfitCard from './MyOutfitCard.jsx';
+import { ProductContext } from '../../index.jsx';
 
 const { useState } = React;
 
@@ -8,10 +9,21 @@ let slicedRelated = [];
 let relatedComponents = [];
 
 const CarouselYourOutfit = ({
-  numberOfTiles, productID, setProductID, relatedList,
-  mainData, storage, setStorage, styles,
+  numberOfTiles, relatedList,
+  mainData, storage, setStorage, styles, //productID, setProductID,
 }) => {
   const [position, setPosition] = useState(0);
+  const [productID, setProductID] = useContext(ProductContext);
+
+  let included;
+  let relatedProducts = JSON.parse(localStorage.getItem('MyOutfit'));
+  relatedProducts = relatedProducts.map((item) => {
+    return item.id
+  })
+  if (relatedProducts.includes(productID)) {
+    included = true;
+    numberOfTiles ++;
+  }
 
   const clickRightArrow = () => {
     console.log('Right ARROW CLICKED');
@@ -21,7 +33,6 @@ const CarouselYourOutfit = ({
     console.log('Left ARROW CLICKED');
     if (position > 0) { setPosition(position - 1); }
   };
-
   slicedRelated = storage.slice(position, numberOfTiles - 1 + position);
   relatedComponents = slicedRelated.map((product) => (
       <MyOutfitCard key={product.id}

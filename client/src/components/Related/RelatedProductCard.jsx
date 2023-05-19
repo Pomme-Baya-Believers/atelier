@@ -1,19 +1,21 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import BarLoader from 'react-spinners/BarLoader';
 import apiHelper from './apihelpers.jsx';
 import DetailsModal from './DetailsModal.jsx';
 import StarRating from '../starRating.jsx';
 import PriceStrike from '../PriceStrike.jsx';
+import { ProductContext } from '../../index.jsx';
 
 const { useState, useEffect } = React;
 
 const RelatedProductsCard = ({
-  thisID, productID, setProductID, setPosition, mainData, styles,
+  thisID, setPosition, mainData, //styles, productID, setProductID,
 }) => {
   const [data, setData] = useState('');
   const [productImage, setProductImage] = useState('');
   const [showModal, setShowModal] = useState(false);
   const [style, setStyle] = useState('');
+  const [productID, setProductID] = useContext(ProductContext)
 
   useEffect(() => {
     apiHelper.getProduct(thisID)

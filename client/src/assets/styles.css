@@ -29,8 +29,18 @@ darkmode {
   color:rgb(196, 196, 196);
 } */
 
+#appHeaderMargin {
+  position: sticky;
+  top: 0;
+  left:0;
+  right:0;
+  height: 75px;
+  background-color: var(--accent);
+  z-index:3;
+}
+
 #appHeader {
-  position: fixed;
+  /* position: sticky; */
   top:0;
   left:0;
   right:0;
@@ -60,7 +70,7 @@ darkmode {
   /* background-color: var(--accent); */
   color: var(--accent);
   padding: 4px;
-  border-radius: 5px;
+  border-radius: 4.5px;
 }
 
 #backdrop {
@@ -76,14 +86,6 @@ darkmode {
   z-index: -1;
 }
 
-#appHeaderMargin {
-  position: fixed;
-  left:0;
-  right:0;
-  height: 75px;
-  background-color: var(--accent);
-  z-index:3;
-}
 
 #darkButton {
   background-color: var(--lowlight);
@@ -184,7 +186,6 @@ darkmode {
   justify-self: center;
   align-self: center;
   cursor: zoom-in;
-
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.35) ;
 }
 
@@ -287,6 +288,9 @@ darkmode {
     "selector selector selector" 1fr
     ". button ." 1fr
     / 1fr 1fr 1fr;
+  border-top: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+  padding-top: 4px;
   /* border: 3px solid #000000; */
 }
 
@@ -309,6 +313,8 @@ darkmode {
 
 .overviewStyleSelector{
   grid-area: styleSelector;
+  padding-top: 3px;
+  border-top: 1px solid lightgray;
   /* border: 3px solid #000000; */
 }
 
@@ -361,16 +367,19 @@ div.styleCheck {
 }
 
 .lengthyDesc {
+  border-top: 1px solid lightgray;
   grid-area: lengthyDesc;
+  border-top: 1px solid lightgray;
+
 }
 
 .featureDesc {
   grid-area: featureDesc;
   border-left: 3px solid var(--accent) ;
+
 }
 
 /* RELATED MODAL  */
-
 
 
 #RelatedModalBackdrop {
@@ -432,6 +441,12 @@ div.styleCheck {
 
 
 /* RELATED CAROUSEL RELATED CAROUSEL*/
+/* #stickyCarousel {
+  /* color:blue; */
+  /* border: solid;
+  background-color: var(--background);
+} */
+
 
 .relatedCarouselTitle {
   background-color: var(--background);
@@ -441,11 +456,11 @@ div.styleCheck {
   font-size: 115%;
   padding-left: 20px;
   padding-top: 10px;
+  z-index: 4;
 }
 
 .relatedPanel {
   display: flex;
-  /* border: 10px solid var(--background); */
   background-color: var(--background);
   min-width: 100%;
 }
