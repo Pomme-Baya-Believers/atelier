@@ -15,6 +15,16 @@ const CarouselYourOutfit = ({
   const [position, setPosition] = useState(0);
   const [productID, setProductID] = useContext(ProductContext);
 
+  let included;
+  let relatedProducts = JSON.parse(localStorage.getItem('MyOutfit'));
+  relatedProducts = relatedProducts.map((item) => {
+    return item.id
+  })
+  if (relatedProducts.includes(productID)) {
+    included = true;
+    numberOfTiles ++;
+  }
+
   const clickRightArrow = () => {
     console.log('Right ARROW CLICKED');
     if (position + 2 < relatedList.length) { setPosition(position + 1); }
@@ -23,7 +33,6 @@ const CarouselYourOutfit = ({
     console.log('Left ARROW CLICKED');
     if (position > 0) { setPosition(position - 1); }
   };
-
   slicedRelated = storage.slice(position, numberOfTiles - 1 + position);
   relatedComponents = slicedRelated.map((product) => (
       <MyOutfitCard key={product.id}
