@@ -89,6 +89,7 @@ darkmode {
 #appHeaderFiller {
   height: 75px;
   border-radius: 4px;
+  padding-bottom: 15px;
 }
 
 #appFooterMargin {
@@ -137,8 +138,8 @@ darkmode {
     "mainPic mainPic addToCart" 1fr
     "prodDesc prodDesc prodDesc" 1fr
     / 2fr 2fr 2fr;
-  max-width: 100%;
-  max-height: 100%;
+  max-width: 90%;
+  max-height: 90%;
   background-color: var(--background);
   /* border: 3px solid #000000; */
 }
@@ -171,14 +172,16 @@ darkmode {
 .overviewMainPic.default {
   display: grid;
   border-radius: 5%;
-  max-width: 100%;
-  max-height: 100%;
+  max-width: 95%;
+  max-height: 95%;
   grid-column: 1 / span 5;
   grid-row: 1 / span 3;
   /* border: 3px solid #000000; */
   justify-self: center;
   align-self: center;
   cursor: zoom-in;
+
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.35) ;
 }
 
 .overviewMainPic.expanded {
