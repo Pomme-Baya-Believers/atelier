@@ -15,7 +15,7 @@ const EmptyCard = () => {
         <div className="relatedCategory"></div>
         <strong className="relatedProductName"></strong>
         <div className="relatedPrice"> </div>
-        <StarRating/>
+        <div>☆☆☆☆☆</div>
       </div>
     </div>
   );
