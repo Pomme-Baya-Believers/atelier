@@ -56,7 +56,7 @@ darkmode {
   /* background-color: var(--accent); */
   color: var(--accent);
   padding: 4px;
-  border-radius: 5px;
+  border-radius: 4.5px;
 }
 
 #backdrop {
