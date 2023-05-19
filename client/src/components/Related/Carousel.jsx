@@ -21,7 +21,7 @@ const RelatedCarousel = ({
   const [position, setPosition] = useState(0);
   const clickRightArrow = () => {
     console.log('Right ARROW CLICKED');
-    if (position + 2 < relatedList.length) { setPosition(position + 1); }
+    if (position + 1 < relatedList.length) { setPosition(position + 1); }
   };
   const clickLeftArrow = () => {
     console.log('Left ARROW CLICKED');

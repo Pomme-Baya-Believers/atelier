@@ -56,7 +56,7 @@ darkmode {
   /* background-color: var(--accent); */
   color: var(--accent);
   padding: 4px;
-  border-radius: 5px;
+  border-radius: 4.5px;
 }
 
 #backdrop {
@@ -180,7 +180,6 @@ darkmode {
   justify-self: center;
   align-self: center;
   cursor: zoom-in;
-
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.35) ;
 }
 
