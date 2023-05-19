@@ -1,11 +1,25 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { ProductContext } from '../../index.jsx';
+
 
 const AddProductCard = ({ mainData, setStorage, styles }) => {
   let productImage;
+  let included;
+
+  const [productID, setProductID] = useContext(ProductContext);
+  let relatedProducts = JSON.parse(localStorage.getItem('MyOutfit'));
+  relatedProducts = relatedProducts.map((item) => {
+    return item.id
+  })
+  if (relatedProducts.includes(productID)) {
+    included = true;
+  }
+
   if (styles) {
     productImage = styles[0].photos[0].thumbnail_url;
     // setProductImage(styles.results[0].photos[0].thumbnail_url);
   }
+
 
   let storage;
   function addItem(item) {
@@ -22,7 +36,7 @@ const AddProductCard = ({ mainData, setStorage, styles }) => {
         return product.id;
       });
       if (!ids.includes(item.id)) {
-        storage.push(item);
+        storage.unshift(item);
         setStorage(storage);
         localStorage.setItem('MyOutfit', JSON.stringify(storage));
       }
@@ -40,6 +54,10 @@ const AddProductCard = ({ mainData, setStorage, styles }) => {
       addItem(mainData);
     }
   };
+
+  if (included) {
+    return <></>;
+  }
 
   return (
     <div className="relatedAddCard" tabIndex="1" onKeyDown={(e) => enterClick(e)}
