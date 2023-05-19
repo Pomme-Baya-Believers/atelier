@@ -31,30 +31,41 @@ darkmode {
   right:0;
   display:flex;
   justify-content: space-between;
+  align-items: center;
   font-size: 200%;
   font-weight: bolder;
   font-style: italic;
   color:rgb(196, 196, 196);
   background-color: var(--main);
-  padding: 2.5%;
-  height: 20px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  /* padding: 2.5%; */
+  height: 50px;
+}
+
+.members{
+  font-size: 70%;
+  background-color: var(--accent);
+  padding: 4px;
+  border-radius: 5px;
 }
 
 #appHeaderMargin {
   position: fixed;
   left:0;
   right:0;
-  height: 100px;
+  height: 75px;
   background-color: var(--accent);
   z-index:3;
 }
 
 #darkButton {
   background-color: var(--lowlight);
+  margin: 4px;
 }
 
 #appHeaderFiller {
-  height: 100px;
+  height: 75px;
   border-radius: 4px;
 }
 
