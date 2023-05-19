@@ -40,6 +40,17 @@ const apiHelper = {
       });
   },
 
+  getRating: (productID, setReviewsNumber) => {
+    axios.get('/matthew/meta', { params: { endpoint: `?product_id=${productID}` } })
+      .then((response) => {
+        const { ratings } = response.data;
+        let totalRatings = 0;
+        for (const [key,value] of Object.entries(ratings)) {
+          totalRatings += Number(value)
+          setReviewsNumber(totalRatings)
+        }
+      });
+  },
 };
 
 export default apiHelper;
