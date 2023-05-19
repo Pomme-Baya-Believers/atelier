@@ -7,11 +7,15 @@ import apiHelpers from './components/Related/apihelpers.jsx';
 
 import './assets/styles.css';
 
+const ProductContext = React.createContext({}, () => {});
+
 const App = () => {
   const [mainData, setMainData] = useState();
   const [productID, setProductID] = useState(40348);
   const [styles, setStyles] = useState('');
   const [theme, setTheme] = useState(JSON.parse(localStorage.getItem('DarkMode')));
+
+
 
   useEffect(() => {
     apiHelpers.getProduct(productID)
@@ -26,7 +30,7 @@ const App = () => {
   }, [productID]);
 
   if (!theme) {
-    localStorage.setItem('DarkMode', JSON.stringify(false))
+    localStorage.setItem('DarkMode', JSON.stringify(false));
   }
 
   useEffect(() => {
@@ -60,7 +64,7 @@ const App = () => {
   }, [theme]);
 
   return (
-    <div>
+    <ProductContext.Provider value={[productID, setProductID]}>
       <div id='appHeaderMargin'>
         <header id='appHeader'>Atelier
           <a className='membersTop' href='https://www.linkedin.com/in/matthew-baseman/'>Matthew Baseman</a>
@@ -72,8 +76,7 @@ const App = () => {
       <div id='appHeaderFiller'></div>
       <div id='backdrop'></div>
       <Overview productID={productID} />
-      <RelatedWidget productID={productID} styles={styles}
-        setProductID={setProductID} mainData={mainData}/>
+      <RelatedWidget styles={styles} mainData={mainData}/>
       <ReviewList productID={productID} mainData={mainData}/>
       <div id='appFooterMargin'>Back to top</div>
       <footer id='appFooter'>
@@ -82,10 +85,12 @@ const App = () => {
         <a className='members' href='https://www.linkedin.com/in/naru-sadakuni-0a402310a/'>Naru Sadakuni</a>
         <div id='internalUse'>FOR INTERNAL USE ONLY</div>
       </footer>
-    </div>
+    </ProductContext.Provider>
   );
 };
 
 const container = document.getElementById('root');
 const root = createRoot(container);
 root.render(<App />);
+
+export { ProductContext }

@@ -1,17 +1,20 @@
 import React from 'react';
 import apiHelper from './apihelpers.jsx';
 import CarouselYourOutfit from './CarouselYourOutfit.jsx';
+import { ProductContext } from '../../index.jsx';
 
 import Carousel from './Carousel.jsx';
 
-const { useState, useEffect } = React;
+const { useState, useEffect, useContext } = React;
 
 const RelatedWidget = ({
-  productID, setProductID, mainData, styles,
+  mainData, styles, // productID, setProductID,
 }) => {
   const [relatedList, setRelated] = useState();
   const [numberOfTiles, setNumberOfTiles] = useState(Math.floor(window.innerWidth / 217));
   const [storage, setStorage] = useState(JSON.parse(localStorage.getItem('MyOutfit')));
+
+  const [productID, setProductID] = useContext(ProductContext);
 
   if (storage === null) {
     setStorage([]);
@@ -33,8 +36,6 @@ const RelatedWidget = ({
     relatedList,
     numberOfTiles,
     setRelated,
-    productID,
-    setProductID,
     styles,
   };
 

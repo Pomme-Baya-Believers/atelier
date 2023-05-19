@@ -1,12 +1,16 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import RelatedProductCard from './RelatedProductCard.jsx';
 import EmptyCard from './EmptyCard.jsx';
+import { ProductContext } from '../../index.jsx';
 
 const { useState } = React;
 
 const RelatedCarousel = ({
-  numberOfTiles, productID, setProductID, relatedList, mainData, styles,
+  numberOfTiles, relatedList, mainData, styles,
 }) => {
+  const [productID, setProductID] = useContext(ProductContext);
+
+
   if (relatedList) {
     // eslint-disable-next-line no-param-reassign
     relatedList = relatedList.filter((item) => {
@@ -33,8 +37,8 @@ const RelatedCarousel = ({
   // eslint-disable-next-line arrow-body-style
   relatedComponents = slicedRelated.map((id) => {
     return (
-    <RelatedProductCard key={id} thisID={id} productID={productID} styles={styles}
-    setProductID={setProductID} setPosition={setPosition} mainData={mainData}/>
+    <RelatedProductCard key={id} thisID={id} styles={styles}
+       setPosition={setPosition} mainData={mainData}/>
     );
   });
 
