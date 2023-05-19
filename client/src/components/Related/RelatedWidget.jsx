@@ -40,9 +40,9 @@ const RelatedWidget = ({
 
   return (
     <>
-    <Carousel {...commonProps}/>
-    <CarouselYourOutfit {...commonProps}
-      storage={storage} setStorage={setStorage}/>
+      <Carousel {...commonProps}/>
+      <CarouselYourOutfit {...commonProps}
+        storage={storage} setStorage={setStorage}/>
     </>
   );
 };
