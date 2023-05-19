@@ -41,7 +41,7 @@ const RelatedCarousel = ({
   if (relatedList === undefined) {
     // eslint-disable-next-line no-plusplus
     for (let i = 0; i < numberOfTiles; i++) {
-      relatedComponents.push(<EmptyCard key={i} productID={productID}/>);
+      relatedComponents.push(<EmptyCard key={i}/>);
     }
   }
 
