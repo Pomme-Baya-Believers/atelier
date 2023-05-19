@@ -11,6 +11,7 @@
   --tile: white;
   background-color: var(--background);
 }
+
 /* Darkmode theme for reference (not actually used in this file)
 darkmode {
   font-family: sans-serif;
@@ -48,6 +49,18 @@ darkmode {
   background-color: var(--accent);
   padding: 4px;
   border-radius: 5px;
+}
+#backdrop {
+  position: fixed;
+  background-color: var(--background);
+  color:green;
+  top:0;
+  left:0;
+  right: 0;
+  text-align: center;
+  text-justify: center;
+  height: 1000px;
+  z-index: -1;
 }
 
 #appHeaderMargin {

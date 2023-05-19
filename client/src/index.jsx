@@ -70,6 +70,7 @@ const App = () => {
       </header>
       </div>
       <div id='appHeaderFiller'></div>
+      <div id='backdrop'></div>
       <Overview productID={productID} />
       <RelatedWidget productID={productID} styles={styles}
         setProductID={setProductID} mainData={mainData}/>
