@@ -1,6 +1,7 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import AddProductCard from './AddProductCard.jsx';
 import MyOutfitCard from './MyOutfitCard.jsx';
+import { ProductContext } from '../../index.jsx';
 
 const { useState } = React;
 
@@ -8,10 +9,11 @@ let slicedRelated = [];
 let relatedComponents = [];
 
 const CarouselYourOutfit = ({
-  numberOfTiles, productID, setProductID, relatedList,
-  mainData, storage, setStorage, styles,
+  numberOfTiles, relatedList,
+  mainData, storage, setStorage, styles, //productID, setProductID,
 }) => {
   const [position, setPosition] = useState(0);
+  const [productID, setProductID] = useContext(ProductContext);
 
   const clickRightArrow = () => {
     console.log('Right ARROW CLICKED');
