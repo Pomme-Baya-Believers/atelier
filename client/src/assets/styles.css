@@ -46,7 +46,7 @@ darkmode {
 
 .members{
   font-size: 70%;
-  background-color: var(--accent);
+  color: var(--accent);
   padding: 4px;
   border-radius: 5px;
 }
