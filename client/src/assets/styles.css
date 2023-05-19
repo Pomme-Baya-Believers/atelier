@@ -250,7 +250,8 @@ darkmode {
 }
 
 .selected.overviewThumb {
-  border: 5px solid blue
+  border: 5px solid blue;
+  cursor: pointer;
 }
 
 .overviewThumb {
@@ -263,6 +264,7 @@ darkmode {
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.35) ;
   justify-self: center;
   align-self: center;
+  cursor: pointer;
 }
 
 /* OVERVIEW BASIC PRODUCT INFO */
@@ -300,6 +302,7 @@ darkmode {
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.35) ;
   overflow: hidden;
   margin: 3%;
+  cursor: pointer
 }
 
 .overviewStyleThumbImg{
@@ -639,6 +642,7 @@ BarLoader {
   font-size: var(--star-size);
   font-family: Times;
   line-height: 1;
+  cursor: pointer;
 
   &::before {
     content: '★★★★★';
