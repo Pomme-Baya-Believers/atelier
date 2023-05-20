@@ -27,13 +27,14 @@ const CarouselYourOutfit = ({
 
   const clickRightArrow = () => {
     console.log('Right ARROW CLICKED');
-    if (position + 2 < relatedList.length) { setPosition(position + 1); }
+    // if (position + 2 < relatedList.length) { setPosition(position + 1); }
   };
   const clickLeftArrow = () => {
     console.log('Left ARROW CLICKED');
-    if (position > 0) { setPosition(position - 1); }
+    // if (position > 0) { setPosition(position - 1); }
   };
-  slicedRelated = storage.slice(position, numberOfTiles - 1 + position);
+  slicedRelated = storage;
+  // slicedRelated = slicedRelated.slice(position, numberOfTiles - 1 + position);
   relatedComponents = slicedRelated.map((product) => (
       <MyOutfitCard key={product.id}
         data={product} thisID={product.id} productID={productID}
@@ -41,13 +42,21 @@ const CarouselYourOutfit = ({
         setStorage={setStorage} mainData={mainData}/>
   ));
 
-  const leftArrow = position > 0
-    ? <div className ="relatedArrow" onClick={clickLeftArrow}> {'<'} </div>
-    : <div className ="relatedArrowOFF" > {'<'} </div>;
+  // const leftArrow = position > 0
+  // const leftArrow = position + numberOfTiles <= storage.length
+  //   ? <div className ="relatedArrow" onClick={clickLeftArrow}> {'<'} </div>
+  //   : <div className ="relatedArrowOFF" > {'<'} </div>;
 
-  const rightArrow = position + numberOfTiles <= storage.length
-    ? <div className ="relatedArrow" onClick={clickRightArrow}> {'>'} </div>
-    : <div className ="relatedArrowOFF"> {'>'} </div>;
+  // const rightArrow = position + numberOfTiles <= storage.length
+  //   ? <div className ="relatedArrow" onClick={clickRightArrow}> {'>'} </div>
+  //   : <div className ="relatedArrowOFF"> {'>'} </div>;
+
+  let leftArrow = <div className ="relatedArrowOFF" > {'<'} </div>;
+  let rightArrow = <div className ="relatedArrowOFF"> {'>'} </div>;
+  if (position + numberOfTiles <= storage.length) {
+    leftArrow = <div className ="relatedArrow" onClick={clickLeftArrow}> {'<'} </div>;
+    rightArrow = <div className ="relatedArrow" onClick={clickRightArrow}> {'>'} </div>;
+  }
 
   if (relatedComponents.length < 1) {
     relatedComponents[0] = <AddProductCard key='1' mainData={mainData}
