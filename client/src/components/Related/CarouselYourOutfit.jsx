@@ -27,30 +27,17 @@ const CarouselYourOutfit = ({
 
   const clickRightArrow = () => {
     console.log('Right ARROW CLICKED');
-    // if (position + 2 < relatedList.length) { setPosition(position + 1); }
   };
   const clickLeftArrow = () => {
     console.log('Left ARROW CLICKED');
-    // if (position > 0) { setPosition(position - 1); }
   };
   slicedRelated = storage;
-  // slicedRelated = slicedRelated.slice(position, numberOfTiles - 1 + position);
   relatedComponents = slicedRelated.map((product) => (
       <MyOutfitCard key={product.id}
         data={product} thisID={product.id} productID={productID}
       setProductID={setProductID} setPosition={setPosition}
         setStorage={setStorage} mainData={mainData}/>
   ));
-
-  // const leftArrow = position > 0
-  // const leftArrow = position + numberOfTiles <= storage.length
-  //   ? <div className ="relatedArrow" onClick={clickLeftArrow}> {'<'} </div>
-  //   : <div className ="relatedArrowOFF" > {'<'} </div>;
-
-  // const rightArrow = position + numberOfTiles <= storage.length
-  //   ? <div className ="relatedArrow" onClick={clickRightArrow}> {'>'} </div>
-  //   : <div className ="relatedArrowOFF"> {'>'} </div>;
-
   let leftArrow = <div className ="relatedArrowOFF" > {'<'} </div>;
   let rightArrow = <div className ="relatedArrowOFF"> {'>'} </div>;
   let leftFogOfWar = <div className="relatedFogOfWarL">{leftArrow}</div>;
@@ -68,7 +55,7 @@ const CarouselYourOutfit = ({
     relatedComponents.unshift(
       <AddProductCard key='1' mainData={mainData} styles={styles.results} setStorage={setStorage}/>,
     );
-  };
+  }
 
   useEffect(() => {
     const slider = document.getElementById('my-carousel');
@@ -96,7 +83,7 @@ const CarouselYourOutfit = ({
     slider.addEventListener('mousedown', startDragging, false);
     slider.addEventListener('mouseup', stopDragging, false);
     slider.addEventListener('mouseleave', stopDragging, false);
-  })
+  }, []);
 
   return (
       <>

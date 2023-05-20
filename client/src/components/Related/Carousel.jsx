@@ -103,13 +103,13 @@ const RelatedCarousel = ({
       const x = e.pageX - slider.offsetLeft;
       const scroll = x - startX;
       slider.scrollLeft = scrollLeft - scroll;
-    });
+    }, []);
 
     // Add the event listeners
     slider.addEventListener('mousedown', startDragging, false);
     slider.addEventListener('mouseup', stopDragging, false);
     slider.addEventListener('mouseleave', stopDragging, false);
-  })
+  }, []);
 
   return (
     <>
