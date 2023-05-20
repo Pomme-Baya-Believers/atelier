@@ -199,7 +199,20 @@ darkmode {
   /* border: 3px solid #000000; */
   justify-self: center;
   align-self: center;
-  cursor: zoom-out;
+  --zoom:2.5;
+    /* the coordinate of the zoom */
+    --x: 50%;
+    --y: 50%;
+    /**/
+    transform: scale(var(--zoom));
+    transform-origin: var(--x) var(--y);
+    clip-path: inset(
+      calc((1 - 1/var(--zoom)) * (var(--y)))
+      calc((1 - 1/var(--zoom)) * (100% - var(--x)))
+      calc((1 - 1/var(--zoom)) * (100% - var(--y)))
+      calc((1 - 1/var(--zoom)) * (var(--x)))
+    );
+    cursor: crosshair;
 }
 
 .arrow {
