@@ -9,13 +9,13 @@ import { ProductContext } from '../../index.jsx';
 const { useState, useEffect } = React;
 
 const RelatedProductsCard = ({
-  thisID, setPosition, mainData, //styles, productID, setProductID,
+  thisID, setPosition, mainData,
 }) => {
   const [data, setData] = useState('');
   const [productImage, setProductImage] = useState('');
   const [showModal, setShowModal] = useState(false);
   const [style, setStyle] = useState('');
-  const [productID, setProductID] = useContext(ProductContext)
+  const [productID, setProductID] = useContext(ProductContext);
 
   useEffect(() => {
     apiHelper.getProduct(thisID)

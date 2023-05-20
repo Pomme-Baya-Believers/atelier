@@ -1,6 +1,8 @@
 import React, {useContext} from 'react';
 import RelatedProductCard from './RelatedProductCard.jsx';
 import EmptyCard from './EmptyCard.jsx';
+import apiHelper from './apihelpers.jsx';
+
 import { ProductContext } from '../../index.jsx';
 
 const { useState } = React;
@@ -32,8 +34,8 @@ const RelatedCarousel = ({
     if (position > 0) { setPosition(position - 1); }
   };
   uniqueRelated = [...new Set(relatedList)];
-
-  slicedRelated = uniqueRelated.slice(position, numberOfTiles + position);
+  slicedRelated = uniqueRelated;
+  // slicedRelated = slicedRelated.slice(position, numberOfTiles + position);
   // eslint-disable-next-line arrow-body-style
   relatedComponents = slicedRelated.map((id) => {
     return (
@@ -63,13 +65,20 @@ const RelatedCarousel = ({
     }
   };
 
-  const leftArrow = position > 0
-    ? <div className ="relatedArrow" tabIndex='1' onKeyDown={(e)=> enterClickLeft(e)} onClick={clickLeftArrow}> {'<'} </div>
-    : <div className ="relatedArrowOFF" > {'<'} </div>;
+  // const leftArrow = position > 0
+  //   ? <div className ="relatedArrow" tabIndex='1' onKeyDown={(e)=> enterClickLeft(e)} onClick={clickLeftArrow}> {'<'} </div>
+  //   : <div className ="relatedArrowOFF" > {'<'} </div>;
 
-  const rightArrow = position + numberOfTiles < uniqueRelated.length
-    ? <div className ="relatedArrow" tabIndex='1' onKeyDown={(e)=> enterClickRight(e)} onClick={clickRightArrow}> {'>'} </div>
-    : <div className ="relatedArrowOFF"> {'>'} </div>;
+  // const rightArrow = position + numberOfTiles < uniqueRelated.length
+  //   ? <div className ="relatedArrow" tabIndex='1' onKeyDown={(e)=> enterClickRight(e)} onClick={clickRightArrow}> {'>'} </div>
+  //   : <div className ="relatedArrowOFF"> {'>'} </div>;
+
+  let leftArrow = <div className ="relatedArrowOFF" > {'<'} </div>;
+  let rightArrow = <div className ="relatedArrowOFF"> {'>'} </div>;
+  if (position + numberOfTiles <= uniqueRelated.length) {
+    leftArrow = <div className ="relatedArrow" onClick={clickLeftArrow}> {'<'} </div>;
+    rightArrow = <div className ="relatedArrow" onClick={clickRightArrow}> {'>'} </div>;
+  }
 
   return (
     <>
