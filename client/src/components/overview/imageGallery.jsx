@@ -23,12 +23,18 @@ const ImageGallery = ({ styles, style, productID, view, handleMainPicClick }) =>
       setMainPic(mainPic + 1);
     }
   };
+
+  // const img = document.getElementsByClassName("overviewMainPic expanded");
+  onmousemove = (e) => {
+    e.target.style.setProperty('--x', (100*e.offsetX/e.target.offsetWidth)+'%');
+    e.target.style.setProperty('--y', (100*e.offsetY/e.target.offsetHeight)+'%');
+  };
   return (
     <div className="imageGallery">
       {typeof mainPic === 'number' && <ImageGalleryThumbnails handleThumbClick={handleThumbClick}
       photos={photos} mainPic={mainPic} />}
       {mainPic > 0 && <i className="arrow left" onClick={(e) => HandleArrowClick(e)}></i>}
-      {photos.length > 0 && <img className={`overviewMainPic ${view}`} src={photos[mainPic].url} onClick={(e) => handleMainPicClick(e)}/>}
+      {photos.length > 0 && <img onMouseMove={(e) => onmousemove(e)} className={`overviewMainPic ${view}`} src={photos[mainPic].url} onClick={(e) => handleMainPicClick(e)}/>}
       {mainPic < photos.length - 1 && <i className="arrow right" onClick={(e) => HandleArrowClick(e)}></i>}
     </div>
   );
