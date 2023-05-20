@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, { useContext, useEffect } from 'react';
 import AddProductCard from './AddProductCard.jsx';
 import MyOutfitCard from './MyOutfitCard.jsx';
 import { ProductContext } from '../../index.jsx';
@@ -53,9 +53,12 @@ const CarouselYourOutfit = ({
 
   let leftArrow = <div className ="relatedArrowOFF" > {'<'} </div>;
   let rightArrow = <div className ="relatedArrowOFF"> {'>'} </div>;
-  if (position + numberOfTiles <= storage.length) {
+  let leftFogOfWar = <div className="relatedFogOfWarL">{leftArrow}</div>;
+  if ((included && position + numberOfTiles <= storage.length)
+    || position + numberOfTiles <= storage.length) {
     leftArrow = <div className ="relatedArrow" onClick={clickLeftArrow}> {'<'} </div>;
     rightArrow = <div className ="relatedArrow" onClick={clickRightArrow}> {'>'} </div>;
+    leftFogOfWar = <div className="relatedFogOfWarLActive">{leftArrow}</div>;
   }
 
   if (relatedComponents.length < 1) {
@@ -65,14 +68,42 @@ const CarouselYourOutfit = ({
     relatedComponents.unshift(
       <AddProductCard key='1' mainData={mainData} styles={styles.results} setStorage={setStorage}/>,
     );
-  }
+  };
+
+  useEffect(() => {
+    const slider = document.getElementById('my-carousel');
+    let mouseDown = false;
+    let startX, scrollLeft;
+
+    const startDragging = function (e) {
+      mouseDown = true;
+      startX = e.pageX - slider.offsetLeft;
+      scrollLeft = slider.scrollLeft;
+    };
+    const stopDragging = function (event) {
+      mouseDown = false;
+    };
+
+    slider.addEventListener('mousemove', (e) => {
+      e.preventDefault();
+      if (!mouseDown) { return; }
+      const x = e.pageX - slider.offsetLeft;
+      const scroll = x - startX;
+      slider.scrollLeft = scrollLeft - scroll;
+    });
+
+    // Add the event listeners
+    slider.addEventListener('mousedown', startDragging, false);
+    slider.addEventListener('mouseup', stopDragging, false);
+    slider.addEventListener('mouseleave', stopDragging, false);
+  })
 
   return (
       <>
         <div className='relatedCarouselTitle'> My Outfit</div>
         <div className="relatedPanel">
-          <div className="relatedFogOfWarL">{leftArrow}</div>
-          <div className="relatedCarousel">{relatedComponents}</div>
+          {leftFogOfWar}
+          <div className="relatedCarousel" id='my-carousel'>{relatedComponents}</div>
           <div className="relatedFogOfWarR">{rightArrow}</div>
         </div>
     </>
