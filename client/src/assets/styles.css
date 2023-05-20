@@ -468,6 +468,7 @@ div.styleCheck {
 
 .relatedCarousel    {
   overflow-x: scroll;
+  cursor: grab;
   display: flex;
   width: 80%;
   background-color: var(--background);
@@ -592,7 +593,7 @@ BarLoader {
   display: flex;
   flex-flow: column;
   justify-content: space-between;
-  cursor: pointer
+  cursor: grab;
 }
 
 .relatedCategory {
@@ -643,6 +644,17 @@ BarLoader {
   z-index: 2;
 
 }
+.relatedFogOfWarLActive {
+  /* background-color: white; */
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  padding-right: 40px;
+  justify-content: end;
+  font-size: 100%;
+  z-index: 2;
+  box-shadow: 10px 0 20px 10px var(--background);
+}
 
 .relatedFogOfWarR {
   background-color: var(--background);
@@ -650,15 +662,15 @@ BarLoader {
   display: flex;
   align-items: center;
   justify-self: end;
-  font-size: 200%;
-  box-shadow: -10px 0 20px var(--background);
+  font-size: 100%;
+  box-shadow: -10px 0 20px 10px var(--background);
   border: 4px solid var(--background);
   z-index: 2
 }
 
 .relatedArrow {
   border-radius: 50%;
-  color: rgba(0, 0, 0, 0.598);
+  color: rgba(133, 133, 133, 0.6);
   cursor: pointer;
 }
 .relatedArrowOFF {

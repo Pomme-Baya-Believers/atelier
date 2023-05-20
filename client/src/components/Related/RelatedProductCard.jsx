@@ -68,9 +68,9 @@ const RelatedProductsCard = ({
       <BarLoader color="#36d7b7"/>
       <img onClick={cardClick} src={productImage} />
     </div>
-    <div className="relatedBottomTile" onClick={cardClick}>
+    <div className="relatedBottomTile" >
       <div className="relatedCategory">{data.category}</div>
-      <strong className="relatedProductName">{data.name}</strong>
+      <strong className="relatedProductName" onClick={cardClick}>{data.name} </strong>
       <PriceStrike styles={style} />
       <StarRating productID={thisID} data={data}/>
     </div>
